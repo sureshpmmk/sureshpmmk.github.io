@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UserAddComponent } from './user/user-add.component';
 import { UserManageComponent } from './user/user-manage.component';
-import { ProjectComponent } from './project/project.component';
+import { ProjectAddComponent } from './project/project-add.component';
+import { ProjectManageComponent } from './project/project-manage.component';
 import { LeaveComponent } from './leave/leave.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -32,14 +33,14 @@ const routes: Routes = [
   },
   {
     path: 'add-project',
-    component: ProjectComponent,
+    component: ProjectAddComponent,
     data: {
       title: 'Add Project'
     }
   },
   {
     path: 'manage-project',
-    component: ProjectComponent,
+    component: ProjectManageComponent,
     data: {
       title: 'Manage Project'
     }

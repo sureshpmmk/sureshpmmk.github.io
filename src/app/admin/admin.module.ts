@@ -7,7 +7,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 
 import { UserAddComponent } from './user/user-add.component';
 import { UserManageComponent } from './user/user-manage.component';
-import { ProjectComponent } from './project/project.component';
+import { ProjectAddComponent } from './project/project-add.component';
+import { ProjectManageComponent } from './project/project-manage.component';
 import { LeaveComponent } from './leave/leave.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -21,7 +22,8 @@ import { SettingsComponent } from './settings/settings.component';
   declarations: [ 
   	UserAddComponent,
   	UserManageComponent,
-  	ProjectComponent,
+    ProjectAddComponent,
+  	ProjectManageComponent,
   	LeaveComponent,
   	ReportComponent,
   	SettingsComponent

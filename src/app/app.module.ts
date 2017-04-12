@@ -23,6 +23,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 //services
 import { AuthenticationService } from './shared/authentication.service';
 import { UserService } from './shared/user.service';
+import { ProjectService } from './shared/project.service';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { UserService } from './shared/user.service';
       useClass: HashLocationStrategy
     },
     AuthenticationService,
-    UserService
+    UserService,
+    ProjectService
   ],
   bootstrap: [ AppComponent ]
 })
