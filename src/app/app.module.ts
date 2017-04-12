@@ -23,6 +23,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 //services
 import { AuthenticationService } from './shared/authentication.service';
 import { UserService } from './shared/user.service';
+import { LeaveService } from './shared/leave.service';
 
 @NgModule({
   imports: [
@@ -40,14 +41,16 @@ import { UserService } from './shared/user.service';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    AsideToggleDirective,  
+    
   ],
   providers: [{
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
     AuthenticationService,
-    UserService
+    UserService,
+    LeaveService
   ],
   bootstrap: [ AppComponent ]
 })
