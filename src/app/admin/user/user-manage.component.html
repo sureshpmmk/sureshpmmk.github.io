@@ -19,7 +19,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let user of users; let i=index">
+            <tbody *ngFor="let user of users;let i=index">
               <tr>
                 <td>{{ user.employeeid }}</td>
                 <td>{{ user.firstname }}</td>
@@ -28,9 +28,17 @@
                 <td>{{ user.phonenumber }}</td>
                 <td>{{ user.shift }}</td>
                 <td>
-                  <button class="btn btn-success" *ngIf="user.status !== 'active'">Activate</button>
-                  <button class="btn btn-primary" *ngIf="user.status === 'active'">Deactivate</button>
-                  <button class="btn btn-danger" (click)="deleteUser(i)">Delete</button>
+                  <button 
+                    class="btn btn-success" 
+                    (click)="changeStatus(i, 'active')"
+                    *ngIf="user.status !== 'active'">Activate</button>
+                  <button
+                    class="btn btn-primary" 
+                    (click)="changeStatus(i, 'deactive')"
+                    *ngIf="user.status === 'active'">Deactivate</button>
+                  <button 
+                    class="btn btn-danger" 
+                    (click)="deleteUser(i)">Delete</button>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   

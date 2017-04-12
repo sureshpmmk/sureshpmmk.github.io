@@ -15,9 +15,19 @@ export class UserManageComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.userService.getUsers();
+    this.userService.usersChanged
+      .subscribe(
+          (users: User[]) => {
+            this.users = users;
+          }
+        )
   }
 
-  deleteUser(UserIndex: number) {
-  	console.log(UserIndex);
+  deleteUser(userIndex: number) {
+  	this.userService.removeUser(userIndex);
+  }
+
+  changeStatus(userIndex: number, status: string) {
+    this.userService.updateUserStatus(userIndex, status);
   }
 }
