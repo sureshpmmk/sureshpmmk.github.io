@@ -19,8 +19,10 @@ import { AppRoutingModule } from './app.routing';
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
-import { LoginComponent } from './pages/login.component';
+
+//services
 import { AuthenticationService } from './shared/authentication.service';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   imports: [
@@ -38,14 +40,14 @@ import { AuthenticationService } from './shared/authentication.service';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective,
-    LoginComponent,
+    AsideToggleDirective
   ],
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  },
-  AuthenticationService
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    AuthenticationService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })

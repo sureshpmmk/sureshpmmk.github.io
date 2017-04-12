@@ -4,20 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
-import { LoginComponent } from './pages/login.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'pages/login',
     pathMatch: 'full',
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    data: {
-      title: 'Login'
-    },  
   },
   {
     path: '',
@@ -60,8 +52,20 @@ export const routes: Routes = [
         loadChildren: './pages/pages.module#PagesModule',
       }
     ]
-  }
-  
+  },
+  {
+    path: 'admin',
+    component: FullLayoutComponent,
+    data: {
+      title: 'Admin'
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: './admin/admin.module#AdminModule',
+      }
+    ]
+  }  
 ];
 
 @NgModule({
