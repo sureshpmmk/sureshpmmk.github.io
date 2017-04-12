@@ -5,9 +5,11 @@ import { UserAddComponent } from './user/user-add.component';
 import { UserManageComponent } from './user/user-manage.component';
 import { ProjectAddComponent } from './project/project-add.component';
 import { ProjectManageComponent } from './project/project-manage.component';
-import { LeaveComponent } from './leave/leave.component';
+import { LeaveManageComponent } from './leave/leave-manage.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LeaveAddComponent } from './leave/leave-add.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {
@@ -47,14 +49,14 @@ const routes: Routes = [
   },
   {
     path: 'add-leave',
-    component: LeaveComponent,
+    component: LeaveAddComponent,
     data: {
       title: 'Add Leave'
     }
   },
   {
     path: 'manage-leave',
-    component: LeaveComponent,
+    component: LeaveManageComponent,
     data: {
       title: 'Manage Leave'
     }
@@ -71,6 +73,13 @@ const routes: Routes = [
     component: SettingsComponent,
     data: {
       title: 'Settings'
+    }
+  },
+   {
+    path: 'account',
+    component: AccountComponent,
+    data: {
+      title: 'Account'
     }
   }
 ];
