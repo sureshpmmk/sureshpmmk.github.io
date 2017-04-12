@@ -16,6 +16,7 @@ export class AuthenticationService {
  
   logout() {
     localStorage.removeItem("user");
+    localStorage.removeItem("username");
     this.router.navigate(['pages/login']);
   }
  
@@ -31,7 +32,7 @@ export class AuthenticationService {
  
   }
  
-   checkCredentials(){
+   checkCredentials() {
     if (localStorage.getItem("user") === null){
         this.router.navigate(['pages/login']);
     }
