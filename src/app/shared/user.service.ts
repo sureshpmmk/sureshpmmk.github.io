@@ -15,14 +15,21 @@ export class UserService {
     this.usersChanged.next(this.users.slice());
   }
 
-  removeUser(userIndex) {
+  updateUser(userIndex: number, user: User) {
+    if (userIndex > -1) {
+      this.users[userIndex] = user;
+      this.usersChanged.next(this.users.slice());
+    }    
+  }
+
+  removeUser(userIndex: number) {
     if (userIndex > -1) {
       this.users.splice(userIndex, 1);
       this.usersChanged.next(this.users.slice());
     }    
   }
 
-  updateUserStatus(userIndex, status) {
+  updateUserStatus(userIndex: number, status: string) {
     if (userIndex > -1) {
       this.users[userIndex].status = status;
       this.usersChanged.next(this.users.slice());

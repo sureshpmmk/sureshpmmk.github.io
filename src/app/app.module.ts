@@ -23,6 +23,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 //services
 import { AuthenticationService } from './shared/authentication.service';
 import { UserService } from './shared/user.service';
+import { ProjectService } from './shared/project.service';
 import { LeaveService } from './shared/leave.service';
 
 @NgModule({
@@ -50,6 +51,7 @@ import { LeaveService } from './shared/leave.service';
     },
     AuthenticationService,
     UserService,
+    ProjectService,
     LeaveService
   ],
   bootstrap: [ AppComponent ]
