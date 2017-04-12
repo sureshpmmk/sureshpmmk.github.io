@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
@@ -11,12 +11,14 @@ import { ProjectComponent } from './project/project.component';
 import { LeaveComponent } from './leave/leave.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [ 
   	FormsModule,
   	AdminRoutingModule,
-  	CommonModule
+  	CommonModule,
+	ReactiveFormsModule
   ],
   declarations: [ 
   	UserAddComponent,
@@ -24,7 +26,8 @@ import { SettingsComponent } from './settings/settings.component';
   	ProjectComponent,
   	LeaveComponent,
   	ReportComponent,
-  	SettingsComponent
+  	SettingsComponent,
+  	AccountComponent
   ]
 })
 export class AdminModule { }
