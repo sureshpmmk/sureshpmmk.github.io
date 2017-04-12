@@ -1,0 +1,86 @@
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Add Leave        
+        </div>
+        <div class="card-block">
+          <form class="form-horizontal" (ngSubmit)="onSaveLeave()" #f="ngForm">
+
+           <div class="form-group">
+              <label class="form-control-label" for="">Employ Name</label>
+              <select 
+                id="leaveentryname" 
+                class="form-control" 
+                [ngModel]="defaultName"
+                name="leaveentryname"                
+                >
+                <option value="1">Mahesh</option>
+                <option value="2">Lakshmi</option>                
+              </select>               
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label" for="">Leave Type</label>
+              <select 
+                id="leaveentrytype" 
+                class="form-control"
+                [ngModel]="defaultLeave"
+                name="leaveentrytype">
+                <option value="Sick">Sick Leave</option>
+                <option value="Privilege">Privilege Leave</option>
+                <option value="Anual">Anual Holiday</option>
+                <option value="Optional">Optional Holiday</option>
+              </select>             
+            </div>
+
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Leave From</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-key"></i></span>
+                  <input 
+                    id="leavefrom" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="leavefrom"
+                    required
+                    #leavefrom="ngModel">
+                </div>                
+              </div>
+            </div>
+            <p class="help-block" style="color:red;" *ngIf="!leavefrom.valid && leaveto.touched">Please enter a valid from date!</p>
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Leave To</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-key"></i></span>
+                  <input 
+                    id="leaveto" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="leaveto"
+                    required
+                    #leaveto="ngModel">
+                </div>               
+              </div>
+            </div>
+            <p class="help-block" style="color:red;" *ngIf="!leaveto.valid && leaveto.touched">Please enter a valid to date!</p>
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid">Save Leave</button>
+              <button class="btn btn-default" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+</div>
+
