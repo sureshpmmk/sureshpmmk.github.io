@@ -8,6 +8,7 @@ import { LeaveManageComponent } from './leave/leave-manage.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,13 @@ const routes: Routes = [
     component: SettingsComponent,
     data: {
       title: 'Settings'
+    }
+  },
+   {
+    path: 'account',
+    component: AccountComponent,
+    data: {
+      title: 'Account'
     }
   }
 ];
