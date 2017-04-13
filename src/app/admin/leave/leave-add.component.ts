@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 
 import { Leave } from '../../shared/leave.model';
 import { LeaveService } from '../../shared/leave.service'; 
+/*import '../../../../node_modules/angular-datepicker/dist/index.min.js'*/
 
 @Component({ 
-  templateUrl: './leave-add.component.html',  
+  templateUrl: './leave-add.component.html', 
+  // styleUrls: ['../../../../node_modules/angular-datepicker/dist/index.min.css'],
 })
 export class LeaveAddComponent implements OnInit {
   @ViewChild('f') leaveForm: NgForm;
@@ -16,7 +18,7 @@ export class LeaveAddComponent implements OnInit {
   constructor(private leaveService: LeaveService,private router: Router) {
 
   	this.defaultLeave = 'Privilege';
-  	this.defaultName = 1;
+  	this.defaultName = 'Mahesh';
 
    }
 

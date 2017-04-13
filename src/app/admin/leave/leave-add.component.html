@@ -12,23 +12,23 @@
            <div class="form-group">
               <label class="form-control-label" for="">Employ Name</label>
               <select 
-                id="leaveentryname" 
+                id="employename" 
                 class="form-control" 
                 [ngModel]="defaultName"
-                name="leaveentryname"                
+                name="employename"                
                 >
-                <option value="1">Mahesh</option>
-                <option value="2">Lakshmi</option>                
+                <option value="Mahesh">Mahesh</option>
+                <option value="Lakshmi">Lakshmi</option>                
               </select>               
             </div>
 
             <div class="form-group">
               <label class="form-control-label" for="">Leave Type</label>
               <select 
-                id="leaveentrytype" 
+                id="leavetype" 
                 class="form-control"
                 [ngModel]="defaultLeave"
-                name="leaveentrytype">
+                name="leavetype">
                 <option value="Sick">Sick Leave</option>
                 <option value="Privilege">Privilege Leave</option>
                 <option value="Anual">Anual Holiday</option>
@@ -69,6 +69,7 @@
                 </div>               
               </div>
             </div>
+            <div date-picker></div>
             <p class="help-block" style="color:red;" *ngIf="!leaveto.valid && leaveto.touched">Please enter a valid to date!</p>
             <div class="form-actions">
               <button
