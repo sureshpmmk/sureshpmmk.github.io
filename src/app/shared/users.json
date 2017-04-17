@@ -1,0 +1,46 @@
+[
+   {
+      "employeeid": "5011", 
+      "firstname": "Test", 
+      "lastname": "User1", 
+      "email": "testuser1@premiergp.com", 
+      "phonenumber": "123456789", 
+      "password": "user123", 
+      "usertype": "user", 
+      "shift": "morning", 
+      "status": "active"
+  },
+  {
+      "employeeid": "5012", 
+      "firstname": "Test", 
+      "lastname": "User2", 
+      "email": "testuser2@premiergp.com", 
+      "phonenumber": "123456789", 
+      "password": "user123", 
+      "usertype": "user", 
+      "shift": "morning", 
+      "status": "active"
+  },
+  {
+      "employeeid": "5013", 
+      "firstname": "Test", 
+      "lastname": "User3", 
+      "email": "testuser3@premiergp.com", 
+      "phonenumber": "123456789", 
+      "password": "user123", 
+      "usertype": "user", 
+      "shift": "morning", 
+      "status": "active"
+  },
+  {
+      "employeeid": "5014", 
+      "firstname": "Test", 
+      "lastname": "User4", 
+      "email": "testuser4@premiergp.com", 
+      "phonenumber": "123456789", 
+      "password": "user123", 
+      "usertype": "user", 
+      "shift": "morning", 
+      "status": "active"
+  }
+]

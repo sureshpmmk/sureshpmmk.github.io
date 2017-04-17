@@ -10,35 +10,42 @@
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
-                <th>Employee ID</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Shift Type</th>
+                <th>Project Code</th>
+                <th>Project Title</th>
+                <th>Team Members</th>
+                <th>Hours Required</th>
+                <th>Hours Taken</th>
+                <th>Start Date</th>
+                <th>Finish Date</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let user of users;let i=index">
+            <tbody *ngFor="let project of projectsDetails">
               <tr>
-                <td>{{ user.employeeid }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.phonenumber }}</td>
-                <td>{{ user.shift }}</td>
+                <td>{{ project.projectcode }}</td>
+                <td>{{ project.projecttitle }}</td>
+                <td>{{ project.teammemberNames }}</td>
+                <td>{{ project.hoursrequired }}</td>
+                <td>{{ project.hourstaken }}</td>
+                <td>{{ project.startdate }}</td>
+                <td>{{ project.finishdate }}</td>
+                <td>{{ project.status }}</td>
                 <td>
                   <button 
                     class="btn btn-success" 
-                    (click)="changeStatus(i, 'active')"
-                    *ngIf="user.status !== 'active'">Activate</button>
+                    (click)="changeProjectStatus(project.projectcode, 'active')"
+                    *ngIf="project.status !== 'active'">Activate</button>
                   <button
+                    class="btn btn-secondary" 
+                    (click)="changeProjectStatus(project.projectcode, 'deactive')"
+                    *ngIf="project.status === 'active'">Deactivate</button>
+                  <button 
                     class="btn btn-primary" 
-                    (click)="changeStatus(i, 'deactive')"
-                    *ngIf="user.status === 'active'">Deactivate</button>
+                    (click)="updateProject(project.projectcode)">Edit</button>
                   <button 
                     class="btn btn-danger" 
-                    (click)="deleteUser(i)">Delete</button>
+                    (click)="deleteProject(project.projectcode)">Delete</button>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   
@@ -65,3 +72,16 @@
   </div>
   <!--/.row-->
 </div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+        {{item.name}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
