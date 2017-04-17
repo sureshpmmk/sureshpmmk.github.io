@@ -4,9 +4,9 @@ import { User } from './user.model';
 
 export class UserService {
   usersChanged = new Subject<User[]>();
-  private users: User[] = [];
+  private users: User[] = require('./users.json');
 
-  getUsers() {
+  getUsers() {    
   	return this.users.slice();
   }
 

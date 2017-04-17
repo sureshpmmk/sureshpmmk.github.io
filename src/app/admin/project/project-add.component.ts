@@ -13,30 +13,23 @@ export class ProjectAddComponent implements OnInit {
   @ViewChild('f') projectForm: NgForm;
   startdate;
   status;
-  membersids = [];
-  teammembers = [];
   users;
-  teammember = [];
-
+  teammembers = [];
+  projectData: Project[] = [];
+  
   constructor(private projectService: ProjectService, private userService: UserService) {
     this.startdate = Date.now();
     this.status    = 'active';
-    this.users = this.userService.getUsers();
+    this.users     = this.userService.getUsers();
+   // this.teammembers = [ this.users[0].employeeid ];
+
   }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-  	this.users = this.userService.getUsers();
-  	this.membersids = this.projectForm.value.teammembers;
-  	for(let memberid of this.membersids) {
-  		this.teammember = this.users.find(u => u.employeeid === memberid);
-  		this.teammembers.push(this.teammember);
-  	}
-
-  	console.log(this.teammembers);
-  	//this.projectService.addProject(this.projectForm.value);
+  onSubmit() {  	
+    this.projectService.addProject(this.projectForm.value);
   }
 
 }

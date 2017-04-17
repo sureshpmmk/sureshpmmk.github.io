@@ -1,0 +1,42 @@
+[
+   {
+      "projectcode": "PRO001", 
+      "projecttitle": "Test Project1", 
+      "hoursrequired": "8", 
+      "teammembers": [ "5011", "5012" ],
+      "status": "active", 
+      "hourstaken": "", 
+      "startdate": "2016/04/17", 
+      "finishdate": ""
+  },
+  {
+      "projectcode": "PRO002", 
+      "projecttitle": "Test Project2", 
+      "hoursrequired": "2", 
+      "teammembers": [ "5013", "5014" ],
+      "status": "active", 
+      "hourstaken": "", 
+      "startdate": "2016/04/17", 
+      "finishdate": ""
+  },
+  {
+      "projectcode": "PRO003", 
+      "projecttitle": "Test Project3", 
+      "hoursrequired": "16", 
+      "teammembers": [ "5011", "5014" ],
+      "status": "active", 
+      "hourstaken": "", 
+      "startdate": "2016/04/18", 
+      "finishdate": ""
+  },
+  {
+      "projectcode": "PRO004", 
+      "projecttitle": "Test Project4", 
+      "hoursrequired": "9", 
+      "teammembers": [ "5012", "5013" ],
+      "status": "active", 
+      "hourstaken": "", 
+      "startdate": "2016/04/18", 
+      "finishdate": ""
+  }
+]

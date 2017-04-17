@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { UserAddComponent } from './user/user-add.component';
@@ -14,13 +13,14 @@ import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
+import { ProjectUpdateComponent } from './project/project-update.component';
 
 @NgModule({
   imports: [ 
   	FormsModule,
   	AdminRoutingModule,
   	CommonModule,
-	ReactiveFormsModule
+	  ReactiveFormsModule
   ],
   declarations: [ 
   	UserAddComponent,
@@ -32,7 +32,11 @@ import { AccountComponent } from './account/account.component';
   	SettingsComponent,
   	SettingsComponent,
   	LeaveAddComponent,
-  	AccountComponent
+  	AccountComponent,
+    ProjectUpdateComponent
+  ],
+  providers: [
+    ProjectUpdateComponent
   ]
 })
 export class AdminModule { }
