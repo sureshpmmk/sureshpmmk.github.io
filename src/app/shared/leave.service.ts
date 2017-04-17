@@ -20,6 +20,17 @@ export class LeaveService {
       this.leaves.splice(leaveIndex, 1);
       this.leaveEntryChanged.next(this.leaves.slice());
     }    
+  }
+
+  updateLeaveEntry(leaveIndex: number, leaveData: Leave) {
+    if (leaveIndex > -1) {
+      this.leaves[leaveIndex] = leaveData;
+      this.leaveEntryChanged.next(this.leaves.slice());
+    }    
+  }
+
+  getOneLeave(leaveIndex: number) {
+    return this.leaves[leaveIndex];
   } 
 
 }

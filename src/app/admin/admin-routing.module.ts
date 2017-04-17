@@ -12,6 +12,8 @@ import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
 import { AppsettingComponent } from './leave/appsetting.component';
 import { ProjectUpdateComponent } from './project/project-update.component';
+import { LeaveUpdateComponent } from './leave/leave-update.component';
+
 
 const routes: Routes = [
   {
@@ -96,6 +98,13 @@ const routes: Routes = [
     component: AppsettingComponent,
     data: {
       title: 'Add Holidays'
+    }
+  },
+  {
+    path: 'update-leave/:leaveCode',
+    component: LeaveUpdateComponent,
+    data: {
+      title: 'Update Leave'
     }
   },
 ];

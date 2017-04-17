@@ -29,4 +29,8 @@ export class LeaveManageComponent implements OnInit {
   	this.leaveService.removeLeaveEntry(leaveIndex);
   }
 
+  updateLeave(leaveIndex: number) {
+    this.router.navigate(['/admin/update-leave', leaveIndex]);
+  }
+
 }
