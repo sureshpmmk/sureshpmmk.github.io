@@ -14,6 +14,7 @@ import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
+import { AppsettingComponent } from './leave/appsetting.component';
 
 @NgModule({
   imports: [ 
@@ -32,7 +33,8 @@ import { AccountComponent } from './account/account.component';
   	SettingsComponent,
   	SettingsComponent,
   	LeaveAddComponent,
-  	AccountComponent
+  	AccountComponent,
+  	AppsettingComponent
   ]
 })
 export class AdminModule { }

@@ -10,6 +10,7 @@ import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
+import { AppsettingComponent } from './leave/appsetting.component';
 
 const routes: Routes = [
   {
@@ -81,7 +82,14 @@ const routes: Routes = [
     data: {
       title: 'Account'
     }
-  }
+  },
+  {
+    path: 'app-setting',
+    component: AppsettingComponent,
+    data: {
+      title: 'Add Holidays'
+    }
+  },
 ];
 
 @NgModule({
