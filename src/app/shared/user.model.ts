@@ -1,5 +1,5 @@
 export class User {
-
+  
   constructor(public employeeid: string, 
   			  public firstname: string,
   			  public lastname: string,
@@ -9,5 +9,6 @@ export class User {
   			  public usertype: string,
   			  public shift: string,
   			  public status: string
-  			) {}
+  			) {    
+  }
 }

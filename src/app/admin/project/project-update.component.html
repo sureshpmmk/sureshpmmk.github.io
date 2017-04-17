@@ -4,7 +4,7 @@
     <div class="col-lg-10">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Add New Project
+          <i class="fa fa-edit"></i>Edit Project
          <!--  <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
             <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
@@ -12,7 +12,7 @@
           </div> -->
         </div>
         <div class="card-block">
-          <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
+          <form class="form-horizontal" (ngSubmit)="updateProject()" #f="ngForm">
             <div class="form-group">
               <label class="form-control-label" for="prependedInput">Project Code</label>
               <div class="controls">
@@ -22,10 +22,9 @@
                     id="projectcode" 
                     class="form-control"
                     type="text"
-                    ngModel
+                    [ngModel]="projectcode"
                     name="projectcode"
-                    required
-                    #projectcode="ngModel">
+                    readonly>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -39,10 +38,9 @@
                     id="projecttitle" 
                     class="form-control"
                     type="text"
-                    ngModel
+                    [ngModel]="projecttitle"
                     name="projecttitle"
-                    required
-                    #projecttitle="ngModel">
+                    required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -56,10 +54,9 @@
                     id="hoursrequired" 
                     class="form-control" 
                     type="text"                    
-                    ngModel
+                    [ngModel]="hoursrequired"
                     name="hoursrequired"
-                    required
-                    #hoursrequired="ngModel">
+                    required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -88,7 +85,7 @@
                     name="teammembers" 
                     id="teammembers"
                     multiple=""  
-                    [(ngModel)]="teammembers">
+                    [ngModel]="teammembers">
                     <option 
                       *ngFor="let user of users"
                       value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>
@@ -103,10 +100,10 @@
                   <input 
                     id="startdate" 
                     class="form-control" 
-                    type="date"  
+                    type="datetime-local"  
                     name="startdate"
                     required
-                    [ngModel]="startdate">
+                    [(ngModel)]="startdate">
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -126,8 +123,7 @@
                 </select>
               </div>
             </div>
-            <input id="hourstaken" type="hidden" name="hourstaken" [ngModel]="hourstaken">
-            <input id="finishdate" type="hidden" name="finishdate" [ngModel]="finishdate">
+
             <div class="form-actions">
               <button
                 type="submit" 

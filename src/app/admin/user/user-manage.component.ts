@@ -20,7 +20,7 @@ export class UserManageComponent implements OnInit {
           (users: User[]) => {
             this.users = users;
           }
-        )
+        );
   }
 
   deleteUser(userIndex: number) {

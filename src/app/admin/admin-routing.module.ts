@@ -11,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
 import { AppsettingComponent } from './leave/appsetting.component';
+import { ProjectUpdateComponent } from './project/project-update.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,13 @@ const routes: Routes = [
     component: ProjectManageComponent,
     data: {
       title: 'Manage Project'
+    }
+  },
+  {
+    path: 'update-project/:projectCode',
+    component: ProjectUpdateComponent,
+    data: {
+      title: 'Update Project'
     }
   },
   {
