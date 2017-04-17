@@ -23,12 +23,11 @@ public phonenumber = this.loggedUser.phonenumber;
   }
 
   onUpdateAccount() {
-    alert(this.adminForm.value.firstname);
-  	localStorage.setItem('user.firstname',this.adminForm.value.firstname);
-    localStorage.setItem('user.lastname',this.adminForm.value.lastname);
-    localStorage.setItem('user.email',this.adminForm.value.email);
-    localStorage.setItem('user.phonenumber',this.adminForm.value.phonenumber);
-    //this.userForm.reset();
+    localStorage.setItem('user','{"employeeid":"'+this.loggedUser.employeeid+'","firstname":"'+this.adminForm.value.firstname+'","lastname":"'+this.adminForm.value.lastname+'","email":"'+this.loggedUser.email+'","phonenumber":"'+this.adminForm.value.phonenumber+'","password":"admin123","usertype":"admin","shift":"general","status":"active"}');
+
+  }
+  onCancelAccount() {
+    this.adminForm.reset();
   }
 
 }

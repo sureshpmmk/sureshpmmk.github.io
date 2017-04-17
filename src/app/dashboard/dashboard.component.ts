@@ -5,9 +5,13 @@ import { Router } from '@angular/router';
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  
+	
+  constructor(private router: Router){}
   public loggedUser = localStorage.getItem("username");
   ngOnInit() {  
-    // this.loggedUser = localStorage.getItem("username");
+    if(this.loggedUser == null)
+    {
+    	 this.router.navigate(['pages/login']);
+    }
   }
 }
