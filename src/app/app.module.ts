@@ -20,6 +20,7 @@ import { AppRoutingModule } from './app.routing';
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
+import { EmployeeLayoutComponent } from './layouts/employee-layout.component';
 
 //services
 import { AuthenticationService } from './shared/authentication.service';
@@ -45,8 +46,7 @@ import { LeaveService } from './shared/leave.service';
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-      
-    
+    EmployeeLayoutComponent
   ],
   providers: [{
       provide: LocationStrategy,
