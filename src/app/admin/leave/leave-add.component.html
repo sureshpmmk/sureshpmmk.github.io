@@ -14,11 +14,12 @@
               <select 
                 id="employename" 
                 class="form-control" 
-                [ngModel]="defaultName"
+                [ngModel]="employename"
                 name="employename"                
                 >
-                <option value="Mahesh">Mahesh</option>
-                <option value="Lakshmi">Lakshmi</option>                
+                <option 
+                      *ngFor="let user of users"
+                      value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
               </select>               
             </div>
 
