@@ -7,6 +7,8 @@ import { EmployeeRoutingModule } from './employee-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogtimeComponent } from './logtime/logtime.component';
 import { ReportComponent } from './report/report.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AccountComponent } from './account/account.component';
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import { ReportComponent } from './report/report.component';
 	  ReactiveFormsModule
   ],
   declarations: [ 
-  DashboardComponent, LogtimeComponent, ReportComponent],
+  DashboardComponent, LogtimeComponent, ReportComponent, ProjectsComponent, AccountComponent],
   providers: [
   ]
 })

@@ -17,9 +17,9 @@
                  name = "username"
                  required
                  email
-                 #username="ngModel">                 
+                 #user="ngModel">                 
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!username.valid && username.touched">Please enter a valid user name!</p>
+              <p class="help-block" style="color:red;" *ngIf="!user.valid && user.touched">Please enter a valid user name!</p>
               <div class="input-group mb-2">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input type="password"
@@ -28,12 +28,13 @@
                 ngModel
                 name="password"
                 required
-                password>                
+                #pass="ngModel">                
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!f.touched" >{{ validationError }}</p>
+              <p class="help-block" style="color:red;" *ngIf="!pass.valid && pass.touched">Please enter a valid password!</p>
+              <p class="help-block" style="color:red;" *ngIf="!success">{{ validationError }}</p>
               <div class="row">
                 <div class="col-6">
-                  <button type="submit" class="btn btn-primary px-2">Login</button>
+                  <button type="submit" class="btn btn-primary px-2" [disabled]="!f.valid">Login</button>
                 </div>
                 <div class="col-6 text-right">
                   <a href="" [routerLink]="['/pages/forgot']" class="px-0">Forgot password?</a>
