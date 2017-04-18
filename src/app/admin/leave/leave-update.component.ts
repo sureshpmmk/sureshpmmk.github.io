@@ -26,9 +26,6 @@ export class LeaveUpdateComponent implements OnInit {
 
   constructor(private leaveService: LeaveService,private userService: UserService,private router: Router,private route: ActivatedRoute) {
 
-  	this.defaultLeave = 'Privilege';
-  	this.defaultName = 'Mahesh';
-
    }
 
   ngOnInit() {

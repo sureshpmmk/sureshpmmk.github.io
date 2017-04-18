@@ -101,7 +101,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'update-leave/:leaveCode',
+    path: 'update-leave/:leaveIndex',
     component: LeaveUpdateComponent,
     data: {
       title: 'Update Leave'

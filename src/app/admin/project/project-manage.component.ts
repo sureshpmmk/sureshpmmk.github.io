@@ -23,27 +23,30 @@ export class ProjectManageComponent implements OnInit {
   			  private router: Router) { }
 
   ngOnInit() {
-  	this.users = this.userService.getUsers();
-  	this.projects = this.projectService.getProjects();
-    this.projectsDetails = this.projects;
-    
+    this.projectsDetails = [];
+    this.users = this.userService.getUsers();
+    this.projects = this.projectService.getProjects();
+
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
             this.projects = projects;
         });
+    this.getProjectList(this.projects);
+  }
 
+  getProjectList(projects: Project[]) {
+    this.projectsDetails = projects;
     
-    
-    for(let i in this.projects) {
-    	let teammembersIds = this.projects[i].teammembers;
-    	this.teammemberNames = [];
-    	for(let j in teammembersIds) {
-    		let employee = this.users.find(u => u.employeeid === teammembersIds[j]);
-    		let employeeName = employee.firstname + ' ' + employee.lastname;
-    		this.teammemberNames.push(employeeName);
-    	}
-    	this.projectsDetails[i].teammemberNames = this.teammemberNames;
+    for(let i in projects) {
+      let teammembersIds = projects[i].teammembers;
+      this.teammemberNames = [];
+      for(let j in teammembersIds) {
+        let employee = this.users.find(u => u.employeeid === teammembersIds[j]);
+        let employeeName = employee.firstname + ' ' + employee.lastname;
+        this.teammemberNames.push(employeeName);
+      }
+      this.projectsDetails[i].teammemberNames = this.teammemberNames;
     }
   }
 

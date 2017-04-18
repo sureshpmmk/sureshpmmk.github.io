@@ -14,20 +14,19 @@
               <select 
                 id="employename" 
                 class="form-control" 
-                [ngModel]="defaultName"
-                name="employename"                
-                >
-                <option value="Mahesh">Mahesh</option>
-                <option value="Lakshmi">Lakshmi</option>                
+                [ngModel]="employename"
+                name="employename">
+                <option 
+                      *ngFor="let user of users"
+                      value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>               
               </select>               
             </div>
-
             <div class="form-group">
               <label class="form-control-label" for="">Leave Type</label>
               <select 
                 id="leavetype" 
                 class="form-control"
-                [ngModel]="defaultLeave"
+                [ngModel]="leavetype"
                 name="leavetype">
                 <option value="Sick">Sick Leave</option>
                 <option value="Privilege">Privilege Leave</option>
