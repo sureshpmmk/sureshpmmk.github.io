@@ -10,6 +10,10 @@ export class UserService {
   	return this.users.slice();
   }
 
+  getOneUser(employeeid: string) {
+    return this.users.find(u => u.employeeid === employeeid);
+  }
+
   addUser(user: User) {
   	this.users.push(user);
     this.usersChanged.next(this.users.slice());
@@ -36,4 +40,10 @@ export class UserService {
     }    
   }
 
+  updateUserDetails(userIndex: number, userData: User) {
+    if (userIndex > -1) {
+      this.users[userIndex] = userData;
+      this.usersChanged.next(this.users.slice());
+    }    
+  }
 }

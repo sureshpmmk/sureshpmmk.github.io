@@ -22,7 +22,11 @@ export class ProjectManageComponent implements OnInit {
   			  private projectUpdateComponent: ProjectUpdateComponent,
   			  private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.getProjectList();
+  }
+
+  getProjectList() {
     this.projectsDetails = [];
     this.users = this.userService.getUsers();
     this.projects = this.projectService.getProjects();
@@ -32,14 +36,11 @@ export class ProjectManageComponent implements OnInit {
           (projects: Project[]) => {
             this.projects = projects;
         });
-    this.getProjectList(this.projects);
-  }
 
-  getProjectList(projects: Project[]) {
-    this.projectsDetails = projects;
+    this.projectsDetails = this.projects;
     
-    for(let i in projects) {
-      let teammembersIds = projects[i].teammembers;
+    for(let i in this.projects) {
+      let teammembersIds = this.projects[i].teammembers;
       this.teammemberNames = [];
       for(let j in teammembersIds) {
         let employee = this.users.find(u => u.employeeid === teammembersIds[j]);
@@ -62,5 +63,6 @@ export class ProjectManageComponent implements OnInit {
   deleteProject(projectCode: string) {
     this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode); 
     this.projectService.removeProject(this.projectIndex);
+    this.getProjectList();
   }
 }

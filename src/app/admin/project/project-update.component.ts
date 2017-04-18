@@ -17,8 +17,10 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
   projectcode;
   projecttitle;
   hoursrequired;
+  hourstaken;
   teammembers = [];
   startdate;
+  finishdate;
   status;
   projectCodeSubscription;
   projects;
@@ -26,7 +28,8 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
 
   constructor(private projectService: ProjectService, 
               private userService: UserService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     //this.startdate = new Date().toISOString().slice(0, 16);
   }
 
@@ -49,8 +52,10 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
     this.projectcode   = this.project.projectcode;
     this.projecttitle  = this.project.projecttitle;
     this.hoursrequired = this.project.hoursrequired;
+    this.hourstaken    = this.project.hourstaken;
     this.teammembers   = this.project.teammembers;
-    this.startdate     = this.project.startdate;
+    this.startdate     = new Date(this.project.startdate);
+    this.finishdate    = new Date(this.project.finishdate);
     this.status        = this.project.status;
   }
 
@@ -61,10 +66,15 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
           (projects: Project[]) => {
             this.projects = projects;
         });
-  	//console.log(this.projectForm.value);
+  	
     this.projectcode  = this.projectForm.value['projectcode'];
     this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(this.projectcode); 
   	this.projectService.updateProjectDetails(this.projectIndex, this.projectForm.value);
+    this.router.navigate(['/admin/manage-project']);
+  }
+
+  cancel() {
+    this.router.navigate(['/admin/manage-project']);
   }
 
 }

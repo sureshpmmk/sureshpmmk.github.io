@@ -15,7 +15,7 @@ export class UserAddComponent implements OnInit {
   randPassword;
   defaultStatus;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.defaultUsertype = 'user';
     this.defaultShift    = 'morning';
     this.randPassword    = '12345';
@@ -27,6 +27,10 @@ export class UserAddComponent implements OnInit {
 
   onSubmit() {
   	this.userService.addUser(this.userForm.value);
-    //this.userForm.reset();
+    this.router.navigate(['/admin/manage-user']);
+  }
+
+  cancel() {
+    this.router.navigate(['/admin/manage-user']);
   }
 }

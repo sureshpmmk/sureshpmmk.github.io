@@ -16,6 +16,7 @@ import { AccountComponent } from './account/account.component';
 import { AppsettingComponent } from './leave/appsetting.component';
 import { ProjectUpdateComponent } from './project/project-update.component';
 import { LeaveUpdateComponent } from './leave/leave-update.component';
+import { UserUpdateComponent } from './user/user-update.component';
 
 @NgModule({
   imports: [ 
@@ -37,11 +38,13 @@ import { LeaveUpdateComponent } from './leave/leave-update.component';
   	AccountComponent,
   	AppsettingComponent,
     ProjectUpdateComponent,
-    LeaveUpdateComponent
+    LeaveUpdateComponent,
+    UserUpdateComponent
   ],
   providers: [
     ProjectUpdateComponent,
-    LeaveUpdateComponent
+    LeaveUpdateComponent,
+    UserUpdateComponent
   ]
 })
 export class AdminModule { }

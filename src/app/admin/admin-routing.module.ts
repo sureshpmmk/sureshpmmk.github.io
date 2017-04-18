@@ -13,7 +13,7 @@ import { AccountComponent } from './account/account.component';
 import { AppsettingComponent } from './leave/appsetting.component';
 import { ProjectUpdateComponent } from './project/project-update.component';
 import { LeaveUpdateComponent } from './leave/leave-update.component';
-
+import { UserUpdateComponent } from './user/user-update.component';
 
 const routes: Routes = [
   {
@@ -35,6 +35,13 @@ const routes: Routes = [
     component: UserManageComponent,
     data: {
       title: 'Manage User'
+    }
+  },
+  {
+    path: 'update-user/:employeeId',
+    component: UserUpdateComponent,
+    data: {
+      title: 'Update User'
     }
   },
   {

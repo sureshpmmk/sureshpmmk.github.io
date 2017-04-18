@@ -17,7 +17,9 @@ export class ProjectAddComponent implements OnInit {
   teammembers = [];
   projectData: Project[] = [];
   
-  constructor(private projectService: ProjectService, private userService: UserService) {
+  constructor(private projectService: ProjectService, 
+              private userService: UserService,
+              private router: Router) {
     this.startdate = Date.now();
     this.status    = 'active';
     this.users     = this.userService.getUsers();
@@ -30,6 +32,10 @@ export class ProjectAddComponent implements OnInit {
 
   onSubmit() {  	
     this.projectService.addProject(this.projectForm.value);
+    this.router.navigate(['/admin/manage-project']);
   }
 
+  cancel() {
+    this.router.navigate(['/admin/manage-project']);
+  }
 }

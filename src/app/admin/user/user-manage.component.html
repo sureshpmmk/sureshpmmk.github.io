@@ -30,15 +30,18 @@
                 <td>
                   <button 
                     class="btn btn-success" 
-                    (click)="changeStatus(i, 'active')"
+                    (click)="changeStatus(user.employeeid, 'active')"
                     *ngIf="user.status !== 'active'">Activate</button>
                   <button
-                    class="btn btn-primary" 
-                    (click)="changeStatus(i, 'deactive')"
+                    class="btn btn-secondary" 
+                    (click)="changeStatus(user.employeeid, 'deactive')"
                     *ngIf="user.status === 'active'">Deactivate</button>
                   <button 
+                    class="btn btn-primary" 
+                    (click)="updateUser(user.employeeid)">Edit</button>
+                  <button 
                     class="btn btn-danger" 
-                    (click)="deleteUser(i)">Delete</button>
+                    (click)="deleteUser(user.employeeid)">Delete</button>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   

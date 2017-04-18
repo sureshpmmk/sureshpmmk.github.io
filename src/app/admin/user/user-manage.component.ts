@@ -9,8 +9,9 @@ import { UserService } from '../../shared/user.service';
 })
 export class UserManageComponent implements OnInit {
   users: User[] = [];
+  userIndex;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -23,11 +24,17 @@ export class UserManageComponent implements OnInit {
         );
   }
 
-  deleteUser(userIndex: number) {
-  	this.userService.removeUser(userIndex);
+  updateUser(employeeId: string) {
+    this.router.navigate(['/admin/update-user', employeeId]);
   }
 
-  changeStatus(userIndex: number, status: string) {
-    this.userService.updateUserStatus(userIndex, status);
+  deleteUser(employeeId: string) {
+    this.userIndex = this.users.map((user) => user.employeeid).indexOf(employeeId);
+  	this.userService.removeUser(this.userIndex);
+  }
+
+  changeStatus(employeeId: string, status: string) {
+    this.userIndex = this.users.map((user) => user.employeeid).indexOf(employeeId);
+    this.userService.updateUserStatus(this.userIndex, status);
   }
 }
