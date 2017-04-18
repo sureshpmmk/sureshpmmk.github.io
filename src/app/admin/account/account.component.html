@@ -75,7 +75,7 @@
                     [minlength]="6"
                     required 
                     >
-                  <span><input id="methods" type="checkbox" (click)="passwordtype = { 'text': 'password', 'password':'text'}[passwordtype]; showhide = { 'show': 'hide', 'hide':'show'}[showhide]" />{{ showhide }}</span>
+                  <span><a href="javascript:void(0)" (click)="passwordtype = { 'text': 'password', 'password':'text'}[passwordtype]; showhide = { 'show': 'hide', 'hide':'show'}[showhide]" style="text-decoration:none" >{{ showhide }}</a></span>
                 </div>  
                 <span class="help-block" *ngIf="!pass.valid  && pass.dirty" id="error" >Password should not be empty and contain atleast 6 characters</span>             
               </div>
