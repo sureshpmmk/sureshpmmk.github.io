@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Add New User
+          <i class="fa fa-edit"></i>Edit User
          <!--  <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
             <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
@@ -12,7 +12,7 @@
           </div> -->
         </div>
         <div class="card-block">
-          <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
+          <form class="form-horizontal" (ngSubmit)="updateUser()" #f="ngForm">
             <div class="form-group">
               <label class="form-control-label" for="prependedInput">Employee ID</label>
               <div class="controls">
@@ -22,10 +22,9 @@
                     id="employeeid" 
                     class="form-control"
                     type="text"
-                    ngModel
+                    [ngModel]="employeeid"
                     name="employeeid"
-                    required
-                    #employeeid="ngModel">
+                    readonly>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -39,10 +38,9 @@
                     id="firstname" 
                     class="form-control" 
                     type="text"                    
-                    ngModel
+                    [ngModel]="firstname"
                     name="firstname"
-                    required
-                    #firstname="ngModel">
+                    required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -56,10 +54,9 @@
                     id="lastname" 
                     class="form-control"
                     type="text"                    
-                    ngModel
+                    [ngModel]="lastname"
                     name="lastname"
-                    required
-                    #lastname="ngModel">
+                    required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -73,10 +70,9 @@
                     id="email" 
                     class="form-control"
                     type="text"                    
-                    ngModel
+                    [ngModel]="email"
                     name="email"
-                    required
-                    #email="ngModel">
+                    required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -90,29 +86,53 @@
                   id="phonenumber" 
                   class="form-control"
                   type="text"
-                  ngModel
+                  [ngModel]="phonenumber"
                   name="phonenumber"
-                  required
-                  #phonenumber="ngModel">
+                  required>
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-
             <div class="form-group">
               <label class="form-control-label" for="">Shift Type</label>
               <select 
                 id="shift" 
                 class="form-control"
-                [ngModel]="defaultShift"
+                [ngModel]="shift"
                 name="shift">
                 <option value="morning">Morning Shift</option>
                 <option value="evening">Evening Shift</option>
                 <option value="night">Night Shift</option>
+              </select> 
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="">Status</label>
+              <select 
+                id="status" 
+                class="form-control"
+                [ngModel]="status"
+                name="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
               </select>
-              <input type="hidden" name="password" [ngModel]="randPassword">
-              <input type="hidden" name="usertype" [ngModel]="defaultUsertype"> 
-              <input type="hidden" name="status" [ngModel]="defaultStatus"> 
+              <input type="hidden" name="password" [ngModel]="password">
+              <input type="hidden" name="usertype" [ngModel]="usertype">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Password</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-phone"></i></span>
+                  <input 
+                  id="password" 
+                  class="form-control"
+                  type="text"
+                  [ngModel]="password"
+                  name="password"
+                  required>
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
             </div>
 
             <div class="form-actions">
