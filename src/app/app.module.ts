@@ -28,6 +28,7 @@ import { UserService } from './shared/user.service';
 import { ProjectService } from './shared/project.service';
 import { LeaveService } from './shared/leave.service';
 import { HolidayService } from './shared/holiday.service';
+import { ReportService } from './shared/report.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { HolidayService } from './shared/holiday.service';
     UserService,
     ProjectService,
     LeaveService,
-    HolidayService
+    HolidayService,
+    ReportService
   ],
   bootstrap: [ AppComponent ]
 })

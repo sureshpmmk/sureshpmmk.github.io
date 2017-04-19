@@ -1,3 +1,136 @@
-<p>
-  report works!
-</p>
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Report - Team Member        
+        </div>
+        <div class="card-block">
+          <form class="form-horizontal" (ngSubmit)="onViewTeammemberprojectDetails()" #f="ngForm">
+
+        <!--   <div class="form-group">
+              <label class="form-control-label" for="">ID</label>
+              <input 
+              type="text" 
+              class="form-control"
+              name="holidayid"
+              ngModel
+              required
+              #holidayid="ngModel" 
+               >         
+            </div>
+            <p class="help-block" style="color:red;" *ngIf="!holidayid.valid && holidayid.touched">Please enter a valid Id!</p>  -->
+		   <div class="row">
+		   	<div class="col-lg-4">	
+           <div class="form-group">
+              <label class="form-control-label" for="">Employer Name</label>
+              <select 
+                id="employename" 
+                class="form-control" 
+                [ngModel]="employename"
+                name="employename"                
+                >
+                <option value="" selected="selected">--Select --</option>                
+                <option 
+                      *ngFor="let user of users"
+                      value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
+              </select>               
+            </div>
+
+          <!--   <p class="help-block" style="color:red;" *ngIf="!holidaydescription.valid && holidaydescription.touched">Please enter a valid holiday description!</p>  -->   
+            </div>                   
+			<div class="col-lg-4">	
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">From</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="fromdate" 
+                    class="form-control"
+                    style="display:  -webkit-inline-box;" 
+                    type="date"
+                    [ngModel]="fromdate"
+                    name="fromdate"
+                    required                    >
+                </div>                
+              </div>
+            </div>
+            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+            </div>
+
+			<div class="col-lg-4">	
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">To</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="todate" 
+                    class="form-control"
+                    style="display:  -webkit-inline-box;" 
+                    type="date"
+                    [ngModel]="todate"
+                    name="todate"
+                    required                    >
+                </div>                
+              </div>
+            </div>
+            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+            </div>  
+
+		   </div>
+		    <div class="row">       
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid">View</button>
+              <button class="btn btn-default" type="button">Cancel</button>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+<!--Listing Project Details-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Project List
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                
+                <th>Project Name</th>
+                <th>Total Time Spent</th> 
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let log of employeelog;let logIndex=index">
+              <tr>                
+                <td>{{ log.projectcode }}</td>                
+                <td>{{ log.timespent }}</td>               
+                <td style="text-align: center"> 
+                <a href="#">View Details</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+         <input 
+         type="hidden" 
+         name="buttonType"
+         [ngModel]="buttonType" 
+         >
+        </div>
+      </div>
+    </div>    
+  </div>  	
+
+</div>
+
