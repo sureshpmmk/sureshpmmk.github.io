@@ -36,5 +36,10 @@ export class ReportComponent implements OnInit {
     this.employeelog = this.reportService.getProjectLogdetails(employeeid,projectcode);     
 
   }
+  goBack()
+  {
+    console.log(this.flag_showhidedetails);
+    this.flag_showhidedetails = 0;
+  }
 
 }
