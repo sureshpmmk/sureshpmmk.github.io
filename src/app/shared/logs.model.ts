@@ -6,7 +6,8 @@ export class Logs
 				public logdescription : string,
 				public startdatetime: string,
 				public finishdatetime : string,
-				public timespent : string 
+				public timespent : string,
+				public lognote : string 
 				){
 
 	}

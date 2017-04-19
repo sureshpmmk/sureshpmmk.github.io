@@ -17,6 +17,7 @@ import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 // Routing Module
 import { AppRoutingModule } from './app.routing';
 
+
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
@@ -29,6 +30,7 @@ import { ProjectService } from './shared/project.service';
 import { LeaveService } from './shared/leave.service';
 import { HolidayService } from './shared/holiday.service';
 import { ReportService } from './shared/report.service';
+import { LogsService } from './shared/logs.service';
 
 
 @NgModule({
@@ -60,7 +62,8 @@ import { ReportService } from './shared/report.service';
     ProjectService,
     LeaveService,
     HolidayService,
-    ReportService
+    ReportService,
+    LogsService
   ],
   bootstrap: [ AppComponent ]
 })

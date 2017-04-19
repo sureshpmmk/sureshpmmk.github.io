@@ -9,6 +9,7 @@ import { LogtimeComponent } from './logtime/logtime.component';
 import { ReportComponent } from './report/report.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AccountComponent } from './account/account.component';
+import { TabsModule } from 'ng2-bootstrap/tabs';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AccountComponent } from './account/account.component';
   	FormsModule,
   	EmployeeRoutingModule,
   	CommonModule,
-	  ReactiveFormsModule
+	  ReactiveFormsModule,
+    TabsModule
   ],
   declarations: [ 
   DashboardComponent, LogtimeComponent, ReportComponent, ProjectsComponent, AccountComponent],
