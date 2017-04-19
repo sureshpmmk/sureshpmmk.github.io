@@ -16,6 +16,9 @@ export class ReportComponent implements OnInit {
   users; 
   employename = "--Select--";	
   employeelog;
+  projectName;
+  totalTimeSpend = 0;
+  flag_showhidedetails = 0;
 
   constructor(private userService: UserService,private reportService: ReportService) { }
 
@@ -24,8 +27,14 @@ export class ReportComponent implements OnInit {
   }
 
   onViewTeammemberprojectDetails(){
-  	this.employeelog = this.reportService.getUserLog(this.reportForm.value.employename);
-  	console.log(this.employeelog);
+  	this.employeelog = this.reportService.getUserLog(this.reportForm.value.employename);  	
+  }
+  viewprojectLogdetailsforOneuser(employeeid,projectcode){
+
+    this.projectName ="Project Name" + projectcode;
+    this.flag_showhidedetails = 1;
+    this.employeelog = this.reportService.getProjectLogdetails(employeeid,projectcode);     
+
   }
 
 }
