@@ -102,8 +102,12 @@
       <div class="card">
         <div class="card-header">
           <i class="fa fa-align-justify"></i> Project List
+           <div style="text-align: right;"><a 
+         href="javascript:void(0)" 
+         (click) = "toggleLineChart()" >{{ chartViewVariable }}</a>		 	
+         </div>
         </div>
-        <div class="card-block">
+        <div class="card-block" *ngIf="flag_chart === 0 ">
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>
@@ -146,7 +150,8 @@
           {{ totalTimeSpend }}
          <div style="text-align: right;"><a 
          href="javascript:void(0)" 
-         (click) = "goBack()" >Back</a></div>
+         (click) = "goBack()" >Back</a>		 	
+         </div>
         </div>
         <div class="card-block">
           <table class="table table-bordered table-striped table-condensed">
@@ -176,7 +181,36 @@
     </div>    
   </div> 
   </div> 	
+<!--Listing Project Details End-->
 
+<!-- chart strting here -->
+<div class="row" *ngIf="flag_chart !== 0 ">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header">
+        Line Chart
+        <div class="card-actions">
+         
+        </div>
+      </div>
+      <div class="card-block">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColours"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    </div>    
+</div>
+<!-- chart End here -->
 
 </div>
 
