@@ -10,6 +10,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 export class LoginComponent {
 
   flag;
+  success = true;
   validationError = '';
   //Getting form value and assigning to loginForm	
   @ViewChild('f') loginForm: NgForm; 	
@@ -22,6 +23,7 @@ export class LoginComponent {
 	{
 		this.validationError = 'Authentication failed.';
 		this.loginForm.reset();
+    this.success = false;
 	}
 }
 

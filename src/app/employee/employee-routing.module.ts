@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogtimeComponent } from './logtime/logtime.component';
 import { ReportComponent } from './report/report.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,20 @@ const routes: Routes = [
     component: ReportComponent,
     data: {
       title: 'Reports'
+    }
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: {
+      title: 'Projects'
+    }
+  },
+  {
+    path: 'account',
+    component: AccountComponent,
+    data: {
+      title: 'My Account'
     }
   }
 ];

@@ -6,5 +6,10 @@ import { NgForm } from '@angular/forms';
   styleUrls :['../app.component.css']
 })
 export class ForgotPasswordComponent {
+  success = false;
 	constructor() { }
+  
+  onResetPass() {     
+   this.success = true;  
+  }
 }
