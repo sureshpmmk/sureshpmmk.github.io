@@ -9,8 +9,20 @@ export class ReportService {
   }
 
   getProjectLogdetails(employeeid: string,projectcode: string) {
-    return this.logs.filter(u => u.employeeid === employeeid,
-    						u => u.projectcode === projectcode);
+    // return this.logs.filter([u => u.employeeid === employeeid,
+    // 						u => u.projectcode === projectcode]);
+    return this.filter(this.logs, { employeeid: employeeid, projectcode: projectcode });
   }
+
+
+  filter(arr, criteria) {
+  return arr.filter(function(obj) {
+    return Object.keys(criteria).every(function(c) {
+      return obj[c] == criteria[c];
+    });
+  });
+}
+
+
 
 }
