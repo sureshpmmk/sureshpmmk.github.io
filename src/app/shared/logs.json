@@ -3,23 +3,25 @@
 
 		"logid" : "100",
 		"employeeid" : "5100",
+		"employeename" : "Test User1",
 		"projectcode" :	"1000",
-		"logdescription" : "Test",
-		"startdatetime": "20-04-2017 10:30",
-		"finishdatetime" : "20-10-2016 12:30",
-		"timespent" : "2",
+		"projecttitle" : "Test Project1",
+		"startdatetime": "20-04-2017 10:30:05",
+		"finishdatetime" : "20-10-2016 12:45:05",
+		"timespent" : "02:15:22",
 		"lognote"   :"test"
 
 	},
 	{
 
 		"logid" : "101",
-		"employeeid" : "5100",
+		"employeeid" : "5101",
+		"employeename" : "Test User2",
 		"projectcode" :	"1001",
-		"logdescription" : "Test2",
-		"startdatetime": "20-04-2017 12:30",
-		"finishdatetime" : "20-04-2017 14:30",
-		"timespent" : "2",
+		"projecttitle" : "Test Project1",
+		"startdatetime": "20-04-2017 12:30:00",
+		"finishdatetime" : "20-04-2017 14:40:00",
+		"timespent" : "02:00:02",
 		"lognote"   :"test"
 
 	},
@@ -27,11 +29,12 @@
 
 		"logid" : "102",
 		"employeeid" : "5011",
+		"employeename" : "Test User11",
 		"projectcode" :	"1001",
-		"logdescription" : "Test2",
-		"startdatetime": "20-04-2017 13:30",
-		"finishdatetime" : "20-04-2017 14:30",
-		"timespent" : "1",
+		"projecttitle" : "Test Project1",
+		"startdatetime": "20-04-2017 13:30:00",
+		"finishdatetime" : "20-04-2017 14:35:00",
+		"timespent" : "01:05:00",
 		"lognote"   :"test"  
 
 	}

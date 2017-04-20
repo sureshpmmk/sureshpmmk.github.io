@@ -19,6 +19,7 @@ export class LogtimeComponent implements OnInit {
   hours = 0;
   t;
   employee = JSON.parse(localStorage.getItem('user'));
+  logid = 0;
 
   constructor(private projectService: ProjectService) {  }
 
@@ -34,6 +35,7 @@ export class LogtimeComponent implements OnInit {
   }
 
   startTimeLog() {
+    
     this.date = new Date();
     console.log(this.logForm.value);
   	this.timerRunning = true;
@@ -41,9 +43,11 @@ export class LogtimeComponent implements OnInit {
   	this.t = setInterval(()=> { 
   		this.add();
   	}, 1000);
+    this.logid++;
   }
 
   stopTimeLog() {
+    
     this.date = new Date();
     console.log(this.logForm.value);
   	this.timerRunning = false;

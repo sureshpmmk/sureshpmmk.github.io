@@ -9,6 +9,11 @@
         <div class="card-block">   
           <form class="form-horizontal" #f="ngForm">
             <input 
+                id="logid" 
+                type="hidden" 
+                name="logid"
+                [ngModel]="logid">
+            <input 
                 id="employeeid" 
                 type="hidden" 
                 name="employeeid"
@@ -39,9 +44,9 @@
               <h4>Date : {{ date | date:'d-MMM-y' }}</h4>
 
               <input 
-                id="startdate" 
+                id="datetime" 
                 type="hidden" 
-                name="startdate" 
+                name="datetime" 
                 [ngModel]="date | date:'yyyy-MM-dd HH:mm:ss'">
             </div>
           </div>
@@ -59,9 +64,9 @@
             <div class="col-md-6">
               <h5>{{ time }}</h5>
               <input 
-                id="logtime" 
+                id="timespent" 
                 type="hidden" 
-                name="logtime"
+                name="timespent"
                 [ngModel]="time">
 
               <button 
