@@ -4,7 +4,7 @@
 		"logid" : "100",
 		"employeeid" : "5123",
 		"employeename" : "Test User1",
-		"projectcode" :	"1000",
+		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "2017-04-20 10:30:05 GMT+530",
 		"finishdatetime" : "2017-04-20 12:45:05 GMT+530",

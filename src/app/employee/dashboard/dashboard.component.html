@@ -11,7 +11,7 @@
         <tab heading="Recent Logs" class="col-lg-12">
         <div class="card-block">
           <table class="table table-bordered table-striped table-condensed">
-            <thead>
+            <thead >
               <tr>
                 <th>Date</th>
                 <th>Time Spent</th>
@@ -19,12 +19,12 @@
                 <th>Log Note</th>
               </tr>
             </thead>
-            <tbody >
+            <tbody *ngFor="let log of logsArray">
               <tr>
-                <td>{{ logs.finishdatetime }}</td>
-                <td>{{ logs.timespent }}</td>
-                <td>{{ logs.projectcode }}</td>
-                <td>{{ logs.lognote }}</td>                           
+                <td>{{ log.startdatetime | date:'dd-MM-yyyy' }}</td>
+                <td>{{ log.timespent.split(':')[0] }}h {{ log.timespent.split(':')[1] }}m {{ log.timespent.split(':')[2] }}s  ({{ log.startdatetime | date:'mediumTime' }} - {{ log.finishdatetime | date:'mediumTime' }})</td>
+                <td>{{ log.projecttitle | uppercase }}</td>
+                <td>{{ log.lognote }}</td>                           
               </tr>
             </tbody>
           </table>

@@ -31,7 +31,7 @@
                 [ngModel]="employename"
                 name="employename"                
                 >
-                <option value="" selected="selected">--Select --</option>                
+                <option value="" selected="selected">--Select Employer--</option>                
                 <option 
                       *ngFor="let user of users"
                       value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
@@ -119,7 +119,7 @@
             </thead>
             <tbody *ngFor="let log of employeeprojects;let logIndex=index">
               <tr>                
-                <td>{{ log.projectcode }}</td>                
+                <td>{{ log.projecttitle }}</td>                
                 <td>{{ log.timespent }}</td>               
                 <td style="text-align: center"> 
                 <a href="javascript:void(0)" (click) = "viewprojectLogdetailsforOneuser(log.employeeid,log.projectcode)" >View Details</a>
@@ -165,9 +165,9 @@
             </thead>
             <tbody *ngFor="let log of employeelog;let logIndex=index">
               <tr>                
-                <td>{{ log.projectcode }}</td>                
+                <td>{{ log.projecttitle }}</td>                
                 <td>{{ log.timespent }}</td>               
-                <td>{{ log.logdescription }}</td>
+                <td>{{ log.lognote }}</td>
               </tr>
             </tbody>
           </table>

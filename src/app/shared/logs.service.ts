@@ -57,7 +57,6 @@ export class LogsService {
   		this.logs[logIndex].finishdatetime = finishdatetime;
   		this.logs[logIndex].timespent = timespent;
     	this.logsChanged.next(this.logs.slice());
-    	console.log(this.logs);
   	}
   }
 }

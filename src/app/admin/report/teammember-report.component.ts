@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
 import { Logs } from '../../shared/logs.model';
 import { ReportService } from '../../shared/report.service';
@@ -14,7 +15,7 @@ export class TeammemberReportComponent implements OnInit {
   @ViewChild('f') reportForm: NgForm;	
    
   users; 
-  employename = "--Select--";	
+  employename;	
   employeelog;
   projectName;
   totalTimeSpend = 0;
@@ -27,6 +28,13 @@ export class TeammemberReportComponent implements OnInit {
 
   ngOnInit() {
   	this.users = this.userService.getUsers();
+    this.userService.usersChanged
+      .subscribe(
+          (users: User[]) => {
+            this.users = users;
+          }
+        );
+      this.employename = '';
   }
 
   onViewTeammemberprojectDetails(){
