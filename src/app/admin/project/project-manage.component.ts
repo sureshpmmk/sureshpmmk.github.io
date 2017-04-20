@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Project } from '../../shared/project.model';
-import { ProjectService } from '../../shared/project.service'; 
-import { UserService } from '../../shared/user.service';
+import { ProjectService } from '../../shared/project.service';
 
 import { ProjectUpdateComponent }  from './project-update.component';
 
@@ -13,41 +12,34 @@ import { ProjectUpdateComponent }  from './project-update.component';
 export class ProjectManageComponent implements OnInit {  
   projects: Project[] = [];
   projectsDetails = [];
-  users;
   teammemberNames;
   projectIndex;
 
-  constructor(private projectService: ProjectService, 
-  			  private userService: UserService,
-  			  private projectUpdateComponent: ProjectUpdateComponent,
-  			  private router: Router) { }
+  constructor(private projectService: ProjectService,
+      			  private projectUpdateComponent: ProjectUpdateComponent,
+      			  private router: Router) { }
 
-  ngOnInit() {    
+  ngOnInit() {   
     this.getProjectList();
   }
 
   getProjectList() {
-    this.projectsDetails = [];
-    this.users = this.userService.getUsers();
-    this.projects = this.projectService.getProjects();
-
+    this.projectsDetails = this.projectService.getProjects();
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
-            this.projects = projects;
+            this.projectsDetails = projects;
+            this.setEmployeeNames(this.projectsDetails);
         });
+  }
 
-    this.projectsDetails = this.projects;
-    
-    for(let i in this.projects) {
-      let teammembersIds = this.projects[i].teammembers;
+  setEmployeeNames(projectsDetails) {
+    for(let i in projectsDetails) {
       this.teammemberNames = [];
-      for(let j in teammembersIds) {
-        let employee = this.users.find(u => u.employeeid === teammembersIds[j]);
-        let employeeName = employee.firstname + ' ' + employee.lastname;
-        this.teammemberNames.push(employeeName);
+      for(let teammember of projectsDetails[i].teammembers) {
+        this.teammemberNames.push(teammember['name']);
       }
-      this.projectsDetails[i].teammemberNames = this.teammemberNames;
+      projectsDetails[i].teammemberNames = this.teammemberNames;
     }
   }
 
