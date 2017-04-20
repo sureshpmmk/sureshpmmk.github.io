@@ -2,7 +2,7 @@
 	{
 
 		"logid" : "100",
-		"employeeid" : "5011",
+		"employeeid" : "5123",
 		"employeename" : "Test User1",
 		"projectcode" :	"1000",
 		"projecttitle" : "Test Project1",
@@ -14,9 +14,8 @@
 	},
 	{
 
-		"logid" : "101",
-		
-		"employeeid" : "5101",
+		"logid" : "101",		
+		"employeeid" : "5123",
 		"employeename" : "Test User2",
 		"projectcode" :	"1001",
 		"projecttitle" : "Test Project1",
