@@ -1,10 +1,47 @@
+import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { Project } from './project.model';
 
-export class ProjectService {
+@Injectable()
+export class ProjectService implements OnInit {
   projectsChanged = new Subject<Project[]>();
-  private projects: Project[] = require('./projects.json');//[];
+  private projects: Project[] = [];
+
+  constructor(private http: Http) {
+    this.getProjectsJson();
+  }
+
+  ngOnInit() {
+   // this.getProjectsJson();
+  }
+
+  getProjectsJson() {
+    this.http.get("./src/app/shared/projects.json")
+             .map(
+                (response: Response) => {
+                  const projects: Project[] = response.json();
+                  for(let project of projects) {
+                    if(!project) {
+                      console.log(project);
+                    }
+                  }
+                  return projects;
+                }
+              )
+             .subscribe(
+               (projects: Project[]) => {                 
+                 this.setProjects(projects);
+               }
+              );
+  }
+
+  setProjects(projects: Project[]) {
+    this.projects = projects;
+    this.projectsChanged.next(this.projects.slice());
+  }
 
   getProjects() {
   	return this.projects.slice();

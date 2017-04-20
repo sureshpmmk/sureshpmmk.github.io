@@ -1,3 +1,89 @@
-<p>
-  logtime works!
-</p>
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Log Your Time
+        </div>        
+        <div class="card-block">   
+          <form class="form-horizontal" #f="ngForm">
+            <input 
+                id="employeeid" 
+                type="hidden" 
+                name="employeeid"
+                [ngModel]="employee.employeeid">
+              <input 
+                id="employeename" 
+                type="hidden" 
+                name="employeename"
+                [ngModel]="employee.firstname + ' ' + employee.lastname">
+
+            <div class="form-group">
+              <div class="row">            
+                <div class="col-md-6">
+                  <select 
+                  class="form-control" 
+                  name="project" 
+                  id="project"
+                  [(ngModel)]="project">
+                  <option value=""> Select Project </option>
+                  <option 
+                  *ngFor="let prj of projects"
+                  value="{{ prj.projectcode }}">
+                  {{ prj.projecttitle }}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <h4>Date : {{ date | date:'d-MMM-y' }}</h4>
+
+              <input 
+                id="startdate" 
+                type="hidden" 
+                name="startdate" 
+                [ngModel]="date | date:'yyyy-MM-dd HH:mm:ss'">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <textarea 
+              cols="64" 
+              rows="4"
+              id="lognote"
+              name="lognote"
+              [ngModel]="lognote"></textarea>
+            </div>
+            <div class="col-md-6">
+              <h5>{{ time }}</h5>
+              <input 
+                id="logtime" 
+                type="hidden" 
+                name="logtime"
+                [ngModel]="time">
+
+              <button 
+                class="btn btn-success" 
+                type="button" 
+                *ngIf="!timerRunning" 
+                (click)="startTimeLog()">
+                <i class="icon icon-control-play"></i> 
+                Start </button>
+              <button 
+                class="btn btn-danger" 
+                type="button" 
+                *ngIf="timerRunning" 
+                (click)="stopTimeLog()">
+                <i class="icon icon-control-pause"></i> 
+                Stop </button>
+            </div>
+          </div>
+        </div>
+      </form>      
+    </div>
+  </div>
+</div> <!--/.col-->
+</div><!--/.row-->
+</div>

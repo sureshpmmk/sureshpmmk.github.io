@@ -106,7 +106,7 @@
                     type="date"  
                     name="startdate"
                     required
-                    [ngModel]="startdate">
+                    [ngModel]="startdate | date:'yyyy-MM-dd'">
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>

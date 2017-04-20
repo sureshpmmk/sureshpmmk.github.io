@@ -1,12 +1,50 @@
+import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { User } from './user.model';
 
-export class UserService {
+@Injectable()
+export class UserService implements OnInit {
   usersChanged = new Subject<User[]>();
-  private users: User[] = require('./users.json');
+  private users: User[] = [];
+  
+  constructor(private http: Http) {
+    this.getUserJson();
+  }
 
-  getUsers() {    
+  ngOnInit() {
+    //this.getUserJson();
+  }
+
+  getUserJson() {
+    this.http.get("./src/app/shared/users.json")
+             .map(
+                (response: Response) => {
+                  const users: User[] = response.json();
+                  for(let user of users) {
+                    if(!user) {
+                      console.log(user);
+                    }
+                  }
+                  return users;
+                }
+              )
+             .subscribe(
+               (users: User[]) => {                 
+                 this.setUsers(users);
+               }
+              );
+
+  }
+
+  setUsers(users: User[]) {
+    this.users = users;
+    this.usersChanged.next(this.users.slice());
+  }
+
+  getUsers() {   
   	return this.users.slice();
   }
 
