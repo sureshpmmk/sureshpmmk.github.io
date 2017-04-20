@@ -6,8 +6,8 @@
 		"employeename" : "Test User1",
 		"projectcode" :	"1000",
 		"projecttitle" : "Test Project1",
-		"startdatetime": "20-04-2017 10:30:05",
-		"finishdatetime" : "20-10-2016 12:45:05",
+		"startdatetime": "Thu Apr 20 2017 15:37:11 GMT+0530",
+		"finishdatetime" : "Thu Apr 20 2017 15:37:11 GMT+0530",
 		"timespent" : "02:15:22",
 		"lognote"   :"test"
 
@@ -18,9 +18,9 @@
 		"employeeid" : "5123",
 		"employeename" : "Test User2",
 		"projectcode" :	"1001",
-		"projecttitle" : "Test Project1",
-		"startdatetime": "20-04-2017 12:30:00",
-		"finishdatetime" : "20-04-2017 14:40:00",
+		"projecttitle" : "Test Project2",
+		"startdatetime": "Thu Apr 20 2017 15:37:11 GMT+0530",
+		"finishdatetime" : "Thu Apr 20 2017 15:37:11 GMT+0530",
 		"timespent" : "02:00:02",
 		"lognote"   :"test"
 
@@ -30,10 +30,10 @@
 		"logid" : "102",
 		"employeeid" : "5011",
 		"employeename" : "Test User11",
-		"projectcode" :	"1001",
-		"projecttitle" : "Test Project1",
-		"startdatetime": "20-04-2017 13:30:00",
-		"finishdatetime" : "20-04-2017 14:35:00",
+		"projectcode" :	"1003",
+		"projecttitle" : "Test Project3",
+		"startdatetime": "Thu Apr 20 2017 15:37:11 GMT+0530",
+		"finishdatetime" : "Thu Apr 20 2017 15:37:11 GMT+0530",
 		"timespent" : "01:05:00",
 		"lognote"   :"test"  
 
