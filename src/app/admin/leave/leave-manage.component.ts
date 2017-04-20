@@ -25,7 +25,7 @@ export class LeaveManageComponent implements OnInit {
 
   }
 
-  deleteUser(leaveIndex: number) {
+  deleteLeave(leaveIndex: number) {
   	this.leaveService.removeLeaveEntry(leaveIndex);
   }
 

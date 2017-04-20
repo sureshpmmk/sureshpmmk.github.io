@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Holiday } from '../../shared/holiday.model';
+import { HolidayService } from '../../shared/holiday.service';
 
 @Component({
   selector: 'app-appsetting',
@@ -7,35 +12,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppsettingComponent implements OnInit {
 
-  constructor() { }
+  holidays = [];
+  holiday;
+  holidaydescription = null;
+  holidaydate;
+  buttonText = "Save Holiday";
+  buttonType = "Save";
+  holidayIndex;
 
-  ngOnInit() {
+  @ViewChild('f') holidayForm: NgForm;
+  constructor(private holidayService: HolidayService,
+              private router: Router) { }
 
-  	this.RecreateDynamicTextboxes;
+  ngOnInit() {  
+  	
+  }
+
+  onSaveHoliday(){
+
+  	console.log(this.buttonType);
+  	if(this.buttonType == "Update"){
+  	this.holidays = this.holidayService.updateHolidayEntry(this.holidayIndex,this.holidayForm.value); 
+  	this.holidayForm.reset(); 
+  	this.buttonText = "Save Holiday";
+    this.buttonType = "Save";
+    }
+    else{
+  	this.holidays = this.holidayService.addHolidayEntry(this.holidayForm.value); 
+  	this.holidayForm.reset();
+    }
 
   }
-  AddTextBox() {
-    var div = document.createElement('DIV');
-    div.innerHTML = this.GetDynamicTextBox("");
-    document.getElementById("TextBoxContainer").appendChild(div);
-}
-GetDynamicTextBox(value){
-    return '<input name = "DynamicTextBox" [ng-class]="classMap" type="text" value = "' + value + '" />' +
-            '<input type="button" [ng-class]="classMap" value="Remove" (click) = "RemoveTextBox(this)" />'
-}
+   deleteHoliday(holidayIndex: number) {
+  	this.holidayService.removeHolidayEntry(holidayIndex);
+  }
 
-RemoveTextBox(div) {
-    document.getElementById("TextBoxContainer").removeChild(div.parentNode);
-}
- 
-RecreateDynamicTextboxes() {
-    var values = eval('<%=Values%>');
-    if (values != null) {
-        var html = "";
-        for (var i = 0; i < values.length; i++) {
-            html += "<div>" + this.GetDynamicTextBox(values[i]) + "</div>";
-        }
-        document.getElementById("TextBoxContainer").innerHTML = html;
-    }
-}
+  updateHoliday(holidayIndex: number)
+  {
+  	this.getOneHoliday(holidayIndex); 
+  	this.holidayIndex = holidayIndex; 	
+  }
+
+   getOneHoliday(holidayIndex: number) {
+    
+    this.holiday = this.holidayService.getOneHoliday(holidayIndex);  
+
+
+    this.holidaydescription   = this.holiday.holidaydescription;
+    this.holidaydate  = this.holiday.holidaydate;
+    this.buttonText = "Update Holiday";
+    this.buttonType = "Update";
+       
+  }
+
+  
 }
