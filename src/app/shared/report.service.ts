@@ -14,6 +14,10 @@ export class ReportService {
     return this.filter(this.logs, { employeeid: employeeid, projectcode: projectcode });
   }
 
+  getUsersWorkedUnderProject(projectcode: string) {
+   // console.log(this.logs.filter(u => u.projectcode === projectcode));
+    return this.logs.filter(u => u.projectcode === projectcode);
+  }  
 
   filter(arr, criteria) {
   return arr.filter(function(obj) {

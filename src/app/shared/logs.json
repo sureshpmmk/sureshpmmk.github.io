@@ -4,7 +4,7 @@
 		"logid" : "100",
 		"employeeid" : "5011",
 		"employeename" : "Test User1",
-		"projectcode" :	"1000",
+		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "20-04-2017 10:30:05",
 		"finishdatetime" : "20-10-2016 12:45:05",
@@ -18,7 +18,7 @@
 		
 		"employeeid" : "5101",
 		"employeename" : "Test User2",
-		"projectcode" :	"1001",
+		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "20-04-2017 12:30:00",
 		"finishdatetime" : "20-04-2017 14:40:00",
