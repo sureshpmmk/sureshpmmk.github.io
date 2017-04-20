@@ -1,3 +1,216 @@
-<p>
-  project-report works!
-</p>
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Report - Projects        
+        </div>
+        <div class="card-block">
+          <form class="form-horizontal" (ngSubmit)="onViewTeammemberDetails()" #f="ngForm">
+
+        <!--   <div class="form-group">
+              <label class="form-control-label" for="">ID</label>
+              <input 
+              type="text" 
+              class="form-control"
+              name="holidayid"
+              ngModel
+              required
+              #holidayid="ngModel" 
+               >         
+            </div>
+            <p class="help-block" style="color:red;" *ngIf="!holidayid.valid && holidayid.touched">Please enter a valid Id!</p>  -->
+		   <div class="row">
+		   	<div class="col-lg-4">	
+           <div class="form-group">
+              <label class="form-control-label" for="">Project Name</label>
+              <select 
+                id="projectname" 
+                class="form-control" 
+                [ngModel]="projectname"
+                name="projectname"                
+                >
+                <option value=""> --Select Project-- </option>
+                  <option 
+                  *ngFor="let prj of projects"
+                  value="{{ prj.projectcode }}">
+                  {{ prj.projecttitle }}
+                </option>           
+              </select>               
+            </div>
+
+          <!--   <p class="help-block" style="color:red;" *ngIf="!holidaydescription.valid && holidaydescription.touched">Please enter a valid holiday description!</p>  -->   
+            </div>                   
+			<div class="col-lg-4">	
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">From</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="projectfromdate" 
+                    class="form-control"
+                    style="display:  -webkit-inline-box;" 
+                    type="date"
+                    [ngModel]="projectfromdate"
+                    name="projectfromdate"
+                    required                    >
+                </div>                
+              </div>
+            </div>
+            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+            </div>
+
+			<div class="col-lg-4">	
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">To</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="projecttodate" 
+                    class="form-control"
+                    style="display:  -webkit-inline-box;" 
+                    type="date"
+                    [ngModel]="projecttodate"
+                    name="projecttodate"
+                    required                    >
+                </div>                
+              </div>
+            </div>
+            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+            </div>  
+
+		   </div>
+		    <div class="row">       
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid">View</button>
+              <button class="btn btn-default" type="button">Cancel</button>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+<!--Listing Log Details-->
+  <div id="divLog" *ngIf="flag_showhidedetails === 0 ">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Project List
+           <div style="text-align: right;"><a 
+         href="javascript:void(0)" 
+         (click) = "toggleLineChart()" >{{ chartViewVariable }}</a>		 	
+         </div>
+        </div>
+        <div class="card-block" *ngIf="flag_chart === 0 ">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                
+                <th>User Name</th>
+                <th>Total Time Spent</th> 
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let log of employerdetails;let logIndex=index">
+              <tr>                
+                <td>{{ log.employeename }}</td>                
+                <td>{{ log.timespent }}</td>               
+                <td style="text-align: center"> 
+                <a href="javascript:void(0)" (click) = "viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)" >View Details</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+         <input 
+         type="hidden" 
+         name="buttonType"
+         [ngModel]="buttonType" 
+         >
+        </div>
+      </div>
+    </div>    
+  </div> 
+  </div> 
+
+
+<!--Listing Project Details-->
+  <div id="divLog" *ngIf="flag_showhidedetails !== 0 ">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          {{ userName }}          
+         <div style="text-align: right;"><a 
+         href="javascript:void(0)" 
+         (click) = "goBack()" >Back</a>		 	
+         </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+              <tr>
+                
+                <th>Project Name</th>
+                <th>Total Time Spent</th> 
+                <th>Log Note</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let log of employeelog;let logIndex=index">
+              <tr>                
+                <td>{{ log.projecttitle }}</td>                
+                <td>{{ log.timespent }}</td>               
+                <td>{{ log.lognote }}</td>
+              </tr>
+            </tbody>
+          </table>
+         <input 
+         type="hidden" 
+         name="buttonType"
+         [ngModel]="buttonType" 
+         >
+        </div>
+      </div>
+    </div>    
+  </div> 
+  </div> 	
+<!--Listing Project Details End-->
+
+<!-- chart strting here -->
+<div class="row" *ngIf="flag_chart !== 0 ">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header">
+        Line Chart
+        <div class="card-actions">
+         
+        </div>
+      </div>
+      <div class="card-block">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColours"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    </div>    
+</div>
+<!-- chart End here -->
+
+</div>
+
