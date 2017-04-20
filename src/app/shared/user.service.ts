@@ -57,13 +57,6 @@ export class UserService implements OnInit {
     this.usersChanged.next(this.users.slice());
   }
 
-  updateUser(userIndex: number, user: User) {
-    if (userIndex > -1) {
-      this.users[userIndex] = user;
-      this.usersChanged.next(this.users.slice());
-    }    
-  }
-
   removeUser(userIndex: number) {
     if (userIndex > -1) {
       this.users.splice(userIndex, 1);

@@ -46,4 +46,18 @@ export class LogsService {
   getRecentLogs(employeeid : string) {
     return this.logs.find(e => e.employeeid === employeeid); 
   }
+
+  createLog(log: Logs) {
+  	this.logs.push(log);
+    this.logsChanged.next(this.logs.slice());
+  }
+
+  updateLog(logIndex:number, finishdatetime: string, timespent: string) {
+  	if(logIndex > -1) {
+  		this.logs[logIndex].finishdatetime = finishdatetime;
+  		this.logs[logIndex].timespent = timespent;
+    	this.logsChanged.next(this.logs.slice());
+    	console.log(this.logs);
+  	}
+  }
 }
