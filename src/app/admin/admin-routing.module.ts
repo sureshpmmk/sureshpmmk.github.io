@@ -6,7 +6,7 @@ import { UserManageComponent } from './user/user-manage.component';
 import { ProjectAddComponent } from './project/project-add.component';
 import { ProjectManageComponent } from './project/project-manage.component';
 import { LeaveManageComponent } from './leave/leave-manage.component';
-import { ReportComponent } from './report/report.component';
+import { TeammemberReportComponent } from './report/teammember-report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LeaveAddComponent } from './leave/leave-add.component';
 import { AccountComponent } from './account/account.component';
@@ -14,6 +14,7 @@ import { AppsettingComponent } from './leave/appsetting.component';
 import { ProjectUpdateComponent } from './project/project-update.component';
 import { LeaveUpdateComponent } from './leave/leave-update.component';
 import { UserUpdateComponent } from './user/user-update.component';
+import { ProjectReportComponent } from './report/project-report.component';
 
 const routes: Routes = [
   {
@@ -80,8 +81,8 @@ const routes: Routes = [
     }
   },
   {
-    path: 'reports',
-    component: ReportComponent,
+    path: 'team-reports',
+    component: TeammemberReportComponent,
     data: {
       title: 'Reports'
     }
@@ -112,6 +113,13 @@ const routes: Routes = [
     component: LeaveUpdateComponent,
     data: {
       title: 'Update Leave'
+    }
+  },
+  {
+    path: 'project-reports',
+    component: ProjectReportComponent,
+    data: {
+      title: 'Reports'
     }
   },
 ];
