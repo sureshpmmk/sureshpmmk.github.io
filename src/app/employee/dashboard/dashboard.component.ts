@@ -9,7 +9,8 @@ import { LogsService } from '../../shared/logs.service';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
- //logs: Logs[] = [];
+ logs: Logs[] = [];
+ recentLogs: Logs[]=[];
   date;
   public logsArray= [];
   constructor(private logsService: LogsService, private router: Router){}
@@ -18,12 +19,24 @@ export class DashboardComponent implements OnInit {
   
   ngOnInit() {
     this.date = new Date();
-    //this.logsArray = this.logsService.getRecentLogs(this.user.employeeid);  
+    this.logs = this.logsService.getAllLogs();
+    this.logsService.logsChanged.subscribe(
+      (logs: Logs[]) => {
+            this.logs = logs;
+            this.recentLogs = this.getRecentLogs(this.user.employeeid);
+          }
+        );
+    
+    //this.logs = this.logsService.getRecentLogs(this.user.employeeid);  
    
     if(this.loggedUser == null)
     {
     	 this.router.navigate(['pages/login']);
     }
   }
-
+ getRecentLogs(employeeid : string) {
+   
+    //return this.logs.slice();
+    return this.logs.filter(e => e.employeeid === employeeid); 
+  }
 }

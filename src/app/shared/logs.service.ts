@@ -8,7 +8,7 @@ import { Logs } from './logs.model';
 @Injectable()
 export class LogsService { 
   logsChanged = new Subject<Logs[]>();
-  private logs: Logs[] = []; //require('./logs.json'); //
+  private logs: Logs[] = [];//require('./logs.json'); 
 
   constructor(private http: Http) {
     this.getLogsJson();
@@ -43,9 +43,8 @@ export class LogsService {
     return this.logs.slice(); 
   }
 
-  getRecentLogs(employeeid : string) {
-    return this.logs.find(e => e.employeeid === employeeid); 
-  }
+ 
+  
 
   createLog(log: Logs) {
   	this.logs.push(log);
