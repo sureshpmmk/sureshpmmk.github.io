@@ -59,7 +59,7 @@
                   rows="4"
                   id="lognote"
                   name="lognote"
-                  [ngModel]="lognote"></textarea>
+                  ngModel></textarea>
                 </div>
                 <div class="col-md-6">
                   <h5>{{ time }}</h5>
@@ -93,11 +93,9 @@
   </div><!--/.row-->
   <div class="row">
     <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> All Logs
-        </div>
-        <div class="card-block">
+      <!-- Nav tabs -->
+      <tabset>
+        <tab heading="All Logs">
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>                
@@ -116,8 +114,85 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
+        </tab>
+        <tab heading="Projects">
+          <table class="table table-bordered table-striped table-condensed" *ngIf="viewProjectLogFlag">
+            <thead>
+              <tr>                
+                <th>Project Name</th>
+                <th>Total Time Spent</th> 
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let logProject of logsbyProjects">
+              <tr>                
+                <td>{{ logProject.projecttitle  }}</td>                
+                <td>{{ logProject.timespent.split(':')[0] + 'h ' + logProject.timespent.split(':')[1] + 'm ' }}</td>               
+                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">View Details</a> </td>  
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card" *ngIf="viewProjectLogGridFlag">                
+            <div class="card-block">      
+              <div class="row">
+                <div class="col-lg-8">
+                  <h4>{{ logsProjectDetailed.projecttitle }}</h4>
+                  <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
+                </div>
+                <div class="col-lg-4">
+                  <button class="btn btn-danger" (click)="viewProjectChartLog(logsProjectDetailed.projectcode)">Chart view</button>
+                </div>
+              </div>             
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>                
+                    <th>Date</th>
+                    <th>Time Spent</th> 
+                    <th>Log Note</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let logprojectdetail of logsProjectDetailed">
+                  <tr>                
+                    <td>{{ logprojectdetail.startdatetime | date:'dd-MMM-y' }}</td>                
+                    <td>{{ logprojectdetail.timespent.split(':')[0] + 'h ' + logprojectdetail.timespent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
+                    <td>{{ logprojectdetail.lognote }}</td>  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card" *ngIf="viewProjectLogChartFlag">                
+            <div class="card-block">      
+              <div class="row">
+                <div class="col-lg-8">
+                  <h4>{{ logsProjectDetailed.projecttitle }}</h4>
+                  <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
+                </div>
+                <div class="col-lg-4">
+                  <button class="btn btn-danger" (click)="viewProjectGridLog(logsProjectDetailed.projectcode)">Grid view</button>
+                </div>
+              </div>             
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColours"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+                </canvas>
+              </div>
+            </div>
+          </div>
+
+        </tab>
+        <tab heading="Statics">
+        </tab>
+      </tabset>
     </div>    
-  </div>  
+  </div>   
 </div>

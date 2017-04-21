@@ -8,7 +8,7 @@ import { Logs } from './logs.model';
 @Injectable()
 export class LogsService { 
   logsChanged = new Subject<Logs[]>();
-  private logs: Logs[] = []; //require('./logs.json'); //
+  private logs: Logs[] = [];
 
   constructor(private http: Http) {
     this.getLogsJson();

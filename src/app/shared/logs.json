@@ -1,6 +1,5 @@
 [
 	{
-
 		"logid" : "100",
 		"employeeid" : "5123",
 		"employeename" : "Test User1",
@@ -13,11 +12,10 @@
 
 	},
 	{
-
 		"logid" : "101",		
 		"employeeid" : "5123",
 		"employeename" : "Test User2",
-		"projectcode" :	"1001",
+		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "2017-04-20 16:30:00 GMT+0530",
 		"finishdatetime" : "2017-04-20 14:40:00 GMT+530",
@@ -26,15 +24,38 @@
 
 	},
 	{
-
 		"logid" : "102",
 		"employeeid" : "5011",
 		"employeename" : "Test User11",
-		"projectcode" :	"1001",
+		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "2017-04-20 13:30:00 GMT+530",
 		"finishdatetime" : "2017-04-20 14:35:00 GMT+530",
 		"timespent" : "01:05:00",
+		"lognote"   :"test"  
+
+	},
+	{
+		"logid" : "103",		
+		"employeeid" : "5002",
+		"employeename" : "Test User2",
+		"projectcode" :	"PRO002",
+		"projecttitle" : "Test Project2",
+		"startdatetime": "2017-04-20 14:30:00 GMT+0530",
+		"finishdatetime" : "2017-04-20 16:40:02 GMT+530",
+		"timespent" : "02:10:02",
+		"lognote"   :"test"
+
+	},
+	{
+		"logid" : "104",
+		"employeeid" : "5003",
+		"employeename" : "Test User3",
+		"projectcode" :	"PRO002",
+		"projecttitle" : "Test Project2",
+		"startdatetime": "2017-04-20 13:30:00 GMT+530",
+		"finishdatetime" : "2017-04-20 14:05:00 GMT+530",
+		"timespent" : "00:35:00",
 		"lognote"   :"test"  
 
 	}
