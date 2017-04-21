@@ -22,7 +22,7 @@
             <tbody *ngFor="let log of recentLogs">
               <tr>
                 <td>{{ log.startdatetime | date:'dd-MM-yyyy' }}</td>
-                <td>{{ log.timespent.split(':')[0] }}h {{ log.timespent.split(':')[1] }}m {{ log.timespent.split(':')[2] }}s  ({{ log.startdatetime | date:'mediumTime' }} - {{ log.finishdatetime | date:'mediumTime' }})</td>
+                <td>{{ log.timespent.split(':')[0] }}h {{ log.timespent.split(':')[1] }}m   ({{ log.startdatetime | date:'h:mma' }} - {{ log.finishdatetime | date:'h:mma' }})</td>
                 <td>{{ log.projecttitle | uppercase }}</td>
                 <td>{{ log.lognote }}</td>                           
               </tr>
