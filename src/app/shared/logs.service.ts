@@ -43,9 +43,8 @@ export class LogsService {
     return this.logs.slice(); 
   }
 
-  getRecentLogs(employeeid : string) {
-    return this.logs.find(e => e.employeeid === employeeid); 
-  }
+ 
+  
 
   createLog(log: Logs) {
   	this.logs.push(log);
