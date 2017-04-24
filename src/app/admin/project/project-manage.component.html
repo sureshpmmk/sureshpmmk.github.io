@@ -1,10 +1,159 @@
 <div class="animated fadeIn">
   <!--/.row-->
+  <!-- add form start -->
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Add New Project
+         <!--  <div class="card-actions">
+            <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+            <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
+            <a href="#" class="btn-close"><i class="icon-close"></i></a>
+          </div> -->
+        </div>
+        <div class="card-block">
+          <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="row">
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Project Code</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-eye"></i></span>
+                  <input 
+                    id="projectcode" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="projectcode"
+                    required
+                    #projectcode="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Project Title</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-screen-desktop"></i></span>
+                  <input 
+                    id="projecttitle" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="projecttitle"
+                    required
+                    #projecttitle="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Hours Required</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-hourglass"></i></span>
+                  <input 
+                    id="hoursrequired" 
+                    class="form-control" 
+                    type="text"                    
+                    ngModel
+                    name="hoursrequired"
+                    required
+                    #hoursrequired="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Team Members</label>
+              <div class="input-prepend input-group">
+                <span class="input-group-addon"><i class="icon-people"></i></span>
+                <!-- <select 
+                  class="form-control" 
+                  multiple="" 
+                  name="teammembers" 
+                  id="teammembers" 
+                  class="form-control"
+                  [ngModel]="teammembers">
+                    <option value="1">User1</option>
+                    <option value="2">User2</option>
+                    <option value="3">User3</option>
+                    <option value="4">User4</option>
+                    <option value="5">User5</option>
+                    <option value="6">User6</option>
+                </select> -->
+
+                <select 
+                    class="form-control" 
+                    name="teammembers" 
+                    id="teammembers"
+                    multiple=""  
+                    [(ngModel)]="teammembers">
+                    <option 
+                      *ngFor="let user of users"
+                      value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Start Date</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="startdate" 
+                    class="form-control" 
+                    type="date"  
+                    name="startdate"
+                    style="display:  -webkit-inline-box;" 
+                    required
+                    [ngModel]="startdate | date:'yyyy-MM-dd'">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="">Status</label>
+              <div class="input-prepend input-group">
+                <span class="input-group-addon"><i class="icon-flag"></i></span>
+                <select 
+                  id="status" 
+                  class="form-control"                  
+                  [ngModel]="status"
+                  name="status">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <input id="hourstaken" type="hidden" name="hourstaken" ngModel>
+            <input id="finishdate" type="hidden" name="finishdate" ngModel>
+            <div class="col-lg-12">
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid">Save changes</button>
+              <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+            </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+  <!-- add form end -->
+
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-align-justify"></i> Manage User
+          <i class="fa fa-align-justify"></i> Manage Projects
         </div>
         <div class="card-block">
           <table class="table table-bordered table-striped table-condensed">
@@ -35,17 +184,17 @@
                   <button 
                     class="btn btn-success" 
                     (click)="changeProjectStatus(project.projectcode, 'active')"
-                    *ngIf="project.status !== 'active'">Activate</button>
+                    *ngIf="project.status !== 'active'"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Activate</button>
                   <button
                     class="btn btn-secondary" 
                     (click)="changeProjectStatus(project.projectcode, 'deactive')"
-                    *ngIf="project.status === 'active'">Deactivate</button>
+                    *ngIf="project.status === 'active'"><i class="fa fa-eye-slash" aria-hidden="true"></i>&nbsp;Deactivate</button>
                   <button 
                     class="btn btn-primary" 
-                    (click)="updateProject(project.projectcode)">Edit</button>
+                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
                   <button 
                     class="btn btn-danger" 
-                    (click)="deleteProject(project.projectcode)">Delete</button>
+                    (click)="deleteProject(project.projectcode)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   

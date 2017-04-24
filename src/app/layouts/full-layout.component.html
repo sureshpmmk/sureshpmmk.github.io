@@ -61,39 +61,32 @@
             </li>           
           </ul>
         </li>
-        <li class="nav-item nav-dropdown" routerLinkActive="open">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Project </a>
-          <ul class="nav-dropdown-items">
+        <li class="nav-item" routerLinkActive="open">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/manage-projects']"><i class="icon-star"></i> Projects </a>
+         <!--  <ul class="nav-dropdown-items">
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/manage-project']"><i class="icon-star"></i> Manage Projects </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/add-project']"><i class="icon-star"></i> Add Projects</a>
             </li>
-          </ul>
+          </ul> -->
         </li>
         <li class="nav-item nav-dropdown" routerLinkActive="open">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Leave </a>
-          <ul class="nav-dropdown-items">
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/manage-leave']"><i class="icon-star"></i> Manage Leaves </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/add-leave']"><i class="icon-star"></i> Add Leave</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/app-setting']"><i class="icon-star"></i> Add Holidays</a>
-            </li>
-          </ul>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/manage-leaves']"><i class="icon-star"></i> Employee Leaves </a>          
         </li>
         <li class="nav-item nav-dropdown" routerLinkActive="open">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Report </a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/app-setting']"><i class="icon-star"></i> Holidays </a>          
+        </li>
+
+        <li class="nav-item nav-dropdown" routerLinkActive="open">
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Reports </a>
           <ul class="nav-dropdown-items">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/team-reports']"><i class="icon-star"></i> Team Member </a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/team-reports']"><i class="icon-star"></i> Employee Reports </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/project-reports']"><i class="icon-star"></i>Project Report</a>
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/project-reports']"><i class="icon-star"></i>Project Reports</a>
             </li>
            <!--  <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin/reports']"><i class="icon-star"></i>General Report</a>

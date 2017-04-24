@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { Leave } from '../../shared/leave.model';
 import { LeaveService } from '../../shared/leave.service'; 
+import { User } from '../../shared/user.model';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-leave',
@@ -11,7 +14,12 @@ import { LeaveService } from '../../shared/leave.service';
 export class LeaveManageComponent implements OnInit {
 
   leaves: Leave[] = [];
-  constructor(private leaveService: LeaveService,private router: Router) { }
+  @ViewChild('f') leaveForm: NgForm;
+  defaultLeave;
+  defaultName;
+  users;
+  constructor(private leaveService: LeaveService,private router: Router,
+    private userService: UserService) { }
 
   ngOnInit() {
 
@@ -23,6 +31,14 @@ export class LeaveManageComponent implements OnInit {
           }
         )
 
+    this.users     = this.userService.getUsers();
+    this.userService.usersChanged
+      .subscribe(
+          (users: User[]) => {
+            this.users = users;
+          }
+        ); 
+
   }
 
   deleteLeave(leaveIndex: number) {
@@ -30,7 +46,12 @@ export class LeaveManageComponent implements OnInit {
   }
 
   updateLeave(leaveIndex: number) {
-    this.router.navigate(['/admin/update-leave', leaveIndex]);
+    this.router.navigate(['/admin/update-leaves', leaveIndex]);
+  }
+  onSaveLeave(){
+    this.leaveService.addLeaveEntry(this.leaveForm.value);
+    this.router.navigate(['/admin/manage-leaves']);
+
   }
 
 }

@@ -45,6 +45,7 @@
                   <input 
                     id="holidaydate" 
                     class="form-control"
+                    style="display:  -webkit-inline-box;" 
                     type="date"
                     [ngModel]="holidaydate"
                     name="holidaydate"
@@ -94,11 +95,11 @@
                 <button 
                     class="btn btn-primary" 
                     (click)="updateHoliday(holidayIndex)">
-                    <i class="fa fa-star"></i>&nbsp;Update</button>               
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Update</button>               
                   <button 
                     class="btn btn-danger" 
                     (click)="deleteHoliday(holidayIndex)">
-                    <i class="fa fa-rss"></i>&nbsp;Delete</button>   
+                   <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button>   
                      
                 </td>
               </tr>

@@ -36,8 +36,9 @@ export class LeaveUpdateComponent implements OnInit {
   }
 
   onSaveLeave(){
-  	this.leaveService.addLeaveEntry(this.leaveForm.value);
-  	this.router.navigate(['/admin/manage-leave']);
+
+  	this.leaveService.updateLeaveEntry(this.passedleaveIndex,this.leaveForm.value);
+  	this.router.navigate(['/admin/manage-leaves']);
 
   }
 

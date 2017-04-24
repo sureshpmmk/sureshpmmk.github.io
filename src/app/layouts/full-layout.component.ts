@@ -3,7 +3,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './full-layout.component.html'
+  templateUrl: './full-layout.component.html',
 })
 export class FullLayoutComponent implements OnInit {
 
