@@ -1,10 +1,146 @@
 <div class="animated fadeIn">
+<!-- add form start -->
+
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Add New User
+         <!--  <div class="card-actions">
+            <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
+            <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
+            <a href="#" class="btn-close"><i class="icon-close"></i></a>
+          </div> -->
+        </div>
+        <div class="card-block">
+          <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="row">         
+           
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Employee ID</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-key"></i></span>
+                  <input 
+                    id="employeeid" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="employeeid"
+                    required
+                    #employeeid="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Firstname</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <input 
+                    id="firstname" 
+                    class="form-control" 
+                    type="text"                    
+                    ngModel
+                    name="firstname"
+                    required
+                    #firstname="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Lastname</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <input
+                    id="lastname" 
+                    class="form-control"
+                    type="text"                    
+                    ngModel
+                    name="lastname"
+                    required
+                    #lastname="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>           
+            
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Email</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon">@</span>
+                  <input 
+                    id="email" 
+                    class="form-control"
+                    type="text"                    
+                    ngModel
+                    name="email"
+                    required
+                    #email="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Phone Number</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-phone"></i></span>
+                  <input 
+                  id="phonenumber" 
+                  class="form-control"
+                  type="text"
+                  ngModel
+                  name="phonenumber"
+                  required
+                  #phonenumber="ngModel">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="">Shift Type</label>
+              <select 
+                id="shift" 
+                class="form-control"
+                [ngModel]="defaultShift"
+                name="shift">
+                <option value="morning">Morning Shift</option>
+                <option value="evening">Evening Shift</option>
+                <option value="night">Night Shift</option>
+              </select>
+              <input type="hidden" name="password" [ngModel]="randPassword">
+              <input type="hidden" name="usertype" [ngModel]="defaultUsertype"> 
+              <input type="hidden" name="status" [ngModel]="defaultStatus"> 
+            </div>
+            <div class="col-lg-12" style="text-align: center;">
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid">Save changes</button>
+              <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+            </div>  
+            </div>                     
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+
+<!-- add form end -->
   <!--/.row-->
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-align-justify"></i> Manage User
+          <i class="fa fa-align-justify"></i> Employees
         </div>
         <div class="card-block">
           <table class="table table-bordered table-striped table-condensed">

@@ -32,17 +32,17 @@ const routes: Routes = [
     }
   },
   {
-    path: 'manage-user',
+    path: 'manage-employee',
     component: UserManageComponent,
     data: {
-      title: 'Manage User'
+      title: 'Manage Employees'
     }
   },
   {
-    path: 'update-user/:employeeId',
+    path: 'update-employee/:employeeId',
     component: UserUpdateComponent,
     data: {
-      title: 'Update User'
+      title: 'Update Employee'
     }
   },
   {
