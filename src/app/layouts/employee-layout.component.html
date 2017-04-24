@@ -3,9 +3,9 @@
   <!-- <a class="navbar-brand" href="#"></a> -->
   
   <ul class="nav navbar-nav hidden-md-down">
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
-    </li>
+    </li> -->
     <li class="nav-item px-1">
       <a class="nav-link"  [routerLink]="['/employee/dashboard']">Dashboard</a>
     </li>
@@ -16,8 +16,7 @@
       <a class="nav-link"  [routerLink]="['/employee/reports']">Reports</a>
     </li>
   </ul>
-  <ul class="nav navbar-nav ml-auto">
-   
+  <ul class="nav navbar-nav ml-auto">   
     <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
         <img src="assets/img/avatars/5.jpg" class="img-avatar" alt="employee@bootstrapmaster.com">
@@ -33,55 +32,55 @@
       <a class="nav-link " ></a>
     </li>
   </ul>
-  
 </header>
 
 <div class="app-body">
-  <div class="sidebar">
+  <!-- <div class="sidebar">
     <nav class="sidebar-nav">
       <ul class="nav">
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/employee/dashboard']"><i class="icon-speedometer"></i> Dashboard 
-          <!-- <span class="badge badge-info">NEW</span> -->
           </a>
         </li>
         
         <li class="divider"></li>        
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/employee/log-time']"><i class="icon-hourglass"></i> Log Your Time 
-          <!-- <span class="badge badge-info">NEW</span> -->
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['/employee/reports']"><i class="icon-chart"></i> Reports
-          <!-- <span class="badge badge-info">NEW</span> -->
           </a>
         </li>
         <li class="divider"></li>
      
       </ul>
     </nav>
-  </div>
+  </div> -->
 
   <!-- Main content -->
   <main class="main">
 
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
-      <breadcrumbs></breadcrumbs>
+      <!-- <breadcrumbs></breadcrumbs> -->
       
       <!-- Breadcrumb Menu-->
-      <li class="breadcrumb-menu hidden-md-down">
-        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+      <!-- <li class="breadcrumb-menu">
+        <div class="btn-group" > -->
           <!--<a class="btn btn-secondary" href="#"><i class="icon-speech"></i></a>-->
-          <a class="btn btn-secondary" [routerLink]="['/employee/dashboard']"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+          <!-- <a class="btn btn-secondary" [routerLink]="['/employee/dashboard']"><i class="icon-graph"></i> &nbsp;Dashboard</a> -->
           <!--<a class="btn btn-secondary"  [routerLink]="['/employee/settings']"><i class="icon-settings"></i> &nbsp;Settings</a>-->
-        </div>
-      </li>
+          
+        <!-- </div>
+
+      </li> -->
+      <employee-header></employee-header>
       
     </ol>
 
     <div class="container-fluid">
+
       <router-outlet></router-outlet>
     </div><!-- /.conainer-fluid -->
   </main>
@@ -339,6 +338,8 @@
       </tab>
     </ng-template>
   </aside>
+
+
 </div>
 
 <footer class="app-footer">

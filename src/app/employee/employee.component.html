@@ -1,0 +1,99 @@
+ <!--/.row-->
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div class="card">
+        <!-- <div class="card-header"> 
+          <i class="fa fa-edit"></i>
+        </div>         -->
+        <div class="card-block">  
+          <h5>Log Your Time</h5> 
+          <form class="form-horizontal" #f="ngForm">
+            <input 
+                id="logid" 
+                type="hidden" 
+                name="logid"
+                [ngModel]="logid">
+            <input 
+                id="employeeid" 
+                type="hidden" 
+                name="employeeid"
+                [ngModel]="employee.employeeid">
+              <input 
+                id="employeename" 
+                type="hidden" 
+                name="employeename"
+                [ngModel]="employee.firstname + ' ' + employee.lastname">
+            
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <!-- <div class="row">    -->         
+                    <div class="col-md-12">
+                      <select 
+                        class="form-control" 
+                        name="project" 
+                        id="project"
+                        [(ngModel)]="project"
+                        ngDisabled="timerRunning">
+                          <option value=""> Select Process </option>
+                          <option 
+                            *ngFor="let prj of projects"
+                            value="{{ prj.projectcode }}">
+                            {{ prj.projecttitle }}
+                          </option>
+                      </select>
+                    </div>
+                   <!-- <div class="col-md-12">
+                       <h4>Date : {{ date | date:'d-MMM-y' }}</h4> -->
+                      <input 
+                        id="datetime" 
+                        type="hidden" 
+                        name="datetime" 
+                        [ngModel]="date | date:'yyyy-MM-dd HH:mm:ss Z'">
+                     <!--  </div>
+                </div> -->
+                </div>
+                <div class="form-group">
+                 <!--  <div class="row"> -->
+                    <div class="col-md-12">
+                      <textarea 
+                        style="width: 100%" 
+                        id="lognote"
+                        name="lognote"
+                        ngModel></textarea>
+                    </div>
+                  <!-- </div> -->
+                </div>
+              </div>             
+              <div class="col-md-4">
+                <div class="col-md-12 log-timmer">
+                  <h3>{{ time }}</h3>
+                  <input 
+                    id="timespent" 
+                    type="hidden" 
+                    name="timespent"
+                    [ngModel]="time">
+
+                  <button 
+                    class="btn btn-success btn-lg" 
+                    type="button" 
+                    *ngIf="!timerRunning" 
+                    (click)="startTimeLog()">
+                    <i class="icon icon-control-play"></i> 
+                    Start </button>
+                  <button 
+                    class="btn btn-danger btn-lg" 
+                    type="button" 
+                    *ngIf="timerRunning" 
+                    (click)="stopTimeLog()">
+                    <i class="icon icon-control-pause"></i> 
+                    Stop </button>
+                </div>
+              </div>
+            </div>
+          </form>      
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
