@@ -1,101 +1,8 @@
-<div class="animated fadeIn">
-  <!--/.row-->
+<div class="animated fadeIn"> 
   <div class="row">
     <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-edit"></i>Log Your Time
-        </div>        
-        <div class="card-block">   
-          <form class="form-horizontal" #f="ngForm">
-            <input 
-                id="logid" 
-                type="hidden" 
-                name="logid"
-                [ngModel]="logid">
-            <input 
-                id="employeeid" 
-                type="hidden" 
-                name="employeeid"
-                [ngModel]="employee.employeeid">
-              <input 
-                id="employeename" 
-                type="hidden" 
-                name="employeename"
-                [ngModel]="employee.firstname + ' ' + employee.lastname">
-
-            <div class="form-group">
-              <div class="row">            
-                <div class="col-md-6">
-                  <select 
-                    class="form-control" 
-                    name="project" 
-                    id="project"
-                    [(ngModel)]="project"
-                    ngDisabled="timerRunning">
-                      <option value=""> Select Process </option>
-                      <option 
-                        *ngFor="let prj of projects"
-                        value="{{ prj.projectcode }}">
-                        {{ prj.projecttitle }}
-                      </option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <h4>Date : {{ date | date:'d-MMM-y' }}</h4>
-                  <input 
-                    id="datetime" 
-                    type="hidden" 
-                    name="datetime" 
-                    [ngModel]="date | date:'yyyy-MM-dd HH:mm:ss Z'">
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-md-6">
-                  <textarea 
-                  cols="64" 
-                  rows="4"
-                  id="lognote"
-                  name="lognote"
-                  ngModel></textarea>
-                </div>
-                <div class="col-md-6">
-                  <h5>{{ time }}</h5>
-                  <input 
-                    id="timespent" 
-                    type="hidden" 
-                    name="timespent"
-                    [ngModel]="time">
-
-                  <button 
-                    class="btn btn-success" 
-                    type="button" 
-                    *ngIf="!timerRunning" 
-                    (click)="startTimeLog()">
-                    <i class="icon icon-control-play"></i> 
-                    Start </button>
-                  <button 
-                    class="btn btn-danger" 
-                    type="button" 
-                    *ngIf="timerRunning" 
-                    (click)="stopTimeLog()">
-                    <i class="icon icon-control-pause"></i> 
-                    Stop </button>
-                </div>
-              </div>
-            </div>
-          </form>      
-        </div>
-      </div>
-    </div> <!--/.col-->
-  </div><!--/.row-->
-  <div class="row">
-    <div class="col-lg-12">
-      <!-- Nav tabs -->
-      <tabset>
-        <tab heading="All Logs">
+      <div class="card">                
+        <div class="card-block"> 
           <table class="table table-bordered table-striped table-condensed">
             <thead>
               <tr>                
@@ -106,7 +13,7 @@
               </tr>
             </thead>
             <tbody *ngFor="let log of logs">
-              <tr>                
+              <tr *ngIf="log.finishdatetime !== ''">                
                 <td>{{ log.startdatetime | date:'dd-MMM-y' }}</td>                
                 <td>{{ log.timespent.split(':')[0] + 'h ' + log.timespent.split(':')[1] + 'm ' }} ( {{ log.startdatetime | date:'h:mma' }} - {{ log.finishdatetime | date:'h:mma' }} )</td>               
                 <td>{{ log.projecttitle }}</td>  
@@ -114,85 +21,8 @@
               </tr>
             </tbody>
           </table>
-        </tab>
-        <tab heading="Projects">
-          <table class="table table-bordered table-striped table-condensed" *ngIf="viewProjectLogFlag">
-            <thead>
-              <tr>                
-                <th>Project Name</th>
-                <th>Total Time Spent</th> 
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let logProject of logsbyProjects">
-              <tr>                
-                <td>{{ logProject.projecttitle  }}</td>                
-                <td>{{ logProject.timespent.split(':')[0] + 'h ' + logProject.timespent.split(':')[1] + 'm ' }}</td>               
-                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">View Details</a> </td>  
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="card" *ngIf="viewProjectLogGridFlag">                
-            <div class="card-block">      
-              <div class="row">
-                <div class="col-lg-8">
-                  <h4>{{ logsProjectDetailed.projecttitle }}</h4>
-                  <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
-                </div>
-                <div class="col-lg-4">
-                  <button class="btn btn-danger" (click)="viewProjectChartLog(logsProjectDetailed.projectcode)">Chart view</button>
-                </div>
-              </div>             
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>                
-                    <th>Date</th>
-                    <th>Time Spent</th> 
-                    <th>Log Note</th>
-                  </tr>
-                </thead>
-                <tbody *ngFor="let logprojectdetail of logsProjectDetailed">
-                  <tr>                
-                    <td>{{ logprojectdetail.startdatetime | date:'dd-MMM-y' }}</td>                
-                    <td>{{ logprojectdetail.timespent.split(':')[0] + 'h ' + logprojectdetail.timespent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
-                    <td>{{ logprojectdetail.lognote }}</td>  
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="card" *ngIf="viewProjectLogChartFlag">                
-            <div class="card-block">      
-              <div class="row">
-                <div class="col-lg-8">
-                  <h4>{{ logsProjectDetailed.projecttitle }}</h4>
-                  <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
-                </div>
-                <div class="col-lg-4">
-                  <button class="btn btn-danger" (click)="viewProjectGridLog(logsProjectDetailed.projectcode)">Grid view</button>
-                </div>
-              </div>             
-              <div class="chart-wrapper">
-                <canvas baseChart class="chart"
-                  [datasets]="lineChartData"
-                  [labels]="lineChartLabels"
-                  [options]="lineChartOptions"
-                  [colors]="lineChartColours"
-                  [legend]="lineChartLegend"
-                  [chartType]="lineChartType"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)">
-                </canvas>
-              </div>
-            </div>
-          </div>
-
-        </tab>
-        <tab heading="Statics">
-        </tab>
-      </tabset>
+        </div>
+      </div>
     </div>    
   </div>   
 </div>

@@ -31,6 +31,7 @@ import { LeaveService } from './shared/leave.service';
 import { HolidayService } from './shared/holiday.service';
 import { ReportService } from './shared/report.service';
 import { LogsService } from './shared/logs.service';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { LogsService } from './shared/logs.service';
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-    EmployeeLayoutComponent
+    EmployeeLayoutComponent,
+    EmployeeComponent
   ],
   providers: [{
       provide: LocationStrategy,

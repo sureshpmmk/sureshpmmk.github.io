@@ -11,7 +11,10 @@ export class EmployeeLayoutComponent implements OnInit {
   public status: {isopen: boolean} = {isopen: false};
   public loggedUser = localStorage.getItem("username");
 
-  constructor(private authService : AuthenticationService) { }
+
+  constructor(private authService : AuthenticationService) { 
+    document.querySelector('body').classList.add('sidebar-hidden');
+  }
 
   public toggled(open: boolean): void {
     console.log('Dropdown is now: ', open);

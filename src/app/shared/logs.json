@@ -5,8 +5,8 @@
 		"employeename" : "Test User1",
 		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
-		"startdatetime": "2017-04-20 10:30:05 GMT+530",
-		"finishdatetime" : "2017-04-20 12:45:05 GMT+530",
+		"startdatetime": "2017-04-20 10:30:05 GMT+0530",
+		"finishdatetime" : "2017-04-20 12:45:05 GMT+0530",
 		"timespent" : "02:15:22",
 		"lognote"   :"test"
 
@@ -18,7 +18,7 @@
 		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
 		"startdatetime": "2017-04-20 16:30:00 GMT+0530",
-		"finishdatetime" : "2017-04-20 14:40:00 GMT+530",
+		"finishdatetime" : "2017-04-20 14:40:00 GMT+0530",
 		"timespent" : "02:00:02",
 		"lognote"   :"test"
 
@@ -29,8 +29,8 @@
 		"employeename" : "Test User11",
 		"projectcode" :	"PRO001",
 		"projecttitle" : "Test Project1",
-		"startdatetime": "2017-04-20 13:30:00 GMT+530",
-		"finishdatetime" : "2017-04-20 14:35:00 GMT+530",
+		"startdatetime": "2017-04-21 13:30:00 GMT+0530",
+		"finishdatetime" : "2017-04-21 14:35:00 GMT+0530",
 		"timespent" : "01:05:00",
 		"lognote"   :"test"  
 
@@ -42,7 +42,7 @@
 		"projectcode" :	"PRO002",
 		"projecttitle" : "Test Project2",
 		"startdatetime": "2017-04-20 14:30:00 GMT+0530",
-		"finishdatetime" : "2017-04-20 16:40:02 GMT+530",
+		"finishdatetime" : "2017-04-20 16:40:02 GMT+0530",
 		"timespent" : "02:10:02",
 		"lognote"   :"test"
 
@@ -53,8 +53,8 @@
 		"employeename" : "Test User3",
 		"projectcode" :	"PRO002",
 		"projecttitle" : "Test Project2",
-		"startdatetime": "2017-04-20 13:30:00 GMT+530",
-		"finishdatetime" : "2017-04-20 14:05:00 GMT+530",
+		"startdatetime": "2017-04-20 13:30:00 GMT+0530",
+		"finishdatetime" : "2017-04-20 14:05:00 GMT+0530",
 		"timespent" : "00:35:00",
 		"lognote"   :"test"  
 
