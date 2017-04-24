@@ -32,17 +32,17 @@ const routes: Routes = [
     }
   },
   {
-    path: 'manage-user',
+    path: 'manage-employee',
     component: UserManageComponent,
     data: {
-      title: 'Manage User'
+      title: 'Manage Employees'
     }
   },
   {
-    path: 'update-user/:employeeId',
+    path: 'update-employee/:employeeId',
     component: UserUpdateComponent,
     data: {
-      title: 'Update User'
+      title: 'Update Employee'
     }
   },
   {
@@ -53,10 +53,10 @@ const routes: Routes = [
     }
   },
   {
-    path: 'manage-project',
+    path: 'manage-projects',
     component: ProjectManageComponent,
     data: {
-      title: 'Manage Project'
+      title: 'Manage Projects'
     }
   },
   {
@@ -74,10 +74,10 @@ const routes: Routes = [
     }
   },
   {
-    path: 'manage-leave',
+    path: 'manage-leaves',
     component: LeaveManageComponent,
     data: {
-      title: 'Manage Leave'
+      title: 'Manage Leaves'
     }
   },
   {
@@ -109,7 +109,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'update-leave/:leaveIndex',
+    path: 'update-leaves/:leaveIndex',
     component: LeaveUpdateComponent,
     data: {
       title: 'Update Leave'

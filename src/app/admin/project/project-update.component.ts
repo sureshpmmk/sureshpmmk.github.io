@@ -100,11 +100,11 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
     this.projectcode  = this.projectForm.value['projectcode'];
     this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(this.projectcode); 
   	this.projectService.updateProjectDetails(this.projectIndex, this.projectForm.value);
-    this.router.navigate(['/admin/manage-project']);
+    this.router.navigate(['/admin/manage-projects']);
   }
 
   cancel() {
-    this.router.navigate(['/admin/manage-project']);
+    this.router.navigate(['/admin/manage-projects']);
   }
 
 }

@@ -68,11 +68,11 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     this.employeeid = this.userForm.value['employeeid'];
     this.userIndex = this.users.map((user) => user.employeeid).indexOf(this.employeeid); 
   	this.userService.updateUserDetails(this.userIndex, this.userForm.value);
-    this.router.navigate(['/admin/manage-user']);
+    this.router.navigate(['/admin/manage-employee']);
   }
 
   cancel() {
-    this.router.navigate(['/admin/manage-user']);
+    this.router.navigate(['/admin/manage-employee']);
   }
 
 }

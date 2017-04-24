@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service'; 
@@ -8,10 +9,21 @@ import { UserService } from '../../shared/user.service';
   templateUrl: './user-manage.component.html'
 })
 export class UserManageComponent implements OnInit {
+  @ViewChild('f') userForm: NgForm;
   users: User[] = [];
-  userIndex;
+  userIndex;  
+  defaultUsertype;
+  defaultShift;
+  randPassword;
+  defaultStatus;
 
   constructor(private userService: UserService, private router: Router) { 
+
+    this.defaultUsertype = 'user';
+    this.defaultShift    = 'morning';
+    this.randPassword    = '12345';
+    this.defaultStatus   = 'active';
+
   }
 
   ngOnInit() {
@@ -25,7 +37,7 @@ export class UserManageComponent implements OnInit {
   }
 
   updateUser(employeeId: string) {
-    this.router.navigate(['/admin/update-user', employeeId]);
+    this.router.navigate(['/admin/update-employee', employeeId]);
   }
 
   deleteUser(employeeId: string) {
@@ -36,5 +48,16 @@ export class UserManageComponent implements OnInit {
   changeStatus(employeeId: string, status: string) {
     this.userIndex = this.users.map((user) => user.employeeid).indexOf(employeeId);
     this.userService.updateUserStatus(this.userIndex, status);
+  }
+  onSubmit() {
+    this.userService.addUser(this.userForm.value);
+    this.router.navigate(['/admin/manage-employee']);
+    this.userForm.reset();
+
+  }
+
+  cancel() {
+    this.router.navigate(['/admin/manage-employee']);
+    this.userForm.reset();
   }
 }

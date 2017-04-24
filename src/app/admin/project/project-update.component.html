@@ -1,10 +1,10 @@
 <div class="animated fadeIn">
   <!--/.row-->
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Edit Project
+          <i class="fa fa-edit"></i>Edit Projects
          <!--  <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
             <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
@@ -13,7 +13,8 @@
         </div>
         <div class="card-block">
           <form class="form-horizontal" (ngSubmit)="updateProject()" #f="ngForm">
-            <div class="form-group">
+          <div class="row">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Project Code</label>
               <div class="controls">
                 <div class="input-prepend input-group">
@@ -29,7 +30,7 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Project Title</label>
               <div class="controls">
                 <div class="input-prepend input-group">
@@ -45,7 +46,7 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Hours Required</label>
               <div class="controls">
                 <div class="input-prepend input-group">
@@ -61,7 +62,7 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Hours Taken</label>
               <div class="controls">
                 <div class="input-prepend input-group">
@@ -77,7 +78,7 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Team Members</label>
               <div class="input-prepend input-group">
                 <span class="input-group-addon"><i class="icon-people"></i></span>
@@ -108,7 +109,7 @@
                   </select>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Start Date</label>
               <div class="controls">
                 <div class="input-prepend input-group">
@@ -116,6 +117,7 @@
                   <input 
                     id="startdate" 
                     class="form-control" 
+                    style="display:  -webkit-inline-box;" 
                     type="date"  
                     name="startdate"
                     required
@@ -125,14 +127,15 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Finish Date</label>
               <div class="controls">
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-calendar"></i></span>
                   <input 
                     id="finishdate" 
-                    class="form-control" 
+                    class="form-control"
+                    style="display:  -webkit-inline-box;"  
                     type="date"  
                     name="finishdate"
                     required
@@ -141,7 +144,7 @@
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="">Status</label>
               <div class="input-prepend input-group">
                 <span class="input-group-addon"><i class="icon-flag"></i></span>
@@ -156,13 +159,15 @@
                 </select>
               </div>
             </div>
-
+            <div class="form-group col-lg-12">
             <div class="form-actions">
               <button
                 type="submit" 
                 class="btn btn-primary"
                 [disabled]="!f.valid">Save changes</button>
               <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+            </div>
+            </div>
             </div>
           </form>
         </div>

@@ -1,3 +1,116 @@
-<p>
-  account works!
-</p>
+<div class="animated fadeIn">
+  <!--/.row-->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-edit"></i>Edit Account
+        </div>        
+        <div class="card-block">
+          <span class="help-block" *ngIf="f.valid" id="success">{{ success }}</span>
+          <form class="form-horizontal" (ngSubmit)="onUpdateAccount()" #ff="ngForm">
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">FirstName</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <input 
+                    pattern="[a-zA-Z]*"
+                    [ngModel]="firstname"
+                    id="firstname" 
+                    class="form-control"
+                    type="text"                   
+                    name="firstname"
+                    required
+                    #f="ngModel">                    
+                </div>
+                <span class="help-block" *ngIf="!f.valid && f.touched" id="error" >Please enter valid firstname</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">LastName</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <input
+                    pattern="[a-zA-Z]*"
+                    [ngModel]="lastname"  
+                    id="lastname" 
+                    class="form-control" 
+                    type="text" 
+                    name="lastname"
+                    required
+                    #l="ngModel">
+                </div>
+                <span class="help-block" *ngIf="!l.valid && l.touched" id="error" >Please enter valid lastname</span>
+              </div>
+            </div>           
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Email</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon">@</span>
+                  <input 
+                    [ngModel]="email" 
+                    id="email" 
+                    class="form-control"
+                    type="text" 
+                    name="email"
+                    readonly>
+                </div>               
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Password</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-lock"></i></span>
+                    <input 
+                    [ngModel]="userpassword" 
+                    id="userpassword" 
+                    class="form-control"
+                    [type]=passwordtype
+                    name="userpassword"
+                    #pass=ngModel
+                    [minlength]="6"
+                    required 
+                    >
+                  <span><a href="javascript:void(0)" (click)="passwordtype = { 'text': 'password', 'password':'text'}[passwordtype]; showhide = { 'show': 'hide', 'hide':'show'}[showhide]" style="text-decoration:none" >{{ showhide }}</a></span>
+                </div>  
+                <span class="help-block" *ngIf="!pass.valid  && pass.dirty" id="error" >Password should not be empty and contain atleast 6 characters</span>             
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="form-control-label" for="prependedInput">Phone Number</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-phone"></i></span>
+                  <input
+                    [ngModel]="phonenumber" 
+                    id="phonenumber" 
+                    class="form-control"
+                    type="number"
+                    name="phonenumber"
+                    required
+                    #p=ngModel
+                    >
+                </div>
+                 <span class="help-block" *ngIf="!p.valid && p.touched" id="error" >Please enter valid phonenumber</span>
+               
+              </div>
+            </div>
+           
+            <div class="form-actions">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!ff.valid">Save changes</button>
+              <a class="btn btn-default" [routerLink]="['/dashboard']">Cancel</a>
+              <!--<button class="btn btn-default" type="button" (click)="onCancelAccount()">Cancel</button>-->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> <!--/.col-->
+  </div><!--/.row-->
+</div>
