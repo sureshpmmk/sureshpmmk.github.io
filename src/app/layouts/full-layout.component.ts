@@ -4,6 +4,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './full-layout.component.html',
+  styleUrls: ['../app.component.css']
 })
 export class FullLayoutComponent implements OnInit {
 

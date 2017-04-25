@@ -1,3 +1,33 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+header.navbar .navbar-brand {
+    display: inline-block;
+    width: 155px;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    background-color: #fff;
+    background-image: url(/assets/img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100px auto;
+    border-bottom: 1px solid #cfd8dc;
+}
+
+.navbar-brand {
+    color: rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.logo-img {
+	width: 147px;
+    height: 67px;
+}

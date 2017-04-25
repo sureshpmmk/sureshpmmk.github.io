@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 
+// DataTables Module
+import { DataTablesModule } from 'angular-datatables';
+
 import { UserAddComponent } from './user/user-add.component';
 import { UserManageComponent } from './user/user-manage.component';
 import { ProjectAddComponent } from './project/project-add.component';
@@ -27,6 +30,7 @@ import { ProjectReportComponent } from './report/project-report.component';
   	CommonModule,
 	  ReactiveFormsModule,
     ChartsModule,
+    DataTablesModule
   ],
   declarations: [ 
   	UserAddComponent,
