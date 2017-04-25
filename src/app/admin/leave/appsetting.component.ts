@@ -19,6 +19,8 @@ export class AppsettingComponent implements OnInit {
   buttonText = "Save Holiday";
   buttonType = "Save";
   holidayIndex;
+  formShowFlagText = 'fa fa-plus fa-lg';
+  formShowFlag = false;
 
   @ViewChild('f') holidayForm: NgForm;
   constructor(private holidayService: HolidayService,
@@ -63,6 +65,11 @@ export class AppsettingComponent implements OnInit {
     this.buttonText = "Update Holiday";
     this.buttonType = "Update";
        
+  }
+
+  toggleFlag() {
+    this.formShowFlag = (this.formShowFlag === false) ? true : false;
+    this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
 
   

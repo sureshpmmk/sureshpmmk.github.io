@@ -24,6 +24,8 @@ export class ProjectManageComponent implements OnInit {
   user;
   teammembers = [];
   projectData: Project[] = [];
+  formShowFlagText = 'fa fa-plus fa-lg';
+  formShowFlag = false;
 
   constructor(private projectService: ProjectService,
       			  private projectUpdateComponent: ProjectUpdateComponent,
@@ -112,7 +114,13 @@ export class ProjectManageComponent implements OnInit {
     this.projectService.addProject(this.projectForm.value);
     this.router.navigate(['/admin/manage-projects']);
   }
+
   cancel() {
     this.router.navigate(['/admin/manage-projects']);
+  }
+
+  toggleFlag() {
+    this.formShowFlag = (this.formShowFlag === false) ? true : false;
+    this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
 }

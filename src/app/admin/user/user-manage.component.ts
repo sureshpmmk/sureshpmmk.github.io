@@ -16,6 +16,8 @@ export class UserManageComponent implements OnInit {
   defaultShift;
   randPassword;
   defaultStatus;
+  formShowFlagText = 'fa fa-plus fa-lg';
+  formShowFlag = false;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -59,5 +61,10 @@ export class UserManageComponent implements OnInit {
   cancel() {
     this.router.navigate(['/admin/manage-employee']);
     this.userForm.reset();
+  }
+
+  toggleFlag() {
+    this.formShowFlag = (this.formShowFlag === false) ? true : false;
+    this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
 }

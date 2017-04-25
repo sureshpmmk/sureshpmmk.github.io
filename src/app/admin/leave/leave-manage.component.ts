@@ -12,14 +12,17 @@ import { UserService } from '../../shared/user.service';
   templateUrl: './leave-manage.component.html'
 })
 export class LeaveManageComponent implements OnInit {
-
   leaves: Leave[] = [];
   @ViewChild('f') leaveForm: NgForm;
   defaultLeave;
   defaultName;
   users;
-  constructor(private leaveService: LeaveService,private router: Router,
-    private userService: UserService) { }
+  formShowFlagText = 'fa fa-plus fa-lg';
+  formShowFlag = false;
+
+  constructor(private leaveService: LeaveService,
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
 
@@ -48,10 +51,16 @@ export class LeaveManageComponent implements OnInit {
   updateLeave(leaveIndex: number) {
     this.router.navigate(['/admin/update-leaves', leaveIndex]);
   }
+
   onSaveLeave(){
     this.leaveService.addLeaveEntry(this.leaveForm.value);
     this.router.navigate(['/admin/manage-leaves']);
 
+  }
+
+  toggleFlag() {
+    this.formShowFlag = (this.formShowFlag === false) ? true : false;
+    this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
 
 }
