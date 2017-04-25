@@ -41,9 +41,10 @@
                     type="text"
                     [ngModel]="projecttitle"
                     name="projecttitle"
-                    required>
+                    required
+                    #pjttitle="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!pjttitle.valid && pjttitle.touched" id="error" >Please enter valid project title</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -54,12 +55,13 @@
                   <input 
                     id="hoursrequired" 
                     class="form-control" 
-                    type="text"                    
+                    type="number"                    
                     [ngModel]="hoursrequired"
                     name="hoursrequired"
-                    required>
+                    required
+                    #hrsreq="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!hrsreq.valid && hrsreq.touched" id="error" >Please enter valid time</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -70,12 +72,13 @@
                   <input 
                     id="hoursrtaken" 
                     class="form-control" 
-                    type="text"                    
+                    type="number"                    
                     ngModel
                     name="hoursrtaken"
-                    required>
+                    required
+                    #hrstaken="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!hrstaken.valid && hrstaken.touched" id="error" >Please enter the hours taken</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -122,9 +125,10 @@
                     name="startdate"
                     required
                     [(ngModel)]="startdate"
-                    ngValue="startdate">
+                    ngValue="startdate"
+                    #startdte="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!startdte.valid && startdte.touched" id="error" >Please enter the start date</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -139,9 +143,10 @@
                     type="date"  
                     name="finishdate"
                     required
-                    [(ngModel)]="finishdate">
+                    [(ngModel)]="finishdate"
+                    #finishdte="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!finishdte.valid && finishdte.touched" id="error" >Please enter the finish date</span>
               </div>
             </div>
             <div class="form-group col-lg-6">

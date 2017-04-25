@@ -10,7 +10,8 @@ import { User } from '../../shared/user.model';
 import { ProjectUpdateComponent }  from './project-update.component';
 
 @Component({
-  templateUrl: './project-manage.component.html'
+  templateUrl: './project-manage.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class ProjectManageComponent implements OnInit {  
   projects: Project[] = [];
@@ -113,6 +114,7 @@ export class ProjectManageComponent implements OnInit {
     this.router.navigate(['/admin/manage-projects']);
   }
   cancel() {
+    this.projectForm.reset();
     this.router.navigate(['/admin/manage-projects']);
   }
 }

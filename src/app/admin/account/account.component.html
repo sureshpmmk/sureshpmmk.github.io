@@ -7,7 +7,7 @@
           <i class="fa fa-edit"></i>Edit Account
         </div>        
         <div class="card-block">
-          <span class="help-block" *ngIf="f.valid" id="success">{{ success }}</span>
+          <span class="help-block" *ngIf="ff.valid" id="success">{{ success }}</span>
           <form class="form-horizontal" (ngSubmit)="onUpdateAccount()" #ff="ngForm">
           <div class="row">
             <div class="form-group col-lg-6" >

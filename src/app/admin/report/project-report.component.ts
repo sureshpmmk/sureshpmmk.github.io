@@ -9,7 +9,8 @@ import { ReportService } from '../../shared/report.service';
 
 @Component({
   selector: 'app-project-report',
-  templateUrl: './project-report.component.html'
+  templateUrl: './project-report.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
   
 })
 export class ProjectReportComponent implements OnInit {

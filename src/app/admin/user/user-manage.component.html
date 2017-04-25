@@ -28,9 +28,10 @@
                     ngModel
                     name="employeeid"
                     required
-                    #employeeid="ngModel">
+                    #employeeid="ngModel"
+                    pattern="^[1-9]+[0-9]*$">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                 <span class="help-block" *ngIf="!employeeid.valid && employeeid.touched" id="error" >Please enter valid employee id</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -45,9 +46,10 @@
                     ngModel
                     name="firstname"
                     required
-                    #firstname="ngModel">
+                    #firstname="ngModel"
+                    pattern="[a-zA-Z]*">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+               <span class="help-block" *ngIf="!firstname.valid && firstname.touched" id="error" >Please enter valid firstname</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -62,9 +64,10 @@
                     ngModel
                     name="lastname"
                     required
-                    #lastname="ngModel">
+                    #lastname="ngModel"
+                    pattern="[a-zA-Z]*">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+               <span class="help-block" *ngIf="!lastname.valid && lastname.touched" id="error" >Please enter valid lastname</span>
               </div>
             </div>           
             
@@ -76,13 +79,14 @@
                   <input 
                     id="email" 
                     class="form-control"
-                    type="text"                    
+                    type="email"                    
                     ngModel
                     name="email"
                     required
-                    #email="ngModel">
+                    #email="ngModel"
+                    pattern="[[A-z0-9_\-]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+([A-z.]{1})]*">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!email.valid && email.touched" id="error" >Please enter valid email</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -97,9 +101,10 @@
                   ngModel
                   name="phonenumber"
                   required
-                  #phonenumber="ngModel">
+                  #phonenumber="ngModel"
+                  pattern="^[1-9]+[0-9]*$">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                 <span class="help-block" *ngIf="!phonenumber.valid && phonenumber.touched" id="error" >Please enter valid phone number</span>
               </div>
             </div>
 
@@ -109,15 +114,19 @@
                 id="shift" 
                 class="form-control"
                 [ngModel]="defaultShift"
-                name="shift">
+                name="shift"
+                #shift="ngModel"
+                 required>
                 <option value="morning">Morning Shift</option>
                 <option value="evening">Evening Shift</option>
                 <option value="night">Night Shift</option>
               </select>
+              <span class="help-block" *ngIf="!shift.valid && shift.touched" id="error" >Please enter a shift</span>
               <input type="hidden" name="password" [ngModel]="randPassword">
               <input type="hidden" name="usertype" [ngModel]="defaultUsertype"> 
               <input type="hidden" name="status" [ngModel]="defaultStatus"> 
             </div>
+            
             <div class="col-lg-12">
             <div class="form-actions">
               <button

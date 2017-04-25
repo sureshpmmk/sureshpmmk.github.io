@@ -8,7 +8,7 @@ import { HolidayService } from '../../shared/holiday.service';
 @Component({
   selector: 'app-appsetting',
   templateUrl: './appsetting.component.html',
-  styleUrls: ['./appsetting.component.scss']
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class AppsettingComponent implements OnInit {
 

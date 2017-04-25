@@ -29,12 +29,13 @@
               id = "holidaydescription"
               type="text" 
               class="form-control" 
-			  [ngModel] = "holidaydescription"	
+			        [ngModel] = "holidaydescription"	
               name="holidaydescription" 
-              required               
+              required  
+              #holidaydesc="ngModel"
                >         
             </div>
-          <!--   <p class="help-block" style="color:red;" *ngIf="!holidaydescription.valid && holidaydescription.touched">Please enter a valid holiday description!</p>  -->   
+             <p class="help-block" *ngIf="!holidaydesc.valid && holidaydesc.touched" id="error">Please enter a valid holiday description!</p>     
             </div>                   
 			<div class="col-lg-6">	
              <div class="form-group">
@@ -49,11 +50,12 @@
                     type="date"
                     [ngModel]="holidaydate"
                     name="holidaydate"
-                    required                    >
+                    required 
+                    #holidaydte="ngModel" >
                 </div>                
               </div>
             </div>
-            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+            <p class="help-block" *ngIf="!holidaydte.valid && holidaydte.touched" id="error">Please enter a valid date!</p> 
             </div>  
 		   </div>
 		    <div class="row">       

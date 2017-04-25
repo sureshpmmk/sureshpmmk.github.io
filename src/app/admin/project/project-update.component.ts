@@ -8,7 +8,8 @@ import { UserService } from '../../shared/user.service';
 import { User } from '../../shared/user.model';
 
 @Component({
-  templateUrl: './project-update.component.html'
+  templateUrl: './project-update.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class ProjectUpdateComponent implements OnInit, OnDestroy {
   @ViewChild('f') projectForm: NgForm;
