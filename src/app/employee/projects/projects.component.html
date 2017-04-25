@@ -5,8 +5,8 @@
       	<div class="card-header">
           <i class="fa fa-align-justify"></i> Projects
         </div>           
-        <div class="card-block"> 
-          <table class="table table-bordered table-striped table-condensed" *ngIf="viewProjectLogFlag">
+        <div class="card-block" *ngIf="viewProjectLogFlag"> 
+        <table datatable class="table table-striped row-border">
             <thead>
               <tr>                
                 <th>Project Name</th>
@@ -14,8 +14,8 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let logProject of logsbyProjects">
-              <tr>                
+            <tbody>
+              <tr *ngFor="let logProject of logsbyProjects">                
                 <td>{{ logProject.projecttitle  }}</td>                
                 <td>{{ logProject.timespent.split(':')[0] + 'h ' + logProject.timespent.split(':')[1] + 'm ' }}</td>               
                 <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">View Details</a> </td>  
@@ -24,35 +24,35 @@
           </table>
         </div>
 
-		<div class="card-block" *ngIf="viewProjectLogGridFlag">      
-		  <div class="row">
-		    <div class="col-lg-8">
-		      <h4>{{ logsProjectDetailed.projecttitle }}</h4>
-		      <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
-		    </div>
-		    <div class="col-lg-4">
-		      <button class="btn btn-danger" (click)="viewProjectChartLog(logsProjectDetailed.projectcode)">Chart view</button>
-		    </div>
-		  </div>             
-		  <table class="table table-bordered table-striped table-condensed">
-		    <thead>
-		      <tr>                
-		        <th>Date</th>
-		        <th>Time Spent</th> 
-		        <th>Log Note</th>
-		      </tr>
-		    </thead>
-		    <tbody *ngFor="let logprojectdetail of logsProjectDetailed">
-		      <tr>                
-		        <td>{{ logprojectdetail.startdatetime | date:'dd-MMM-y' }}</td>                
-		        <td>{{ logprojectdetail.timespent.split(':')[0] + 'h ' + logprojectdetail.timespent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
-		        <td>{{ logprojectdetail.lognote }}</td>  
-		      </tr>
-		    </tbody>
-		  </table>
-		</div>
-	  	
-	  	<div class="card-block" *ngIf="viewProjectLogChartFlag">      
+        <div class="card-block" *ngIf="viewProjectLogGridFlag">      
+          <div class="row">
+            <div class="col-lg-8">
+              <h4>{{ logsProjectDetailed.projecttitle }}</h4>
+              <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
+            </div>
+            <div class="col-lg-4">
+              <button class="btn btn-danger" (click)="viewProjectChartLog(logsProjectDetailed.projectcode)">Chart view</button>
+            </div>
+          </div>             
+          <table datatable class="table table-striped row-border">
+            <thead>
+              <tr>                
+                <th>Date</th>
+                <th>Time Spent</th> 
+                <th>Log Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let logprojectdetail of logsProjectDetailed">                
+                <td>{{ logprojectdetail.startdatetime | date:'dd-MMM-y' }}</td>                
+                <td>{{ logprojectdetail.timespent.split(':')[0] + 'h ' + logprojectdetail.timespent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
+                <td>{{ logprojectdetail.lognote }}</td>  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-block" *ngIf="viewProjectLogChartFlag">      
           <div class="row">
             <div class="col-lg-8">
               <h4>{{ logsProjectDetailed.projecttitle }}</h4>
@@ -64,35 +64,19 @@
           </div>             
           <div class="chart-wrapper">
             <canvas baseChart class="chart"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions"
-              [colors]="lineChartColours"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
-            </canvas>
-          </div>
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColours"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+          </canvas>
         </div>
+      </div>
 
-	  </div>
-        <!-- </tab>
-        <tab heading="Projects">
-          
-
-          <div class="card" >                
-            
-          </div>
-
-          <div class="card" >                
-            
-          </div>
-
-        </tab>
-        <tab heading="Statics">
-        </tab>
-      </tabset> -->
-    </div>    
-  </div>   
+    </div>
+  </div>    
+</div>   
 </div>

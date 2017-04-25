@@ -78,7 +78,7 @@
           <i class="fa fa-align-justify"></i> Holiday List
         </div>
         <div class="card-block">
-          <table class="table table-bordered table-striped table-condensed">
+          <table datatable class="table table-striped row-border">
             <thead>
               <tr>
                 
@@ -87,8 +87,8 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let holiday of holidays;let holidayIndex=index">
-              <tr>                
+            <tbody>
+              <tr *ngFor="let holiday of holidays;let holidayIndex=index">                
                 <td>{{ holiday.holidaydescription }}</td>                
                 <td>{{ holiday.holidaydate }}</td>               
                 <td style="text-align: center"> 

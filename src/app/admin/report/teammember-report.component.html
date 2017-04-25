@@ -108,7 +108,7 @@
          </div>
         </div>
         <div class="card-block" *ngIf="flag_chart === 0 ">
-          <table class="table table-bordered table-striped table-condensed">
+          <table datatable class="table table-striped row-border">
             <thead>
               <tr>
                 
@@ -117,8 +117,8 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let log of employeeprojects;let logIndex=index">
-              <tr>                
+            <tbody>
+              <tr *ngFor="let log of employeeprojects;let logIndex=index">                
                 <td>{{ log.projecttitle }}</td>                
                 <td>{{ log.timespent }}</td>               
                 <td style="text-align: center"> 
@@ -154,7 +154,7 @@
          </div>
         </div>
         <div class="card-block">
-          <table class="table table-bordered table-striped table-condensed">
+          <table datatable class="table table-striped row-border">
             <thead>
               <tr>
                 
@@ -163,8 +163,8 @@
                 <th>Log Note</th>
               </tr>
             </thead>
-            <tbody *ngFor="let log of employeelog;let logIndex=index">
-              <tr>                
+            <tbody>
+              <tr *ngFor="let log of employeelog;let logIndex=index">                
                 <td>{{ log.projecttitle }}</td>                
                 <td>{{ log.timespent }}</td>               
                 <td>{{ log.lognote }}</td>

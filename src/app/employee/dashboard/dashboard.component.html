@@ -6,7 +6,7 @@
         <tab heading="Recent Logs" class="col-lg-12"> -->
       <div class="card">
         <div class="card-block">
-          <table class="table table-bordered table-striped table-condensed">
+          <table datatable class="table table-striped row-border">
             <thead>
               <tr>
                 <th>Date</th>
@@ -15,8 +15,8 @@
                 <th>Log Note</th>
               </tr>
             </thead>
-            <tbody *ngFor="let log of recentLogs">
-              <tr>
+            <tbody>
+              <tr *ngFor="let log of recentLogs">
                 <td>{{ log.startdatetime | date:'dd-MM-yyyy' }}</td>
                 <td>{{ log.timespent.split(':')[0] }}h {{ log.timespent.split(':')[1] }}m   ({{ log.startdatetime | date:'h:mma' }} - {{ log.finishdatetime | date:'h:mma' }})</td>
                 <td>{{ log.projecttitle | uppercase }}</td>

@@ -99,10 +99,9 @@
           <i class="fa fa-align-justify"></i> Manage Leaves
         </div>
         <div class="card-block">
-          <table class="table table-bordered table-striped table-condensed">
+          <table datatable class="table table-striped row-border">
             <thead>
-              <tr>
-                
+              <tr>                
                 <th>Firstname</th>
                 <th>Leave Type</th>               
                 <th>From</th>
@@ -110,8 +109,8 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody *ngFor="let leave of leaves;let i=index">
-              <tr>                
+            <tbody>
+              <tr *ngFor="let leave of leaves;let i=index">                
                 <td>{{ leave.employename }}</td>
                 <td>{{ leave.leavetype }}</td>
                 <td>{{ leave.leavefrom }}</td>
