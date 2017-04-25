@@ -55,11 +55,13 @@ export class ProjectManageComponent implements OnInit {
         );
   }
 
-  getProjectList() {
+  getProjectList() {    
+    this.projects = this.projectService.getProjects();
     this.projectsDetails = this.projectService.getProjects();
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
+            this.projects = projects;
             this.projectsDetails = projects;
             this.setEmployeeNames(this.projectsDetails);
         });
@@ -80,7 +82,7 @@ export class ProjectManageComponent implements OnInit {
   }
 
   changeProjectStatus(projectCode: string, status: string) {
-    this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode); 
+    this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode);
     this.projectService.updateProjectStatus(this.projectIndex, status);
   }
 
