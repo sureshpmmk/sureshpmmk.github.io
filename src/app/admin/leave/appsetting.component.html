@@ -23,7 +23,7 @@
             </div>
             <p class="help-block" style="color:red;" *ngIf="!holidayid.valid && holidayid.touched">Please enter a valid Id!</p>  -->
 		   <div class="row">
-		   	<div class="col-lg-6">	
+		   	<div class="col-lg-5">	
            <div class="form-group">
               <label class="form-control-label" for="">Holiday Description</label>
               <input 
@@ -38,7 +38,7 @@
             </div>
              <p class="help-block" *ngIf="!holidaydesc.valid && holidaydesc.touched" id="error">Please enter a valid holiday description!</p>     
             </div>                   
-			<div class="col-lg-6">	
+			<div class="col-lg-5">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">Holiday Date</label>
               <div class="controls">
@@ -58,16 +58,24 @@
             </div>
             <p class="help-block" *ngIf="!holidaydte.valid && holidaydte.touched" id="error">Please enter a valid date!</p> 
             </div>  
+            <div class="form-actions col-lg-2">            
+            <div class="mt-2" style="padding: 8px;">            
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid"><i class="fa fa-save"></i>&nbsp; {{ buttonText }}</button>
+            </div>
+              <!-- <button class="btn btn-default" type="button"><i class="fa fa-ban"></i> Cancel</button> -->
+            </div>
 		   </div>
-		    <div class="row">       
+		    <!-- <div class="row">       
             <div class="form-actions col-lg-6">
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> {{ buttonText }}</button>
-              <button class="btn btn-default" type="button"><i class="fa fa-ban"></i> Cancel</button>
+                [disabled]="!f.valid"><i class="fa fa-save"></i>&nbsp; {{ buttonText }}</button>
             </div>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>

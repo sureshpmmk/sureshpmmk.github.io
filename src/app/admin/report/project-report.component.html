@@ -44,7 +44,7 @@
 
              <p class="help-block" *ngIf="!projctname.valid && projctname.touched" id="error">Please enter a valid holiday description!</p>     
             </div>                   
-		      	<div class="col-lg-4">	
+		      	<div class="col-lg-3">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">From</label>
               <div class="controls">
@@ -65,7 +65,7 @@
               <p class="help-block"  *ngIf="!fromdate.valid && fromdate.touched" id="error">Please enter a valid from date!</p> 
             </div>
 
-			<div class="col-lg-4">	
+			<div class="col-lg-3">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">To</label>
               <div class="controls">
@@ -84,18 +84,25 @@
               </div>
             </div>
               <p class="help-block" *ngIf="!todate.valid && todate.touched" id="error">Please enter a valid to date!</p> 
-            </div>  
+            </div> 
+            <div class="form-actions col-lg-2">
+             <div class="mt-2" style="padding: 8px;">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid"><i class="fa fa-eye"></i>&nbsp;View</button>    
+                </div>          
+            </div> 
 
 		   </div>
-		    <div class="row">       
+		   <!--  <div class="row">       
             <div class="form-actions col-lg-6">
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-eye"></i> View</button>
-              <button class="btn btn-default" type="button"><i class="fa fa-ban"></i> Cancel</button>
+                [disabled]="!f.valid"><i class="fa fa-eye"></i>&nbsp;View</button>              
             </div>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>
