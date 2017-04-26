@@ -6,7 +6,7 @@
       "email": "testuser1@premiergp.com", 
       "phonenumber": "123456789", 
       "password": "user123", 
-      "usertype": "user", 
+      "usertype": "employee", 
       "shift": "morning", 
       "status": "active"
   },
@@ -17,7 +17,7 @@
       "email": "testuser2@premiergp.com", 
       "phonenumber": "123456789", 
       "password": "user123", 
-      "usertype": "user", 
+      "usertype": "employee", 
       "shift": "morning", 
       "status": "active"
   },
@@ -28,7 +28,7 @@
       "email": "testuser3@premiergp.com", 
       "phonenumber": "123456789", 
       "password": "user123", 
-      "usertype": "user", 
+      "usertype": "employee", 
       "shift": "morning", 
       "status": "active"
   },
@@ -39,7 +39,7 @@
       "email": "testuser4@premiergp.com", 
       "phonenumber": "123456789", 
       "password": "user123", 
-      "usertype": "user", 
+      "usertype": "employee", 
       "shift": "morning", 
       "status": "active"
   }

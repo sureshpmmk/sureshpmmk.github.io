@@ -4,7 +4,6 @@ import { LogsService } from '../../shared/logs.service';
 import { Logs } from '../../shared/logs.model';
 
 @Component({
-  selector: 'app-projects',
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent implements OnInit {
@@ -58,12 +57,12 @@ export class ProjectsComponent implements OnInit {
   constructor(private logsService: LogsService) { }
 
   ngOnInit() {
-  	this.logs = this.logsService.getAllLogs();
+  	this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
   	this.logsbyProjects = this.setLogArray(this.logs);
     this.logsService.logsChanged
         .subscribe(
           (logs: Logs[]) => {
-            this.logs = logs;
+            this.logs = logs.filter(e => e.employeeid === this.employee.employeeid);
             this.logsbyProjects = this.setLogArray(this.logs);
         });
   }
