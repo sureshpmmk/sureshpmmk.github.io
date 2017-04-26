@@ -14,18 +14,23 @@ export class ReportComponent implements OnInit {
   logsbyProjects: Logs[] = [];
   logsProjectDetailed = [];
   projecttitle = '';
-  viewProjectLogFlag = true;
-  viewProjectLogGridFlag = false;
-  viewProjectLogChartFlag = false;
-  numberofdays = 7;
+  sevendayChartFlag = true;
+  fourteendayChartFlag = false;
+  thirtydayChartFlag = false;
+  numberofdays = 10;
   // lineChart
-  public lineChartData: Array<any> = [];
-  public lineChartLabels: Array<any> = [];
-  public lineChartOptions: any = {
+  sevendayLineChartData: Array<any> = [{data: [], label: ''}];
+  sevendayLineChartLabels: Array<any> = [];
+  fourteendayLineChartData: Array<any> = [{data: [], label: ''}];
+  fourteendayLineChartLabels: Array<any> = [];
+  thirtydayLineChartData: Array<any> = [{data: [], label: ''}];
+  thirtydayLineChartLabels: Array<any> = [];
+
+  lineChartOptions: any = {
     animation: false,
     responsive: true
   };
-  public lineChartColours: Array<any> = [
+  lineChartColours: Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
@@ -51,41 +56,40 @@ export class ReportComponent implements OnInit {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
-  public lineChartLegend: boolean = true;
-  public lineChartType: string = 'line';
+  lineChartLegend: boolean = true;
+  lineChartType: string = 'line';
 
   constructor(private logsService: LogsService) { }
 
-  ngOnInit() {
-  	this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
+  ngOnInit() {  	   
+    this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
+    this.viewSevenDayCharts();
+    this.viewFourteenDayCharts();
+    this.viewThirtyDayCharts();
+
     this.logsService.logsChanged
         .subscribe(
           (logs: Logs[]) => {
-            this.logs = logs.filter(e => e.employeeid === this.employee.employeeid);
-            this.viewProjectChartLog();
-        });
-
-    
-    this.viewProjectChartLog();
-        
+            this.logs = logs.filter(e => e.employeeid === this.employee.employeeid);            
+            this.viewSevenDayCharts();
+            this.viewFourteenDayCharts();
+            this.viewThirtyDayCharts();
+        });  
   }
 
-  viewProjectChartLog() {
+  viewProjectChartLog(lineChartLabels: Array<any>) {    
+    let lineChartDataArr = [];
 
-    this.lineChartLabels = this.getLineChartLabels(this.numberofdays);
-   // this.lineChartData = 
-    let checkedProjectCodes = [];
-
-    for(let log of this.logs) {
-    	if(checkedProjectCodes.indexOf(log.projectcode) === -1) {
-    		checkedProjectCodes.push(log.projectcode);
-    		this.lineChartData.push(this.getLineChartDatas(this.lineChartLabels, log.projectcode));
-    	}    	
+    if(this.logs.length > 0) {
+      let checkedProjectCodes = [];
+      for(let log of this.logs) {
+        if(checkedProjectCodes.indexOf(log.projectcode) === -1) {
+          checkedProjectCodes.push(log.projectcode);
+          lineChartDataArr.push(this.getLineChartDatas(lineChartLabels, log.projectcode));
+        }      
+      }
     }
-
-    this.viewProjectLogFlag = false;
-    this.viewProjectLogGridFlag = false;
-    this.viewProjectLogChartFlag = true;
+    return lineChartDataArr;
   }
 
   getLineChartLabels(numberofdays: number) {
@@ -183,4 +187,53 @@ export class ReportComponent implements OnInit {
     return logsArr;
   }
 
+  changeDaysNumber(noofdays: number) {
+
+    if(noofdays === 7) {
+      this.sevendayChartFlag = true;
+      this.fourteendayChartFlag = false;
+      this.thirtydayChartFlag = false;
+    } else if(noofdays === 14) {
+      this.sevendayChartFlag = false;
+      this.fourteendayChartFlag = true;
+      this.thirtydayChartFlag = false;
+    } else {
+      this.sevendayChartFlag = false;
+      this.fourteendayChartFlag = false;
+      this.thirtydayChartFlag = true;
+    }
+  }
+
+  // events
+  chartClicked(e: any): void {
+    console.log(e);
+  }
+
+  chartHovered(e: any): void {
+    console.log(e);
+  }
+
+  viewSevenDayCharts() {
+    this.sevendayLineChartLabels = this.getLineChartLabels(7);
+    if(this.logs.length > 0) {
+      this.sevendayLineChartData = [];
+      this.sevendayLineChartData = this.viewProjectChartLog(this.sevendayLineChartLabels);
+    }
+  }
+
+  viewFourteenDayCharts() {
+    this.fourteendayLineChartLabels = this.getLineChartLabels(14);
+    if(this.logs.length > 0) {
+      this.fourteendayLineChartData = [];
+      this.fourteendayLineChartData = this.viewProjectChartLog(this.fourteendayLineChartLabels);
+    }    
+  }
+
+  viewThirtyDayCharts() {
+    this.thirtydayLineChartLabels = this.getLineChartLabels(30);
+    if(this.logs.length > 0) {
+      this.thirtydayLineChartData = [];
+      this.thirtydayLineChartData = this.viewProjectChartLog(this.thirtydayLineChartLabels);
+    }
+  }
 }

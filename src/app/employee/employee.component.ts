@@ -15,6 +15,7 @@ import { Logs } from '../shared/logs.model';
 export class EmployeeComponent implements OnInit {
   @ViewChild('f') logForm: NgForm;
   date;
+  projectsAll: Project[] = [];
   projects: Project[] = [];
   project;
   timerRunning = false;
@@ -36,29 +37,45 @@ export class EmployeeComponent implements OnInit {
   constructor(private projectService: ProjectService, private logsService: LogsService) {  }
 
   ngOnInit() {
-
-  	this.projects = this.projectService.getProjects();
+  	this.projectsAll = this.projectService.getProjects();
+    this.projects = this.getProjectsByEmployee(this.projectsAll);
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
-            this.projects = projects;
+            this.projectsAll = projects;
+            this.projects = this.getProjectsByEmployee(this.projectsAll);
         });
-  	this.project = '';
 
+  	this.project = '';
     this.dateInterval = setInterval(() => {
         this.date =  new Date();
      }, 1000);
+  }
+
+  getProjectsByEmployee(projectsAll) {
+    let employeeProjects = [];
+    for(let proj of projectsAll) {
+      for(let member of proj.teammembers) {     
+        if(member['id'] === this.employee.employeeid) {
+          employeeProjects.push(proj);
+        }
+      }
+    }
+
+    return employeeProjects;
   }
 
   startTimeLog() {
     this.log = [];
     this.logid++;
 
-    this.projects = this.projectService.getProjects();
+    this.projectsAll = this.projectService.getProjects();
+    this.projects = this.getProjectsByEmployee(this.projectsAll);
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
-            this.projects = projects;
+            this.projectsAll = projects;
+            this.projects = this.getProjectsByEmployee(this.projectsAll);
         });
 
     let selectedProject = this.projects.find(p => p.projectcode === this.logForm.value.project);
