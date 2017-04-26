@@ -42,7 +42,7 @@
 
              <p class="help-block" *ngIf="!empname.valid && empname.touched" id="error">Please enter en employee name</p>     
             </div>                   
-			<div class="col-lg-4">	
+			<div class="col-lg-3">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">From</label>
               <div class="controls">
@@ -63,7 +63,7 @@
               <p class="help-block" *ngIf="!frmdate.valid && frmdate.touched" id="error">Please enter a valid from date!</p> 
             </div>
 
-			     <div class="col-lg-4">	
+			     <div class="col-lg-3">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">To</label>
               <div class="controls">
@@ -82,18 +82,26 @@
               </div>
             </div>
               <p class="help-block" *ngIf="!todte.valid && todte.touched" id="error">Please enter a valid to date!</p> 
-            </div>  
+            </div> 
+
+            <div class="form-actions col-lg-2">
+            <div class="mt-2" style="padding: 8px;">
+              <button
+                type="submit" 
+                class="btn btn-primary"
+                [disabled]="!f.valid"><i class="fa fa-eye"></i> View</button>  
+                </div>            
+            </div> 
 
 		   </div>
-		    <div class="row">       
+		   <!--  <div class="row">       
             <div class="form-actions col-lg-6">
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid">View</button>
-              <button class="btn btn-default" type="button">Cancel</button>
+                [disabled]="!f.valid"><i class="fa fa-eye"></i> View</button>              
             </div>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>

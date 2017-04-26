@@ -16,7 +16,7 @@ export class AppsettingComponent implements OnInit {
   holiday;
   holidaydescription = null;
   holidaydate;
-  buttonText = "Save Holiday";
+  buttonText = "Add";
   buttonType = "Save";
   holidayIndex;
   formShowFlagText = 'fa fa-plus fa-lg';
@@ -36,7 +36,7 @@ export class AppsettingComponent implements OnInit {
   	if(this.buttonType == "Update"){
   	this.holidays = this.holidayService.updateHolidayEntry(this.holidayIndex,this.holidayForm.value); 
   	this.holidayForm.reset(); 
-  	this.buttonText = "Save Holiday";
+  	this.buttonText = "Add";
     this.buttonType = "Save";
     }
     else{
@@ -62,7 +62,7 @@ export class AppsettingComponent implements OnInit {
 
     this.holidaydescription   = this.holiday.holidaydescription;
     this.holidaydate  = this.holiday.holidaydate;
-    this.buttonText = "Update Holiday";
+    this.buttonText = "Update";
     this.buttonType = "Update";
        
   }
