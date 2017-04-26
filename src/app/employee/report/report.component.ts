@@ -57,6 +57,7 @@ export class ReportComponent implements OnInit {
   constructor(private logsService: LogsService) { }
 
   ngOnInit() {
+    console.log(111);
   	this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
     this.logsService.logsChanged
         .subscribe(
