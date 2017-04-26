@@ -6,7 +6,8 @@ import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
 
 @Component({
-  templateUrl: './user-update.component.html'
+  templateUrl: './user-update.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class UserUpdateComponent implements OnInit, OnDestroy {
   @ViewChild('f') userForm: NgForm;
@@ -45,6 +46,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
 
   getOneUser(passedEmployeeid: string) {
     this.user = this.userService.getOneUser(passedEmployeeid);
+    console.log(this.user);
 
     this.employeeid  = this.user.employeeid;
     this.firstname   = this.user.firstname;

@@ -9,7 +9,8 @@ import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-leave',
-  templateUrl: './leave-manage.component.html'
+  templateUrl: './leave-manage.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class LeaveManageComponent implements OnInit {
   leaves: Leave[] = [];

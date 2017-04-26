@@ -25,9 +25,9 @@
                     type="text"
                     [ngModel]="employeeid"
                     name="employeeid"
-                    readonly>
+                    readonly
+                    >
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -41,9 +41,11 @@
                     type="text"                    
                     [ngModel]="firstname"
                     name="firstname"
-                    required>
+                    required
+                    #fst="ngModel"
+                    pattern="[a-zA-Z]*">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                 <span class="help-block" *ngIf="!fst.valid && fst.touched" id="error" >Please enter valid firstname</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -57,9 +59,11 @@
                     type="text"                    
                     [ngModel]="lastname"
                     name="lastname"
-                    required>
+                    required
+                    #last="ngModel"
+                    pattern="[a-zA-Z]*">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+               <span class="help-block" *ngIf="!last.valid && last.touched" id="error" >Please enter valid lastname</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -70,13 +74,12 @@
                   <input 
                     id="email" 
                     class="form-control"
-                    type="text"                    
+                    type="email"                    
                     [ngModel]="email"
                     name="email"
-                    required>
+                    readonly>
+                </div>                
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
-              </div>
             </div>
             <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Phone Number</label>
@@ -86,12 +89,13 @@
                   <input 
                   id="phonenumber" 
                   class="form-control"
-                  type="text"
+                  type="number"
                   [ngModel]="phonenumber"
                   name="phonenumber"
-                  required>
+                  required
+                  #phone="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!phone.valid && phone.touched" id="error" >Please enter valid phonenumber</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -100,7 +104,8 @@
                 id="shift" 
                 class="form-control"
                 [ngModel]="shift"
-                name="shift">
+                name="shift"
+                #shifts="ngModel">
                 <option value="morning">Morning Shift</option>
                 <option value="evening">Evening Shift</option>
                 <option value="night">Night Shift</option>
@@ -123,16 +128,18 @@
               <label class="form-control-label" for="prependedInput">Password</label>
               <div class="controls">
                 <div class="input-prepend input-group">
-                  <span class="input-group-addon"><i class="icon-phone"></i></span>
+                  <span class="input-group-addon"><i class="icon-lock"></i></span>
                   <input 
                   id="password" 
                   class="form-control"
                   type="text"
                   [ngModel]="password"
                   name="password"
-                  required>
+                  required
+                  [minlength]="6"
+                  #pass="ngModel">
                 </div>
-                <!-- <p class="help-block">Here's some help text</p> -->
+                <span class="help-block" *ngIf="!pass.valid && pass.touched" id="error" >Password should not be empty and contain atleast 6 characters</span>
               </div>
             </div>
             <div class="form-group col-lg-6">

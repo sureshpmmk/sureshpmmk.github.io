@@ -17,12 +17,15 @@
                 id="employename" 
                 class="form-control" 
                 ngModel
-                name="employename"                
+                name="employename"  
+                required     
+                #empname="ngModel"         
                 >
                 <option 
                       *ngFor="let user of users"
                       value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
-              </select>               
+              </select> 
+              <p class="help-block" *ngIf="!empname.valid && empname.touched" id="error">Please enter an employee name</p>                
             </div>
 
             <div class="form-group col-lg-6">
@@ -31,14 +34,17 @@
                 id="leavetype" 
                 class="form-control"
                 [ngModel]="defaultLeave"
-                name="leavetype">
+                name="leavetype"
+                required
+                #lvtype="ngModel">
                 <option value="Sick">Sick Leave</option>
                 <option value="Privilege">Privilege Leave</option>
                 <option value="Anual">Anual Holiday</option>
                 <option value="Optional">Optional Holiday</option>
-              </select>             
+              </select>   
+              <p class="help-block" *ngIf="!lvtype.valid && lvtype.touched" id="error">Please enter a leave type!</p>          
             </div>
-
+               
              <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Leave From</label>
               <div class="controls">
@@ -52,10 +58,10 @@
                     ngModel
                     name="leavefrom"
                     required
-                    #leavefrom="ngModel">
+                    #lvfrom="ngModel">
                 </div>                
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!leavefrom.valid && leaveto.touched">Please enter a valid from date!</p>
+              <p class="help-block" *ngIf="!lvfrom.valid && lvfrom.touched" id="error">Please enter a valid from date!</p>
             </div>            
             <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Leave To</label>
@@ -70,10 +76,10 @@
                     ngModel
                     name="leaveto"
                     required
-                    #leaveto="ngModel">
+                    #lvto="ngModel">
                 </div>               
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!leaveto.valid && leaveto.touched">Please enter a valid to date!</p>
+              <p class="help-block"  *ngIf="!lvto.valid && lvto.touched" id="error">Please enter a valid to date!</p>
             </div>           
             
             <div class="form-group col-lg-6">

@@ -24,21 +24,23 @@
 		   <div class="row">
 		   	<div class="col-lg-4">	
            <div class="form-group">
-              <label class="form-control-label" for="">Employer Name</label>
+              <label class="form-control-label" for="">Employee Name</label>
               <select 
                 id="employename" 
                 class="form-control" 
                 [ngModel]="employename"
-                name="employename"                
+                name="employename"
+                required
+                #empname="ngModel"                
                 >
-                <option value="" selected="selected">--Select Employer--</option>                
+                <option value="" selected="selected">--Select Employee--</option>                
                 <option 
                       *ngFor="let user of users"
                       value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
               </select>               
             </div>
 
-          <!--   <p class="help-block" style="color:red;" *ngIf="!holidaydescription.valid && holidaydescription.touched">Please enter a valid holiday description!</p>  -->   
+             <p class="help-block" *ngIf="!empname.valid && empname.touched" id="error">Please enter en employee name</p>     
             </div>                   
 			<div class="col-lg-4">	
              <div class="form-group">
@@ -53,14 +55,15 @@
                     type="date"
                     ngModel
                     name="fromdate"
-                    required>
+                    required
+                    #frmdate="ngModel">
                 </div>                
               </div>
             </div>
-            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+              <p class="help-block" *ngIf="!frmdate.valid && frmdate.touched" id="error">Please enter a valid from date!</p> 
             </div>
 
-			<div class="col-lg-4">	
+			     <div class="col-lg-4">	
              <div class="form-group">
               <label class="form-control-label" for="prependedInput">To</label>
               <div class="controls">
@@ -73,11 +76,12 @@
                     type="date"
                     ngModel
                     name="todate"
-                    required>
+                    required
+                    #todte="ngModel">
                 </div>                
               </div>
             </div>
-            <!--  <p class="help-block" style="color:red;" *ngIf="!holidaydate.valid && holidaydate.touched">Please enter a valid date!</p> -->
+              <p class="help-block" *ngIf="!todte.valid && todte.touched" id="error">Please enter a valid to date!</p> 
             </div>  
 
 		   </div>

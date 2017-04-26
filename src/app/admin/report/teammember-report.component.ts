@@ -9,7 +9,8 @@ import { ReportService } from '../../shared/report.service';
 
 @Component({
   selector: 'app-report',
-  templateUrl: './teammember-report.component.html'
+  templateUrl: './teammember-report.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class TeammemberReportComponent implements OnInit {
   @ViewChild('f') reportForm: NgForm;	

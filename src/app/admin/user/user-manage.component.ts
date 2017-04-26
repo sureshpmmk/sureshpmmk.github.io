@@ -6,7 +6,8 @@ import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service'; 
 
 @Component({
-  templateUrl: './user-manage.component.html'
+  templateUrl: './user-manage.component.html',
+  styleUrls: ['../../shared/validation.component.scss']
 })
 export class UserManageComponent implements OnInit {
   @ViewChild('f') userForm: NgForm;
