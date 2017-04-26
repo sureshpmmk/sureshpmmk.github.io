@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild ,ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service'; 
+import { ModalDirective } from 'ng2-bootstrap/modal/modal.component';
 
 @Component({
   templateUrl: './user-manage.component.html',
@@ -19,6 +20,8 @@ export class UserManageComponent implements OnInit {
   defaultStatus;
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
+  employee_id:string;
+  @ViewChild('dangerModal') public dangerModal:ElementRef;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -37,6 +40,10 @@ export class UserManageComponent implements OnInit {
             this.users = users;
           }
         );
+  }
+  showModel(employeeId:string){ 
+            this.employee_id = employeeId;  
+           
   }
 
   updateUser(employeeId: string) {

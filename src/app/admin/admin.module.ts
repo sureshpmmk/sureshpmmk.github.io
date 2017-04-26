@@ -3,6 +3,7 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
+import { ModalModule } from 'ng2-bootstrap/modal';
 
 // DataTables Module
 import { DataTablesModule } from 'angular-datatables';
@@ -30,7 +31,8 @@ import { ProjectReportComponent } from './report/project-report.component';
   	CommonModule,
 	  ReactiveFormsModule,
     ChartsModule,
-    DataTablesModule
+    DataTablesModule,
+    ModalModule.forRoot()
   ],
   declarations: [ 
   	UserAddComponent,
