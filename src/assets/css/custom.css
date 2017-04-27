@@ -1,0 +1,26 @@
+#error{
+ color:red;
+}
+#success{
+    color:green;
+}
+.modal{
+    margin-top:250px;
+}
+.modal-content{
+    width:65%;
+    margin: 0 auto;
+}
+.modal-header{
+    padding-top:10px;
+    padding-bottom:10px
+}
+.modal-title{   
+    font-size: 1.0rem;
+}
+.modal-body{
+    padding:10px;
+}
+.modal-footer{
+    padding:10px;
+}

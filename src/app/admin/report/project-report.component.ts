@@ -10,7 +10,7 @@ import { ReportService } from '../../shared/report.service';
 @Component({
   selector: 'app-project-report',
   templateUrl: './project-report.component.html',
-  styleUrls: ['../../shared/validation.component.scss']  
+  styleUrls: ['../../../assets/css/custom.css']  
 })
 export class ProjectReportComponent implements OnInit {
   @ViewChild('f') reportForm: NgForm;	

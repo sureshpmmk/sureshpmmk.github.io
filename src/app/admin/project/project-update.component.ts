@@ -9,7 +9,7 @@ import { User } from '../../shared/user.model';
 
 @Component({
   templateUrl: './project-update.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class ProjectUpdateComponent implements OnInit, OnDestroy {
   @ViewChild('f') projectForm: NgForm;
