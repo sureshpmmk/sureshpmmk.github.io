@@ -12,6 +12,18 @@
 
 	},
 	{
+		"logid" : "110",		
+		"employeeid" : "5123",
+		"employeename" : "Test User2",
+		"projectcode" :	"PRO001",
+		"projecttitle" : "Test Project1",
+		"startdatetime": "2017-04-21 14:30:00 GMT+0530",
+		"finishdatetime" : "2017-04-21 15:40:00 GMT+0530",
+		"timespent" : "01:00:02",
+		"lognote"   :"test"
+
+	},
+	{
 		"logid" : "101",		
 		"employeeid" : "5123",
 		"employeename" : "Test User2",

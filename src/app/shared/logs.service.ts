@@ -42,10 +42,7 @@ export class LogsService {
   getAllLogs() {  
     return this.logs.slice(); 
   }
-
- 
   
-
   createLog(log: Logs) {
   	this.logs.push(log);
     this.logsChanged.next(this.logs.slice());
