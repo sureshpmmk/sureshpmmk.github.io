@@ -8,7 +8,7 @@ import { ModalDirective } from 'ng2-bootstrap/modal/modal.component';
 
 @Component({
   templateUrl: './user-manage.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class UserManageComponent implements OnInit {
   @ViewChild('f') userForm: NgForm;

@@ -7,7 +7,7 @@ import { UserService } from '../../shared/user.service';
 
 @Component({
   templateUrl: './user-update.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class UserUpdateComponent implements OnInit, OnDestroy {
   @ViewChild('f') userForm: NgForm;

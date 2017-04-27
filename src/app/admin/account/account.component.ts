@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class AccountComponent implements OnInit {
  @ViewChild('ff') adminForm: NgForm;

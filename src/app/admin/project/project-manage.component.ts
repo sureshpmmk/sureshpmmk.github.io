@@ -11,7 +11,7 @@ import { ProjectUpdateComponent }  from './project-update.component';
 
 @Component({
   templateUrl: './project-manage.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class ProjectManageComponent implements OnInit {  
   projects: Project[] = [];
