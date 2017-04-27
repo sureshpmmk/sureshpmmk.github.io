@@ -1,4 +1,37 @@
 [
+    {
+      "employeeid": "5000", 
+      "firstname": "Test", 
+      "lastname": "Admin", 
+      "email": "appadmin@premiergp.com", 
+      "phonenumber": "123456789", 
+      "password": "admin123", 
+      "usertype": "admin", 
+      "shift": "general", 
+      "status": "active"
+    },
+    {
+      "employeeid": "5123", 
+      "firstname": "Lakshmikanth", 
+      "lastname": "V", 
+      "email": "lvm@premiergp.com", 
+      "phonenumber": "9865321474", 
+      "password": "12345", 
+      "usertype": "employee", 
+      "shift": "general", 
+      "status": "active"
+    },
+    {
+      "employeeid": "5100", 
+      "firstname": "Subina", 
+      "lastname": "KK", 
+      "email": "member01@morganmckinley.in", 
+      "phonenumber": "9865321474", 
+      "password": "mmk2017", 
+      "usertype": "employee", 
+      "shift": "general", 
+      "status": "active"
+    },
    {
       "employeeid": "5011", 
       "firstname": "Test", 
