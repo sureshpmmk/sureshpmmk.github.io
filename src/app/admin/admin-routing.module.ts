@@ -35,7 +35,7 @@ const routes: Routes = [
     path: 'manage-employee',
     component: UserManageComponent,
     data: {
-      title: 'Manage Employees'
+      title: 'Employees'
     }
   },
   {

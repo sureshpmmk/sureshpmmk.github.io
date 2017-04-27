@@ -6,9 +6,9 @@ import { User } from './user.model';
 @Injectable()
 export class AuthenticationService {
   private users = [
-    new User('5000', 'Test', 'Admin', 'appadmin@premiergp.com', '123456789', 'admin123', 'admin', 'general', 'active'),
-    new User('5123','Lakshmikanth', 'V', 'lvm@premiergp.com', '9865321474', '12345', 'employee', 'general','active'),
-    new User('5100','Subina', 'KK', 'member01@morganmckinley.in', '9865321474', 'mmk2017', 'employee', 'general','active')
+    new User('5000', 'Test', 'Admin', 'appadmin@premiergp.com','SE','123456789', 'admin123', 'admin', 'general', 'active'),
+    new User('5123','Lakshmikanth', 'V', 'lvm@premiergp.com','SE', '9865321474', '12345', 'employee', 'general','active'),
+    new User('5100','Subina', 'KK', 'member01@morganmckinley.in','SE', '9865321474', 'mmk2017', 'employee', 'general','active')
     
   ];
   authenticatedUser;
