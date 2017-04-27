@@ -20,6 +20,7 @@ export class LeaveManageComponent implements OnInit {
   users;
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
+  leaveIndex;
 
   constructor(private leaveService: LeaveService,
               private router: Router,
@@ -63,5 +64,8 @@ export class LeaveManageComponent implements OnInit {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
+  showModel(leave:string){ 
+    this.leaveIndex = leave;             
+  }  
 
 }

@@ -219,7 +219,7 @@
   <div class="modal-dialog modal-danger" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Confirm Delete </h4>
+        <h4 class="modal-title">Delete User</h4>
         <button type="button" class="close" (click)="dangerModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -228,7 +228,7 @@
         <p>Are you sure you want to delete?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Close</button>
+        <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="deleteUser( employee_id );dangerModal.hide()">Confirm</button>
       </div>
     </div><!-- /.modal-content -->

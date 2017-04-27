@@ -27,6 +27,7 @@ export class ProjectManageComponent implements OnInit {
   projectData: Project[] = [];
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
+  projectId;
 
   constructor(private projectService: ProjectService,
       			  private projectUpdateComponent: ProjectUpdateComponent,
@@ -124,5 +125,8 @@ export class ProjectManageComponent implements OnInit {
   toggleFlag() {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
+  }
+  showModel(projectcode:string){ 
+    this.projectId = projectcode;             
   }
 }
