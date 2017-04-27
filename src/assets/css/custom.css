@@ -24,3 +24,14 @@
 .modal-footer{
     padding:10px;
 }
+.circle-icon {
+    background: #b0bec5;
+    /*background: #1a99d8;*/
+	/*width: 100px;*/
+    /*height: 100px;*/
+    border-radius: 50%;
+    text-align: center;
+    /*line-height: 100px;*/
+    vertical-align: middle;
+    padding: 5px;
+}

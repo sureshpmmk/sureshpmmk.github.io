@@ -174,9 +174,9 @@
                 <!-- <th>Employee ID</th> -->
                 <th>First Name</th>
                 <th>Last Name</th>
-                <!-- <th>Email</th> -->
+                <th>Email</th>
                 <th>Designation</th>
-                <th>Phone</th>
+                <!-- <th>Phone</th> -->
                 <th>Shift</th>
                 <th>Action</th>
               </tr>
@@ -186,22 +186,22 @@
                 <!-- <td>{{ user.employeeid }}</td> -->
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
-                <!-- <td>{{ user.email }}</td> -->
+                <td>{{ user.email }}</td>
                 <td>{{ user.designation }}</td>
-                <td>{{ user.phonenumber }}</td>
+                <!-- <td>{{ user.phonenumber }}</td> -->
                 <td>{{ user.shift }}</td>
                 <td>
                   <span                     
                     (click)="changeStatus(user.employeeid, 'active')"
-                    *ngIf="user.status !== 'active'"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
+                    *ngIf="user.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
                     (click)="changeStatus(user.employeeid, 'deactive')"
-                    *ngIf="user.status === 'active'"><i class="fa fa-eye-slash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
+                    *ngIf="user.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
-                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
                   <span                      
                     data-toggle="modal" 
-                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>
+                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   
