@@ -5,7 +5,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Add New User
+          <i class="fa fa-edit"></i>Add Employee
           <a href="javascript:void(0)" (click)="toggleFlag()" class="pull-right"><i class="{{ formShowFlagText }}"></i></a>
          <!--  <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
@@ -15,28 +15,9 @@
         </div>
         <div class="card-block" *ngIf="formShowFlag">
           <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
-          <div class="row">         
-           
+          <div class="row">  
             <div class="form-group col-lg-6">
-              <label class="form-control-label" for="prependedInput">Employee ID</label>
-              <div class="controls">
-                <div class="input-prepend input-group">
-                  <span class="input-group-addon"><i class="icon-key"></i></span>
-                  <input 
-                    id="employeeid" 
-                    class="form-control"
-                    type="text"
-                    ngModel
-                    name="employeeid"
-                    required
-                    #employeeid="ngModel"
-                    pattern="^[1-9]+[0-9]*$">
-                </div>
-                 <span class="help-block" *ngIf="!employeeid.valid && employeeid.touched" id="error" >Please enter valid employee id</span>
-              </div>
-            </div>
-            <div class="form-group col-lg-6">
-              <label class="form-control-label" for="prependedInput">Firstname</label>
+              <label class="form-control-label" for="prependedInput">First Name</label>
               <div class="controls">
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -54,7 +35,7 @@
               </div>
             </div>
             <div class="form-group col-lg-6">
-              <label class="form-control-label" for="prependedInput">Lastname</label>
+              <label class="form-control-label" for="prependedInput">Last Name</label>
               <div class="controls">
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -70,8 +51,43 @@
                 </div>
                <span class="help-block" *ngIf="!lastname.valid && lastname.touched" id="error" >Please enter valid lastname</span>
               </div>
+            </div> 
+            <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Employee ID</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-key"></i></span>
+                  <input 
+                    id="employeeid" 
+                    class="form-control"
+                    type="text"
+                    ngModel
+                    name="employeeid"
+                    required
+                    #employeeid="ngModel"
+                    pattern="^[1-9]+[0-9]*$">
+                </div>
+                 <span class="help-block" *ngIf="!employeeid.valid && employeeid.touched" id="error" >Please enter valid employee id</span>
+              </div>
+            </div> 
+             <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Designation</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="fa fa-plane" aria-hidden="true"></i></span>
+                  <input 
+                    id="designation" 
+                    class="form-control"
+                    type="text"                    
+                    ngModel
+                    name="designation"
+                    required
+                    #designation="ngModel"
+                    >
+                </div>
+                <span class="help-block" *ngIf="!designation.valid && designation.touched" id="error" >Please enter a valid designation</span>
+              </div>
             </div>           
-            
             <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Email</label>
               <div class="controls">
@@ -110,7 +126,7 @@
             </div>
 
             <div class="form-group col-lg-6">
-              <label class="form-control-label" for="">Shift Type</label>
+              <label class="form-control-label" for="">Shift</label>
               <select 
                 id="shift" 
                 class="form-control"
@@ -118,9 +134,9 @@
                 name="shift"
                 #shift="ngModel"
                  required>
-                <option value="morning">Morning Shift</option>
-                <option value="evening">Evening Shift</option>
-                <option value="night">Night Shift</option>
+                <option value="morning">Morning</option>
+                <option value="evening">Evening</option>
+                <option value="night">Night</option>
               </select>
               <span class="help-block" *ngIf="!shift.valid && shift.touched" id="error" >Please enter a shift</span>
               <input type="hidden" name="password" [ngModel]="randPassword">
@@ -133,8 +149,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> Save changes</button>
-              <button class="btn btn-default" type="button" (click)="cancel()"><i class="fa fa-ban"></i> Cancel</button>
+                ><i class="fa fa-save"></i>&nbsp;Add</button>           
             </div>  
             </div>                     
             </div>
@@ -149,46 +164,44 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
+        <!-- <div class="card-header">
           <i class="fa fa-align-justify"></i> Employees
-        </div>
+        </div> -->
         <div class="card-block">
           <table datatable class="table table-striped row-border">
             <thead>
               <tr>
-                <th>Employee ID</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <!-- <th>Employee ID</th> -->
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Shift Type</th>
+                <th>Designation</th>
+                <!-- <th>Phone</th> -->
+                <th>Shift</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let user of users;let i=index">
-                <td>{{ user.employeeid }}</td>
+                <!-- <td>{{ user.employeeid }}</td> -->
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.phonenumber }}</td>
+                <td>{{ user.designation }}</td>
+                <!-- <td>{{ user.phonenumber }}</td> -->
                 <td>{{ user.shift }}</td>
                 <td>
-                  <button 
-                    class="btn btn-success" 
+                  <span                     
                     (click)="changeStatus(user.employeeid, 'active')"
-                    *ngIf="user.status !== 'active'"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Activate</button>
-                  <button
-                    class="btn btn-secondary" 
+                    *ngIf="user.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
+                  <span                    
                     (click)="changeStatus(user.employeeid, 'deactive')"
-                    *ngIf="user.status === 'active'"><i class="fa fa-eye-slash" aria-hidden="true"></i>&nbsp;Deactivate</button>
-                  <button 
-                    class="btn btn-primary" 
-                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
-                  <button 
-                    class="btn btn-danger" 
+                    *ngIf="user.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
+                  <span                      
+                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                  <span                      
                     data-toggle="modal" 
-                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button>
+                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   
@@ -215,11 +228,11 @@
   </div>
   <!--/.row-->
 </div>
-<div bsModal #dangerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div bsModal #dangerModal="bs-modal"  class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-danger" role="document">
-    <div class="modal-content">
+    <div class="modal-content" >
       <div class="modal-header">
-        <h4 class="modal-title">Delete User</h4>
+        <h4 class="modal-title" >Delete User</h4>
         <button type="button" class="close" (click)="dangerModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

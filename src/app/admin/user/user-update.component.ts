@@ -7,7 +7,7 @@ import { UserService } from '../../shared/user.service';
 
 @Component({
   templateUrl: './user-update.component.html',
-  styleUrls: ['../../shared/validation.component.scss']
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class UserUpdateComponent implements OnInit, OnDestroy {
   @ViewChild('f') userForm: NgForm;
@@ -17,6 +17,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
   employeeid;
   firstname;
   lastname;
+  designation;
   email;
   phonenumber;
   password;
@@ -46,7 +47,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
 
   getOneUser(passedEmployeeid: string) {
     this.user = this.userService.getOneUser(passedEmployeeid);
-    console.log(this.user);
+   // console.log(this.user);
 
     this.employeeid  = this.user.employeeid;
     this.firstname   = this.user.firstname;
@@ -57,6 +58,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     this.usertype    = this.user.usertype;
     this.shift       = this.user.shift;
     this.status      = this.user.status;
+    this.designation = this.user.designation;
   }
 
   updateUser() {
