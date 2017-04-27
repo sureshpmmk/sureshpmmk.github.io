@@ -128,7 +128,7 @@
                     (click)="updateLeave(i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
                      <button 
                     class="btn btn-danger" 
-                    (click)="deleteLeave(i)"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button> 
+                    (click)="showModel(i);dangerModal.show();"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button> 
                 </td>
               </tr>
             </tbody>
@@ -139,3 +139,22 @@
     </div>    
   </div>  
 </div>
+<div bsModal #dangerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Leave </h4>
+        <button type="button" class="close" (click)="dangerModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dangerModal.hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="deleteLeave(leaveIndex);dangerModal.hide()">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

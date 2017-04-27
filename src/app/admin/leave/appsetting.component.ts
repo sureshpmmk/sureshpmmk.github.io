@@ -21,6 +21,7 @@ export class AppsettingComponent implements OnInit {
   holidayIndex;
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
+  holiday_index;
 
   @ViewChild('f') holidayForm: NgForm;
   constructor(private holidayService: HolidayService,
@@ -71,6 +72,7 @@ export class AppsettingComponent implements OnInit {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
-
-  
+  showModel(holidayId:string){ 
+    this.holiday_index = holidayId;             
+  }  
 }

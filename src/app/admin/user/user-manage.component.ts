@@ -41,10 +41,6 @@ export class UserManageComponent implements OnInit {
           }
         );
   }
-  showModel(employeeId:string){ 
-            this.employee_id = employeeId;  
-           
-  }
 
   updateUser(employeeId: string) {
     this.router.navigate(['/admin/update-employee', employeeId]);
@@ -74,5 +70,9 @@ export class UserManageComponent implements OnInit {
   toggleFlag() {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
+  }
+
+  showModel(employeeId:string){ 
+    this.employee_id = employeeId;            
   }
 }
