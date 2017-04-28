@@ -5,9 +5,9 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header" (click)="toggleFlag()" style="cursor:pointer">
           <i class="fa fa-edit"></i>Add New Project
-          <a href="javascript:void(0)" (click)="toggleFlag()" class="pull-right"><i class="{{ formShowFlagText }}"></i></a>
+          <a href="javascript:void(0)"  class="pull-right"><i class="{{ formShowFlagText }}"></i></a>
         </div>
         <div class="card-block" *ngIf="formShowFlag">
           <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -163,12 +163,10 @@
             <thead>
               <tr>
                 <th>Project Code</th>
-                <th>Project Title</th>
-                <!-- <th>Team Members</th> -->
+                <th>Project Title</th>                
+                <th>Hours Spent</th>
                 <th>Hours Required</th>
-                <th>Hours Taken</th>
                 <th>Start Date</th>
-                <th>Finish Date</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -176,12 +174,10 @@
             <tbody>
               <tr *ngFor="let project of projectsDetails">
                 <td>{{ project.projectcode }}</td>
-                <td>{{ project.projecttitle }}</td>
-                <!-- <td >{{ project.teammemberNames }}</td> -->
-                <td>{{ project.hoursrequired }}</td>
+                <td>{{ project.projecttitle }}</td>                
                 <td>{{ project.hourstaken }}</td>
+                <td>{{ project.hoursrequired }}</td>
                 <td>{{ project.startdate }}</td>
-                <td>{{ project.finishdate }}</td>
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
