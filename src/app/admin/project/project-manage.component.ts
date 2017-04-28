@@ -28,6 +28,7 @@ export class ProjectManageComponent implements OnInit {
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
   projectId;
+  notValid;
 
   constructor(private projectService: ProjectService,
       			  private projectUpdateComponent: ProjectUpdateComponent,
@@ -97,6 +98,9 @@ export class ProjectManageComponent implements OnInit {
   }
 
   onSubmit() {  
+    this.notValid = '';
+    if(this.projectForm.valid)
+    {  
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
       .subscribe(
@@ -115,7 +119,12 @@ export class ProjectManageComponent implements OnInit {
     this.projectForm.value.teammembers = this.teammembers;
     this.projectService.addProject(this.projectForm.value);
     this.router.navigate(['/admin/manage-projects']);
+    this.projectForm.reset();
   }
+  else{
+     this.notValid ="Form is not valid.";     
+  }
+}
 
   cancel() {
     this.projectForm.reset();

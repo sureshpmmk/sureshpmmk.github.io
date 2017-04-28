@@ -56,7 +56,7 @@ const routes: Routes = [
     path: 'manage-projects',
     component: ProjectManageComponent,
     data: {
-      title: 'Manage Projects'
+      title: 'Projects'
     }
   },
   {
@@ -77,14 +77,14 @@ const routes: Routes = [
     path: 'manage-leaves',
     component: LeaveManageComponent,
     data: {
-      title: 'Manage Leaves'
+      title: 'Employee Leaves'
     }
   },
   {
     path: 'team-reports',
     component: TeammemberReportComponent,
     data: {
-      title: 'Reports'
+      title: 'Employee Reports'
     }
   },
   {
@@ -105,7 +105,7 @@ const routes: Routes = [
     path: 'app-setting',
     component: AppsettingComponent,
     data: {
-      title: 'Add Holidays'
+      title: 'Holidays'
     }
   },
   {
@@ -119,7 +119,7 @@ const routes: Routes = [
     path: 'project-reports',
     component: ProjectReportComponent,
     data: {
-      title: 'Reports'
+      title: 'Project Reports'
     }
   },
 ];

@@ -5,9 +5,9 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header" (click)="toggleFlag()" style="cursor:pointer">
           <i class="fa fa-edit"></i>Add New Project
-          <a href="javascript:void(0)" (click)="toggleFlag()" class="pull-right"><i class="{{ formShowFlagText }}"></i></a>
+          <a href="javascript:void(0)"  class="pull-right"><i class="{{ formShowFlagText }}"></i></a>
         </div>
         <div class="card-block" *ngIf="formShowFlag">
           <form class="form-horizontal" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -28,6 +28,7 @@
                     >
                 </div>
                 <span class="help-block" *ngIf="!pjtcode.valid && pjtcode.touched" id="error" >Please enter valid project name</span>
+                <span class="help-block" id="error">{{ notValid }}</span>
               </div>
             </div>
             <div class="form-group col-lg-6">
@@ -101,6 +102,23 @@
               </div>
             </div>
             <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Estimated Date</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="estimateddate" 
+                    class="form-control" 
+                    type="date"  
+                    name="estimateddate"
+                    style="display:  -webkit-inline-box;" 
+                    required
+                    [ngModel]="estimateddate | date:'yyyy-MM-dd'">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="">Status</label>
               <div class="input-prepend input-group">
                 <span class="input-group-addon"><i class="icon-flag"></i></span>
@@ -122,7 +140,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> &nbsp;Add</button>
+                ><i class="fa fa-save"></i> &nbsp;Add</button>
              <!--  <button class="btn btn-default" type="button" (click)="cancel()"><i class="fa fa-ban"></i>  Cancel</button> -->
             </div>
             </div>
@@ -137,20 +155,18 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
+        <!-- <div class="card-header">
           <i class="fa fa-align-justify"></i> Manage Projects
-        </div>
+        </div> -->
         <div class="card-block">
           <table datatable class="table table-striped row-border">
             <thead>
               <tr>
                 <th>Project Code</th>
-                <th>Project Title</th>
-                <th>Team Members</th>
+                <th>Project Title</th>                
+                <th>Hours Spent</th>
                 <th>Hours Required</th>
-                <th>Hours Taken</th>
                 <th>Start Date</th>
-                <th>Finish Date</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -158,28 +174,22 @@
             <tbody>
               <tr *ngFor="let project of projectsDetails">
                 <td>{{ project.projectcode }}</td>
-                <td>{{ project.projecttitle }}</td>
-                <td >{{ project.teammemberNames }}</td>
-                <td>{{ project.hoursrequired }}</td>
+                <td>{{ project.projecttitle }}</td>                
                 <td>{{ project.hourstaken }}</td>
+                <td>{{ project.hoursrequired }}</td>
                 <td>{{ project.startdate }}</td>
-                <td>{{ project.finishdate }}</td>
                 <td>{{ project.status }}</td>
                 <td>
-                  <button 
-                    class="btn btn-success" 
+                  <span                      
                     (click)="changeProjectStatus(project.projectcode, 'active')"
-                    *ngIf="project.status !== 'active'"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;Activate</button>
-                  <button
-                    class="btn btn-secondary" 
+                    *ngIf="project.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
+                  <span                    
                     (click)="changeProjectStatus(project.projectcode, 'deactive')"
-                    *ngIf="project.status === 'active'"><i class="fa fa-eye-slash" aria-hidden="true"></i>&nbsp;Deactivate</button>
-                  <button 
-                    class="btn btn-primary" 
-                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
-                  <button 
-                    class="btn btn-danger" 
-                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button>                  
+                    *ngIf="project.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
+                  <span                      
+                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                  <span                      
+                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>                  
                 </td>
               </tr>
             </tbody>

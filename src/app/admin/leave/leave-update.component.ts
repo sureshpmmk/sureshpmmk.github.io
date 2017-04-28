@@ -9,7 +9,9 @@ import { UserService } from '../../shared/user.service';
 
 @Component({ 
   templateUrl: './leave-update.component.html', 
+  styleUrls: ['../../../assets/css/custom.css']
   // styleUrls: ['../../../../node_modules/angular-datepicker/dist/index.min.css'],
+
 })
 export class LeaveUpdateComponent implements OnInit {
   @ViewChild('f') leaveForm: NgForm;
@@ -50,6 +52,10 @@ export class LeaveUpdateComponent implements OnInit {
     this.leavetype  = this.leave.leavetype;
     this.leavefrom = this.leave.leavefrom;
     this.leaveto   = this.leave.leaveto;   
+  }
+   cancel() {
+    this.leaveForm.reset();
+    this.router.navigate(['/admin/manage-leaves']);
   }
 
 

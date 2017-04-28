@@ -114,16 +114,17 @@
               </div>
             </div>
             <div class="form-group col-lg-6">
-              <label class="form-control-label" for="">Shift Type</label>
+              <label class="form-control-label" for="">Shift</label>
               <select 
                 id="shift" 
                 class="form-control"
                 [ngModel]="shift"
                 name="shift"
                 #shifts="ngModel">
-                <option value="morning">Morning Shift</option>
-                <option value="evening">Evening Shift</option>
-                <option value="night">Night Shift</option>
+                <option value="general">General</option>
+                <option value="morning">Morning</option>
+                <option value="evening">Evening</option>
+                <option value="night">Night</option>
               </select> 
             </div>
             <div class="form-group col-lg-6">
@@ -164,7 +165,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> Add </button>
+                [disabled]="!f.valid"><i class="fa fa-save"></i> Save </button>
               <button class="btn btn-default" type="button" (click)="cancel()"><i class="fa fa-ban"></i> Cancel</button>
             </div>
             </div>

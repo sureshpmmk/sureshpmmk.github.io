@@ -17,11 +17,12 @@ export class AppsettingComponent implements OnInit {
   holidaydescription = null;
   holidaydate;
   buttonText = "Add";
-  buttonType = "Save";
+  buttonType = "Add";
   holidayIndex;
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
   holiday_index;
+  notValid;
 
   @ViewChild('f') holidayForm: NgForm;
   constructor(private holidayService: HolidayService,
@@ -33,17 +34,21 @@ export class AppsettingComponent implements OnInit {
 
   onSaveHoliday(){
 
-  	console.log(this.buttonType);
-  	if(this.buttonType == "Update"){
+     this.notValid = '';
+  	if(this.holidayForm.valid){
+  	if(this.buttonType == "Save"){
   	this.holidays = this.holidayService.updateHolidayEntry(this.holidayIndex,this.holidayForm.value); 
   	this.holidayForm.reset(); 
   	this.buttonText = "Add";
-    this.buttonType = "Save";
+    this.buttonType = "Add";
     }
     else{
   	this.holidays = this.holidayService.addHolidayEntry(this.holidayForm.value); 
   	this.holidayForm.reset();
     }
+  }else{
+    this.notValid ="Form is not valid.";
+  }
 
   }
    deleteHoliday(holidayIndex: number) {
@@ -63,8 +68,8 @@ export class AppsettingComponent implements OnInit {
 
     this.holidaydescription   = this.holiday.holidaydescription;
     this.holidaydate  = this.holiday.holidaydate;
-    this.buttonText = "Update";
-    this.buttonType = "Update";
+    this.buttonText = "Save";
+    this.buttonType = "Save";
        
   }
 

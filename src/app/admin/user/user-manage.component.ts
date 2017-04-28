@@ -22,11 +22,12 @@ export class UserManageComponent implements OnInit {
   formShowFlag = false;
   employee_id:string;
   @ViewChild('dangerModal') public dangerModal:ElementRef;
+  notValid;
 
   constructor(private userService: UserService, private router: Router) { 
 
     this.defaultUsertype = 'user';
-    this.defaultShift    = 'morning';
+    this.defaultShift    = 'general';
     this.randPassword    = '12345';
     this.defaultStatus   = 'active';
 
@@ -56,9 +57,14 @@ export class UserManageComponent implements OnInit {
     this.userService.updateUserStatus(this.userIndex, status);
   }
   onSubmit() {
+    this.notValid = "";
+    if(this.userForm.valid){
     this.userService.addUser(this.userForm.value);
     this.router.navigate(['/admin/manage-employee']);
     this.userForm.reset();
+    }else{
+      this.notValid ="Form is not valid."; 
+    }
 
   }
 
