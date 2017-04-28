@@ -38,6 +38,6 @@
 .breadcrumb-item.active{
     color: #000;
 }
-.btn {
+.btn,.fa {
     cursor: pointer;
 }
