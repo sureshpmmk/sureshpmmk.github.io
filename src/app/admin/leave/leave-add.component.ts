@@ -10,6 +10,7 @@ import { UserService } from '../../shared/user.service';
 @Component({ 
   templateUrl: './leave-add.component.html', 
   // styleUrls: ['../../../../node_modules/angular-datepicker/dist/index.min.css'],
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class LeaveAddComponent implements OnInit {
   @ViewChild('f') leaveForm: NgForm;
