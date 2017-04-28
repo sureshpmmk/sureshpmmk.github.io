@@ -5,7 +5,11 @@
 				<div class="card-header">
 					<i class="fa fa-align-justify"></i> Projects
 				</div>  
-
+				<div class="card-footer">
+					<button class="btn btn-primary" (click)="changeDaysNumber(7)">7 days</button>
+					<button class="btn btn-primary" (click)="changeDaysNumber(14)">14 days</button>
+					<button class="btn btn-primary" (click)="changeDaysNumber(30)">30 days</button>
+				</div>
 				<div class="card-block" *ngIf="sevendayChartFlag">            
 					<div class="chart-wrapper">
 						<canvas baseChart class="chart"
@@ -48,11 +52,7 @@
 						</canvas>
 					</div>
 				</div>
-				<div class="card-footer">
-					<button class="btn btn-primary" (click)="changeDaysNumber(7)">7 days</button>
-					<button class="btn btn-primary" (click)="changeDaysNumber(14)">14 days</button>
-					<button class="btn btn-primary" (click)="changeDaysNumber(30)">30 days</button>
-				</div>
+				
 			</div>
 		</div>    
 	</div>   

@@ -109,21 +109,20 @@
     </div> <!--/.col-->
   </div><!--/.row-->
 <!--Listing Log Details-->
-  <div id="divLog" *ngIf="flag_showhidedetails === 0 ">
-  <div class="row">
+  <div class="divLog" *ngIf="flag_showhidedetails === 0 ">
+    <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">         
-           <div style="text-align: right;"><a 
-         href="javascript:void(0)" 
-         (click) = "toggleLineChart()" >{{ chartViewVariable }}</a>		 	
-         </div>
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Project List
+           <div style="text-align: right;">
+            <a href="javascript:void(0)" (click) = "toggleLineChart()" >{{ chartViewVariable }}</a>		 	
+           </div>
         </div>
         <div class="card-block" *ngIf="flag_chart === 0 ">
           <table datatable class="table table-striped row-border">
             <thead>
-              <tr>
-                
+              <tr>                
                 <th>User Name</th>
                 <th>Total Time Spent</th> 
                 <th>Action</th>
@@ -134,20 +133,26 @@
                 <td>{{ log.employeename }}</td>                
                 <td>{{ log.timespent }}</td>               
                 <td style="text-align: center"> 
-                <a href="javascript:void(0)" (click) = "viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)" >View Details</a>
+                <a href="javascript:void(0)" 
+                  (click) = "viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)" >
+                  View Details</a>
                 </td>
               </tr>
             </tbody>
           </table>
-         <input 
-         type="hidden" 
-         name="buttonType"
-         [ngModel]="buttonType" 
-         >
+          <input 
+           type="hidden" 
+           name="buttonType"
+           [ngModel]="buttonType" 
+           >
         </div>
-         
+
+      </div>
+    </div>    
+  </div> 
+  </div>         
         <!--Listing Project Details-->
-  <div id="divLog" *ngIf="flag_showhidedetails !== 0 ">
+  <div class="divLog" *ngIf="flag_showhidedetails !== 0 ">
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
@@ -189,7 +194,7 @@
 <!--Listing Project Details End-->
 
 <!-- chart strting here -->
-<div id="divLog" *ngIf="flag_chart !== 0">
+<div class="divLog" *ngIf="flag_chart !== 0">
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
@@ -217,11 +222,6 @@
   </div>
 </div>
 <!-- chart End here -->
-
-      </div>
-    </div>    
-  </div> 
-  </div> 
 
 
 
