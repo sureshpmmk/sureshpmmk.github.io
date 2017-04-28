@@ -4,7 +4,7 @@ import { AuthenticationService } from '../shared/authentication.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './employee-layout.component.html',
-  styleUrls: ['../app.component.css']
+  styleUrls: ['./employee-layout.component.css']
 })
 export class EmployeeLayoutComponent implements OnInit {
 

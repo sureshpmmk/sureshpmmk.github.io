@@ -1,35 +1,31 @@
 <div class="app flex-row align-items-center">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
-      <form (ngSubmit)="onLogin()" #f="ngForm">
-        <div class="card-group mb-0">
-          <div class="card p-2">
-            <div class="card-block">
+      <div class="col-md-5">
+        <form (ngSubmit)="onLogin()" #f="ngForm">
+          <div class="login-form">
+            <div class="login-header">
               <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 text-center">
-                  <img src="/assets/img/logo.png" class="logo-img">
+                  <img src="/assets/img/logo_white.png" class="logo-img">
                 </div>
               </div>
-              <div class="row mt-1">
-                <div class="col-md-3"></div>
-                <div class="col-md-6 text-center">
-                  <h3>Login</h3> 
-                  <p class="text-muted">Sign In to your account</p>
-                </div>
-              </div>
-              
+            </div>
+            <div class="login-body"> 
+              <div class="col-md-12 text-center">
+                <p class="text-muted">Sign In to your account</p>
+              </div>         
               <div class="input-group mb-1">
                 <span class="input-group-addon"><i class="icon-user"></i></span>
                 <input type="text"
-                 class="form-control"
-                 placeholder="username"
-                 ngModel
-                 name = "username"
-                 required
-                 email
-                 #user="ngModel">                 
+                class="form-control"
+                placeholder="username"
+                ngModel
+                name = "username"
+                required
+                email
+                #user="ngModel">                 
               </div>
               <p class="help-block" style="color:red;" *ngIf="!user.valid && user.touched">Please enter a valid user name!</p>
               <div class="input-group mb-2">
@@ -45,25 +41,15 @@
               <p class="help-block" style="color:red;" *ngIf="!pass.valid && pass.touched">Please enter a valid password!</p>
               <p class="help-block" style="color:red;" *ngIf="!success">{{ validationError }}</p>
               <div class="row">
-                <div class="col-6">
-                  <button type="submit" class="btn btn-primary px-2" [disabled]="!f.valid">Login</button>
+                <div class="col-md-12 login-button">
+                <button type="submit" class="btn btn-primary px-2">Login</button>
                 </div>
-                <div class="col-6 text-right">
+                <div class="col-12 text-center">
                   <a href="" [routerLink]="['/pages/forgot']" class="px-0">Forgot Password?</a>
                 </div>
-              </div>
+              </div>  
             </div>
           </div>
-         <!--  <div class="card card-inverse card-primary py-3 hidden-md-down" style="width:44%">
-            <div class="card-block text-center">
-              <div>
-                <h2>Sign up</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <button type="button" class="btn btn-primary active mt-1">Register Now!</button>
-              </div>
-            </div>
-          </div> -->
-        </div>
         </form>
       </div>
     </div>
