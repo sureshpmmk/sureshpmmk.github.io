@@ -51,6 +51,10 @@ export class LeaveUpdateComponent implements OnInit {
     this.leavefrom = this.leave.leavefrom;
     this.leaveto   = this.leave.leaveto;   
   }
+   cancel() {
+    this.leaveForm.reset();
+    this.router.navigate(['/admin/manage-leaves']);
+  }
 
 
 

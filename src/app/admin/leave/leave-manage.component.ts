@@ -21,6 +21,7 @@ export class LeaveManageComponent implements OnInit {
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
   leaveIndex;
+  notValid;
 
   constructor(private leaveService: LeaveService,
               private router: Router,
@@ -55,8 +56,12 @@ export class LeaveManageComponent implements OnInit {
   }
 
   onSaveLeave(){
+    if(this.leaveForm.valid){
     this.leaveService.addLeaveEntry(this.leaveForm.value);
     this.router.navigate(['/admin/manage-leaves']);
+  }else{
+    this.notValid ="Form is not valid.";
+  }
 
   }
 

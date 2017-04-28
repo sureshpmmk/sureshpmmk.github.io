@@ -25,7 +25,8 @@
                       *ngFor="let user of users"
                       value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>                
               </select> 
-              <p class="help-block" *ngIf="!empname.valid && empname.touched" id="error">Please enter an employee name</p>                
+              <p class="help-block" *ngIf="!empname.valid && empname.touched" id="error">Please enter an employee name</p>
+              <span class="help-block" id="error">{{ notValid }}</span>                
             </div>
 
             <div class="form-group col-lg-6">
@@ -87,7 +88,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> &nbsp;Add</button>
+                ><i class="fa fa-save"></i> &nbsp;Add</button>
               <!-- <button class="btn btn-default" type="button"><i class="fa fa-ban"></i> Cancel</button> -->
             </div>
             </div>
@@ -102,14 +103,15 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
+        <!-- <div class="card-header">
           <i class="fa fa-align-justify"></i> Manage Leaves
-        </div>
+        </div> -->
         <div class="card-block">
           <table datatable class="table table-striped row-border">
             <thead>
-              <tr>                
-                <th>Firstname</th>
+              <tr> 
+                <th>S.No</th>               
+                <th>First Name</th>
                 <th>Leave Type</th>               
                 <th>From</th>
                 <th>To</th>
@@ -117,18 +119,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let leave of leaves;let i=index">                
+              <tr *ngFor="let leave of leaves;let i=index">
+                <td>{{ i + 1 }}</td>                
                 <td>{{ leave.employename }}</td>
                 <td>{{ leave.leavetype }}</td>
                 <td>{{ leave.leavefrom }}</td>
                 <td>{{ leave.leaveto }}</td>               
                 <td style="text-align: center">   
-                     <button 
-                    class="btn btn-primary" 
-                    (click)="updateLeave(i)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Edit</button>
-                     <button 
-                    class="btn btn-danger" 
-                    (click)="showModel(i);dangerModal.show();"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete</button> 
+                     <span                     
+                    (click)="updateLeave(i)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                     <span 
+                    (click)="showModel(i);dangerModal.show();"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span> 
                 </td>
               </tr>
             </tbody>
