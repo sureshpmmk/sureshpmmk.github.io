@@ -8,7 +8,8 @@ import { UserService } from '../../shared/user.service';
 import { User } from '../../shared/user.model';
 
 @Component({
-  templateUrl: './project-add.component.html'
+  templateUrl: './project-add.component.html',
+  styleUrls: ['../../../assets/css/custom.css']
 })
 export class ProjectAddComponent implements OnInit {
   @ViewChild('f') projectForm: NgForm;

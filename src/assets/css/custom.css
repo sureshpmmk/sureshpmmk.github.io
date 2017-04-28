@@ -35,3 +35,9 @@
     vertical-align: middle;
     padding: 5px;
 }
+.breadcrumb-item.active{
+    color: #000;
+}
+.btn {
+    cursor: pointer;
+}
