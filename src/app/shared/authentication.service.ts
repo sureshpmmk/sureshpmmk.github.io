@@ -2,22 +2,27 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from './user.model';
+import { UserService } from './user.service';
 
 @Injectable()
 export class AuthenticationService {
-  private users = [
-    new User('5000', 'Test', 'Admin', 'appadmin@premiergp.com','SE','123456789', 'admin123', 'admin', 'general', 'active'),
-    new User('5123','Lakshmikanth', 'V', 'lvm@premiergp.com','SE', '9865321474', '12345', 'employee', 'general','active'),
-    new User('5100','Subina', 'KK', 'member01@morganmckinley.in','SE', '9865321474', 'mmk2017', 'employee', 'general','active')
-    
-  ];
+  private users = [ ];
   authenticatedUser;
  
-  constructor(private router: Router){}
+  constructor(private router: Router, private userService: UserService){
+    this.users = this.userService.getUsers();
+    this.userService.usersChanged
+      .subscribe(
+          (users: User[]) => {
+            this.users = users;
+          }
+        );
+  }
  
   logout() {
     localStorage.removeItem("user");
     localStorage.removeItem("username");
+    localStorage.clear();
     this.router.navigate(['pages/login']);
   }
  
