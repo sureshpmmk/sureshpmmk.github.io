@@ -84,7 +84,7 @@ const routes: Routes = [
     path: 'team-reports',
     component: TeammemberReportComponent,
     data: {
-      title: 'Reports'
+      title: 'Employee Reports'
     }
   },
   {
@@ -119,7 +119,7 @@ const routes: Routes = [
     path: 'project-reports',
     component: ProjectReportComponent,
     data: {
-      title: 'Reports'
+      title: 'Project Reports'
     }
   },
 ];

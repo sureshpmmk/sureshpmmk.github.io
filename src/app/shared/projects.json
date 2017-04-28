@@ -7,7 +7,9 @@
                       { "id" : "5012", "name" : "Test User2" }],
       "status": "active", 
       "hourstaken": "", 
-      "startdate": "2016/04/17", 
+      "startdate": "2016/04/17",
+      "estimateddate": "2016/04/17",
+      "actualdate": "2016/04/17", 
       "finishdate": ""
   },
   {
@@ -18,7 +20,9 @@
                       { "id" : "5014", "name" : "Test User4" }],
       "status": "active", 
       "hourstaken": "", 
-      "startdate": "2016/04/17", 
+      "startdate": "2016/04/17",
+      "estimateddate": "2016/04/17",
+      "actualdate": "2016/04/17",  
       "finishdate": ""
   },
   {
@@ -30,6 +34,8 @@
       "status": "active", 
       "hourstaken": "", 
       "startdate": "2016/04/18", 
+      "estimateddate": "2016/04/17",
+      "actualdate": "2016/04/17", 
       "finishdate": ""
   },
   {
@@ -40,7 +46,9 @@
                       { "id" : "5013", "name" : "Test User3" }],
       "status": "active", 
       "hourstaken": "", 
-      "startdate": "2016/04/18", 
+      "startdate": "2016/04/18",
+      "estimateddate": "2016/04/17",
+      "actualdate": "2016/04/17",  
       "finishdate": ""
   }
 ]

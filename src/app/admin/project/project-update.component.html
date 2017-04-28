@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Edit Projects
+          <i class="fa fa-edit"></i>Edit Project
          <!--  <div class="card-actions">
             <a href="#" class="btn-setting"><i class="icon-settings"></i></a>
             <a href="#" class="btn-minimize"><i class="icon-arrow-up"></i></a>
@@ -65,7 +65,7 @@
               </div>
             </div>
             <div class="form-group col-lg-6">
-              <label class="form-control-label" for="prependedInput">Hours Taken</label>
+              <label class="form-control-label" for="prependedInput">Hours Spent</label>
               <div class="controls">
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-hourglass"></i></span>
@@ -131,6 +131,25 @@
                 <span class="help-block" *ngIf="!startdte.valid && startdte.touched" id="error" >Please enter the start date</span>
               </div>
             </div>
+             <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Estimated Date</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="estimateddate" 
+                    class="form-control" 
+                    style="display:  -webkit-inline-box;" 
+                    type="date"  
+                    name="estimateddate"
+                    required
+                    [(ngModel)]="estimateddate"
+                    ngValue="estimateddate"
+                    #startdte="ngModel">
+                </div>
+                <span class="help-block" *ngIf="!estimateddate.valid && estimateddate.touched" id="error" >Please enter the start date</span>
+              </div>
+            </div>
             <div class="form-group col-lg-6">
               <label class="form-control-label" for="prependedInput">Finish Date</label>
               <div class="controls">
@@ -169,7 +188,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> Save changes</button>
+                [disabled]="!f.valid"><i class="fa fa-save"></i> Save</button>
               <button class="btn btn-default" type="button" (click)="cancel()"><i class="fa fa-ban"></i> Cancel</button>
             </div>
             </div>

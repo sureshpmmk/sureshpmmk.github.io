@@ -28,6 +28,8 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
   projectCodeSubscription;
   projects;
   projectIndex;
+  estimateddate;
+  actualdate;
 
   constructor(private projectService: ProjectService, 
               private userService: UserService,
@@ -67,6 +69,8 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
     this.startdate     = new Date(this.project.startdate);
     this.finishdate    = new Date(this.project.finishdate);
     this.status        = this.project.status;
+    this.actualdate = this.project.actualdate;
+    this.estimateddate = this.project.estimateddate;
 
     for(let teammember of this.project.teammembers) {
       this.teammembers.push(teammember.id);

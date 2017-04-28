@@ -6,6 +6,8 @@ export class Project {
       			  public status: string,
       			  public hourstaken: string,
               public startdate: Date,
+              public estimateddate: Date,
+              public actualdate: Date,
               public finishdate: Date
       			) {
   	}

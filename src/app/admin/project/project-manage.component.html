@@ -102,6 +102,23 @@
               </div>
             </div>
             <div class="form-group col-lg-6">
+              <label class="form-control-label" for="prependedInput">Estimated Date</label>
+              <div class="controls">
+                <div class="input-prepend input-group">
+                  <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                  <input 
+                    id="estimateddate" 
+                    class="form-control" 
+                    type="date"  
+                    name="estimateddate"
+                    style="display:  -webkit-inline-box;" 
+                    required
+                    [ngModel]="estimateddate | date:'yyyy-MM-dd'">
+                </div>
+                <!-- <p class="help-block">Here's some help text</p> -->
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
               <label class="form-control-label" for="">Status</label>
               <div class="input-prepend input-group">
                 <span class="input-group-addon"><i class="icon-flag"></i></span>
