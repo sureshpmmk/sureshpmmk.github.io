@@ -10,7 +10,7 @@
           <form class="form-horizontal" (ngSubmit)="onSaveLeave()" #f="ngForm">
 
            <div class="form-group">
-              <label class="form-control-label" for="">Employ Name</label>
+              <label class="form-control-label" for="">Employee</label>
               <select 
                 id="employename" 
                 class="form-control" 
@@ -18,7 +18,7 @@
                 name="employename">
                 <option 
                       *ngFor="let user of users"
-                      value="{{ user.employeeid }}">{{ user.firstname }} {{ user.lastname }}</option>               
+                      value="{{ user.firstname }} {{ user.lastname }}">{{ user.firstname }} {{ user.lastname }}</option>               
               </select>               
             </div>
             <div class="form-group">
@@ -28,10 +28,10 @@
                 class="form-control"
                 [ngModel]="leavetype"
                 name="leavetype">
-                <option value="Sick">Sick Leave</option>
-                <option value="Privilege">Privilege Leave</option>
-                <option value="Anual">Anual Holiday</option>
-                <option value="Optional">Optional Holiday</option>
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Privilege Leave">Privilege Leave</option>
+                <option value="Anunal Leave">Anual Leave</option>
+                <option value="Flexi Holiday">Flexi Holiday</option>
               </select>             
             </div>
 
@@ -76,7 +76,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!f.valid"><i class="fa fa-save"></i> Save</button>
+               ><i class="fa fa-save"></i> Save</button>
               <button class="btn btn-default" type="button" (click)="cancel()"><i class="fa fa-ban"></i> Cancel</button>
             </div>
           </form>

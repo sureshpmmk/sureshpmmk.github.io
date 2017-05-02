@@ -1,6 +1,9 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+header.navbar {
+    background-color: #ad1519;
+}
 
 header.navbar .navbar-brand {
     display: inline-block;
@@ -8,8 +11,8 @@ header.navbar .navbar-brand {
     height: 55px;
     padding: 0.5rem 1rem;
     margin-right: 0;
-    background-color: #fff;
-    background-image: url(/assets/img/logo.png);
+    background-color: #ad1519;
+    background-image: url(/assets/img/logo_white.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100px auto;
@@ -26,6 +29,12 @@ header.navbar .navbar-brand {
     line-height: inherit;
     white-space: nowrap;
 }
+
+.navbar-nav .nav-link {
+    color: #fff;
+}
+
+
 
 .logo-img {
 	width: 147px;

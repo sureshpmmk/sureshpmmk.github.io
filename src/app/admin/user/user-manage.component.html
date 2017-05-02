@@ -190,10 +190,10 @@
                 <td>{{ user.email }}</td>  
                 <td>
                   <span                     
-                    (click)="changeStatus(user.employeeid, 'active')"
+                    (click)="dangrModal.show();changeStatus(user.employeeid, 'active')"
                     *ngIf="user.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="changeStatus(user.employeeid, 'deactive')"
+                    (click)="dangrModal.show();changeStatus(user.employeeid, 'deactive')"
                     *ngIf="user.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
                     (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
@@ -226,6 +226,27 @@
   </div>
   <!--/.row-->
 </div>
+
+<div bsModal #dangrModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ employeee_status }} employee </h4>
+        <button type="button" class="close" (click)="dangrModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to {{ employeee_status }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dangrModal.hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="confirmStatus(employeee_id,employeee_status );dangrModal.hide()">Confirm</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div bsModal #dangerModal="bs-modal"  class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-danger" role="document">
     <div class="modal-content" >

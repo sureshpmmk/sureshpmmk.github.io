@@ -23,6 +23,8 @@ export class UserManageComponent implements OnInit {
   employee_id:string;
   @ViewChild('dangerModal') public dangerModal:ElementRef;
   notValid;
+  employeee_id;
+  employeee_status;
 
   constructor(private userService: UserService, private router: Router) { 
 
@@ -53,8 +55,13 @@ export class UserManageComponent implements OnInit {
   }
 
   changeStatus(employeeId: string, status: string) {
+    this.employeee_id = employeeId;
+    this.employeee_status = status;
+  }
+  confirmStatus(employeeId: string, status: string) {  
     this.userIndex = this.users.map((user) => user.employeeid).indexOf(employeeId);
     this.userService.updateUserStatus(this.userIndex, status);
+
   }
   onSubmit() {
     this.notValid = "";

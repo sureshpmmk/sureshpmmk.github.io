@@ -30,5 +30,14 @@ public showhide = "show";
    localStorage.setItem('user','{"employeeid":"'+this.loggedUser.employeeid+'","firstname":"'+this.employeeForm.value.firstname+'","lastname":"'+this.employeeForm.value.lastname+'","email":"'+this.loggedUser.email+'","phonenumber":"'+this.employeeForm.value.phonenumber+'","password":"'+this.employeeForm.value.userpassword+'","usertype":"admin","shift":"general","status":"active"}');
    this.success = "Successfully Updated";  
   }
+  changePasswordStatus(showhide){
+    if(showhide === 'show' ){
+      this.passwordtype = 'text';
+      this.showhide = "hide";
+    }else{
+      this.passwordtype = 'password';
+      this.showhide = "show";
+    }    
+  }
 
 }

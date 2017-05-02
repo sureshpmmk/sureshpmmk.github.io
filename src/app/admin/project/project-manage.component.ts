@@ -29,6 +29,10 @@ export class ProjectManageComponent implements OnInit {
   formShowFlag = false;
   projectId;
   notValid;
+  projectMembers;
+  members;
+  project_code;
+  project_status;
 
   constructor(private projectService: ProjectService,
       			  private projectUpdateComponent: ProjectUpdateComponent,
@@ -87,6 +91,10 @@ export class ProjectManageComponent implements OnInit {
   }
 
   changeProjectStatus(projectCode: string, status: string) {
+    this.project_code = projectCode;
+    this.project_status = status;
+  }
+  confirmProjectStatus (projectCode: string, status: string){    
     this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode);
     this.projectService.updateProjectStatus(this.projectIndex, status);
   }
@@ -137,5 +145,9 @@ export class ProjectManageComponent implements OnInit {
   }
   showModel(projectcode:string){ 
     this.projectId = projectcode;             
+  }
+  teamMembers(projectcode:string){
+    this.projectMembers = this.projectService.getOneProject(projectcode);
+    this.members = this.projectMembers.teammemberNames;
   }
 }

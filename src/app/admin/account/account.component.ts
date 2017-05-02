@@ -17,7 +17,7 @@ public userpassword = this.loggedUser.password;
 public phonenumber = this.loggedUser.phonenumber;
 public success = '';
 public passwordtype = "password";
-public showhide = "show";
+public showhide = 'show';
 
   constructor() { 
     
@@ -29,6 +29,15 @@ public showhide = "show";
   onUpdateAccount() {  
    localStorage.setItem('user','{"employeeid":"'+this.loggedUser.employeeid+'","firstname":"'+this.adminForm.value.firstname+'","lastname":"'+this.adminForm.value.lastname+'","email":"'+this.loggedUser.email+'","phonenumber":"'+this.adminForm.value.phonenumber+'","password":"'+this.adminForm.value.userpassword+'","usertype":"admin","shift":"general","status":"active"}');
    this.success = "Successfully Updated";  
+  }
+  changePasswordStatus(showhide){
+    if(showhide === 'show' ){
+      this.passwordtype = 'text';
+      this.showhide = "hide";
+    }else{
+      this.passwordtype = 'password';
+      this.showhide = "show";
+    }    
   }
 
 }

@@ -78,7 +78,12 @@
                     [minlength]="6"
                     required 
                     >
-                  <span><a href="javascript:void(0)" (click)="passwordtype = { 'text': 'password', 'password':'text'}[passwordtype]; showhide = { 'show': 'hide', 'hide':'show'}[showhide]" style="text-decoration:none" >{{ showhide }}</a></span>
+                    <span                      
+                    (click)="changePasswordStatus('show')"
+                    *ngIf="showhide === 'show'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Show"></i></span>
+                    <span                  
+                    (click)="changePasswordStatus('hide')"
+                    *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
                 </div>  
                 <span class="help-block" *ngIf="!pass.valid  && pass.dirty" id="error" >Password should not be empty and contain atleast 6 characters</span>             
               </div>

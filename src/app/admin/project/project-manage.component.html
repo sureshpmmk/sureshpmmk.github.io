@@ -177,20 +177,24 @@
                 <td>{{ project.projecttitle }}</td>                
                 <td>{{ project.hourstaken }}</td>
                 <td>{{ project.hoursrequired }}</td>
-                <td>{{ project.startdate }}</td>
+                <td>{{ project.startdate | date:'dd/MM/y' }}</td>
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
-                    (click)="changeProjectStatus(project.projectcode, 'active')"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'active');"
                     *ngIf="project.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="changeProjectStatus(project.projectcode, 'deactive')"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'deactive');"
                     *ngIf="project.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
                     (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
                   <span                      
-                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>                  
+                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span> 
+                  <span                      
+                    (click)="teamMembers(project.projectcode);teamModal.show()"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
+                
                 </td>
+
               </tr>
             </tbody>
           </table>
@@ -201,6 +205,27 @@
   </div>
   <!--/.row-->
 </div>
+
+<div bsModal #dangrModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ project_status }} project </h4>
+        <button type="button" class="close" (click)="dangrModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to {{ project_status }}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dangrModal.hide()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="confirmProjectStatus( project_code,project_status );dangrModal.hide()">Confirm</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div bsModal #dangerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-danger" role="document">
@@ -222,6 +247,37 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div bsModal #teamModal="bs-modal" class="modal fade col-xs-12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-info" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Team Members </h4>
+        <button type="button" class="close" (click)="teamModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table datatable class="table table-striped row-border">
+            <thead>
+              <tr>
+                <th>Team Members</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let member of members">
+                <td >{{ member }}</td>                
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="teamModal.hide()">Close</button>       
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
         <h3 class="modal-title">I'm a modal!</h3>
@@ -233,4 +289,5 @@
         <button class="btn btn-primary" ng-click="ok()"><i class="fa fa-check"></i> OK</button>
         <button class="btn btn-warning" ng-click="cancel()"><i class="fa fa-ban"></i> Cancel</button>
     </div>
+    
 </script>
