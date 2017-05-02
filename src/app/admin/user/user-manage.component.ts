@@ -27,9 +27,9 @@ export class UserManageComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { 
 
     this.defaultUsertype = 'user';
-    this.defaultShift    = 'general';
+    this.defaultShift    = 'General';
     this.randPassword    = '12345';
-    this.defaultStatus   = 'active';
+    this.defaultStatus   = 'Active';
 
   }
 

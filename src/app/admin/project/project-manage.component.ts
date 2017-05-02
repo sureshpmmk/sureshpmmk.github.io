@@ -36,7 +36,7 @@ export class ProjectManageComponent implements OnInit {
       			  private router: Router) {
 
     this.startdate = Date.now();
-    this.status    = 'active';
+    this.status    = 'Active';
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
       .subscribe(
@@ -50,7 +50,7 @@ export class ProjectManageComponent implements OnInit {
     this.getProjectList();
 
     this.startdate = Date.now();
-    this.status    = 'active';
+    this.status    = 'Active';
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
       .subscribe(

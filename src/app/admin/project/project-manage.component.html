@@ -181,15 +181,15 @@
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
-                    (click)="changeProjectStatus(project.projectcode, 'active')"
-                    *ngIf="project.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
+                    (click)="changeProjectStatus(project.projectcode, 'Active')"
+                    *ngIf="project.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active"></i></span>
                   <span                    
-                    (click)="changeProjectStatus(project.projectcode, 'deactive')"
-                    *ngIf="project.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
+                    (click)="changeProjectStatus(project.projectcode, 'Inactive')"
+                    *ngIf="project.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Inactive"></i></span>
                   <span                      
-                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
                   <span                      
-                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>                  
+                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
                 </td>
               </tr>
             </tbody>

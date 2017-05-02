@@ -190,16 +190,16 @@
                 <td>{{ user.email }}</td>  
                 <td>
                   <span                     
-                    (click)="changeStatus(user.employeeid, 'active')"
-                    *ngIf="user.status !== 'active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
+                    (click)="changeStatus(user.employeeid, 'Active')"
+                    *ngIf="user.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active"></i></span>
                   <span                    
-                    (click)="changeStatus(user.employeeid, 'deactive')"
-                    *ngIf="user.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
+                    (click)="changeStatus(user.employeeid, 'Inactive')"
+                    *ngIf="user.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Inactive"></i></span>
                   <span                      
-                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                    (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
                   <span                      
                     data-toggle="modal" 
-                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span>
+                    (click)="showModel(user.employeeid);dangerModal.show()" ><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>
                   <!-- <span class="badge badge-default" ng-else-if="user.status === 'inactive'">{{ user.status }}</span>
                   <span class="badge badge-danger" ng-else>{{ user.status }}</span> -->
                   

@@ -24,6 +24,7 @@ export class ProjectReportComponent implements OnInit {
   employeelog;
   userName;
   employerdetails;
+  listHeading;
   // lineChart
   lineChartData: Array<any> = [ {data: [], label: ' '}];
   lineChartLabels: Array<any> = [];
@@ -74,6 +75,13 @@ export class ProjectReportComponent implements OnInit {
 
   onViewTeammemberDetails(event: Event) {
     event.preventDefault();
+    if(this.reportForm.value.projectfromdate != "" && this.reportForm.value.projecttodate != ""){
+      this.listHeading = "Report of "+ this.reportForm.value.projectname + " for the period " + 
+    this.reportForm.value.projectfromdate+ " to" +this.reportForm.value.projecttodate;
+    }
+    else{
+      this.listHeading = "Report of "+ this.reportForm.value.projectname;
+    }
   	this.employerdetails = this.reportService.getUsersWorkedUnderProject(this.reportForm.value.projectname);  
     this.lineChartLabels = this.getLineChartLabels(this.reportForm.value.projectfromdate, this.reportForm.value.projecttodate);
     this.lineChartData = this.viewProjectChartLog(this.lineChartLabels, this.employerdetails);
