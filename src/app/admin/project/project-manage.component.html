@@ -187,9 +187,9 @@
                     (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'deactive');"
                     *ngIf="project.status === 'active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
-                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit!"></i></span>
+                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
                   <span                      
-                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete!"></i></span> 
+                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
                   <span                      
                     (click)="teamMembers(project.projectcode);teamModal.show()"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
                 

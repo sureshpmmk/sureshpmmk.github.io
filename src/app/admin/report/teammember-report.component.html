@@ -54,8 +54,7 @@
                     style="display:  -webkit-inline-box;" 
                     type="date"
                     ngModel
-                    name="fromdate"
-                    required
+                    name="fromdate"                    
                     #frmdate="ngModel">
                 </div>                
               </div>
@@ -75,8 +74,7 @@
                     style="display:  -webkit-inline-box;" 
                     type="date"
                     ngModel
-                    name="todate"
-                    required
+                    name="todate"                    
                     #todte="ngModel">
                 </div>                
               </div>
@@ -89,7 +87,9 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                ><i class="fa fa-eye"></i> View</button>  
+                >
+                <!-- <i class="fa fa-eye"></i> -->
+                 Generate</button>  
                 </div>            
             </div> 
 
@@ -133,7 +133,7 @@
                 <td>{{ log.projecttitle }}</td>                
                 <td>{{ log.timespent }}</td>               
                 <td style="text-align: center"> 
-                <a href="javascript:void(0)" (click) = "viewprojectLogdetailsforOneuser(log.employeeid,log.projectcode)" >View Details</a>
+                <a href="javascript:void(0)" (click) = "viewprojectLogdetailsforOneuser(log.employeeid,log.projectcode,log.projecttitle)" >Details</a>
                 </td>
               </tr>
             </tbody>
@@ -168,15 +168,16 @@
           <table datatable class="table table-striped row-border">
             <thead>
               <tr>
-                
-                <th>Project Name</th>
-                <th>Total Time Spent</th> 
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Hours Spent</th> 
                 <th>Log Note</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let log of employeelog;let logIndex=index">                
-                <td>{{ log.projecttitle }}</td>                
+              <tr *ngFor="let log of employeelog;let logIndex=index">
+                 <td>{{ log.startdatetime }}</td> 
+                  <td>{{ log.finishdatetime }}</td>                 
                 <td>{{ log.timespent }}</td>               
                 <td>{{ log.lognote }}</td>
               </tr>

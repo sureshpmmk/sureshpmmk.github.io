@@ -7,8 +7,8 @@
       "phonenumber": "123456789", 
       "password": "admin123", 
       "usertype": "admin", 
-      "shift": "general", 
-      "status": "active"
+      "shift": "General", 
+      "status": "Active"
     },
     {
       "employeeid": "5123", 
@@ -18,8 +18,8 @@
       "phonenumber": "9865321474", 
       "password": "12345", 
       "usertype": "employee", 
-      "shift": "general", 
-      "status": "active"
+      "shift": "General", 
+      "status": "Active"
     },
     {
       "employeeid": "5100", 
@@ -29,8 +29,8 @@
       "phonenumber": "9865321474", 
       "password": "mmk2017", 
       "usertype": "employee", 
-      "shift": "general", 
-      "status": "active"
+      "shift": "General", 
+      "status": "Active"
     },
    {
       "employeeid": "5011", 
@@ -42,7 +42,7 @@
       "password": "user123", 
       "usertype": "employee", 
       "shift": "morning", 
-      "status": "active"
+      "status": "Active"
   },
   {
       "employeeid": "5012", 
@@ -54,7 +54,7 @@
       "password": "user123", 
       "usertype": "employee", 
       "shift": "morning", 
-      "status": "active"
+      "status": "Active"
   },
   {
       "employeeid": "5013", 
@@ -66,7 +66,7 @@
       "password": "user123", 
       "usertype": "employee", 
       "shift": "morning", 
-      "status": "active"
+      "status": "Active"
   },
   {
       "employeeid": "5014", 
@@ -78,6 +78,6 @@
       "password": "user123", 
       "usertype": "employee", 
       "shift": "morning", 
-      "status": "active"
+      "status": "Active"
   }
 ]

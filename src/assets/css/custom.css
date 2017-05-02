@@ -35,6 +35,9 @@
     vertical-align: middle;
     padding: 5px;
 }
+.circle-icon:hover {
+      background:#d6dcde;
+     }
 .breadcrumb-item.active{
     color: #000;
 }

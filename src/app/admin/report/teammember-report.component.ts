@@ -41,9 +41,9 @@ export class TeammemberReportComponent implements OnInit {
   onViewTeammemberprojectDetails(){
   	this.employeeprojects = this.reportService.getUserLog(this.reportForm.value.employename);  	
   }
-  viewprojectLogdetailsforOneuser(employeeid,projectcode){
+  viewprojectLogdetailsforOneuser(employeeid,projectcode,projectname){
 
-    this.projectName ="Project Name" + projectcode;
+    this.projectName = projectname;
     this.flag_showhidedetails = 1;
     this.employeelog = this.reportService.getProjectLogdetails(employeeid,projectcode);     
 

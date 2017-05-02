@@ -18,7 +18,7 @@
               <tr *ngFor="let logProject of logsbyProjects">                
                 <td>{{ logProject.projecttitle  }}</td>                
                 <td>{{ logProject.timespent.split(':')[0] + 'h ' + logProject.timespent.split(':')[1] + 'm ' }}</td>               
-                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">View Details</a> </td>  
+                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">Details</a> </td>  
               </tr>
             </tbody>
           </table>

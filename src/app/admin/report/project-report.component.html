@@ -90,7 +90,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                ><i class="fa fa-eye"></i>&nbsp;View</button>    
+                ><!-- <i class="fa fa-eye"></i> &nbsp;-->Generate</button>    
                 </div>          
             </div> 
 
@@ -114,7 +114,8 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-align-justify"></i> Project List
+          <!-- <i class="fa fa-align-justify"></i> -->
+          {{ listHeading }}
            <div style="text-align: right;">
             <a href="javascript:void(0)" (click) = "toggleLineChart()" >{{ chartViewVariable }}</a>		 	
            </div>
@@ -135,7 +136,7 @@
                 <td style="text-align: center"> 
                 <a href="javascript:void(0)" 
                   (click) = "viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)" >
-                  View Details</a>
+                  Details</a>
                 </td>
               </tr>
             </tbody>
