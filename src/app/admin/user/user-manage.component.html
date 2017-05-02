@@ -190,10 +190,10 @@
                 <td>{{ user.email }}</td>  
                 <td>
                   <span                     
-                    (click)="dangrModal.show();changeStatus(user.employeeid, 'active')"
+                    (click)="dangrModal.show();changeStatus(user.employeeid, 'Active')"
                     *ngIf="user.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="dangrModal.show();changeStatus(user.employeeid, 'deactive')"
+                    (click)="dangrModal.show();changeStatus(user.employeeid, 'Deactive')"
                     *ngIf="user.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
                     (click)="updateUser(user.employeeid)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>

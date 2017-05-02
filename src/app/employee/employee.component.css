@@ -13,7 +13,7 @@
 }
 
 .timer-block {
-	padding: 1.25rem 1.25rem 0 1.25rem;
+	padding: 1.25rem 1.25rem 1.25rem 1.25rem;
 }
 
 .log-timmer {
@@ -27,4 +27,8 @@
 	padding: 0.5rem 1.5rem;
 	border-radius: 5px;
 	cursor: pointer;
+}
+.todayDate{
+    margin: 45px;
+    font-size: medium;
 }

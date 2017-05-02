@@ -181,10 +181,10 @@
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
-                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'active');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'Active');"
                     *ngIf="project.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'deactive');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'Deactive');"
                     *ngIf="project.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
                     (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>

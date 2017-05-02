@@ -34,6 +34,7 @@ export class EmployeeComponent implements OnInit {
   logIndex;
   dateInterval;
   lognote;
+  today = new Date();
 
   constructor(private projectService: ProjectService, private logsService: LogsService) {  }
 
