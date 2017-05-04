@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-      <h5>Log Your Time</h5> 
+      <h5>Log Your Time <span class="todayDate text-right" ><b>{{  today | date:'dd/MM/yyyy' }}</b> </span></h5> 
+
       <div class="timer-container">        
         <div class="timer-block">    
           <form class="form-horizontal" #f="ngForm">
@@ -65,8 +66,7 @@
                 </div>
               </div>  
                         
-              <div class="col-md-4">
-                 <span class="todayDate"><b>{{  today | date:'dd/MM/yyyy' }}</b> </span>
+              <div class="col-md-4">                 
                 <div class="col-md-12 log-timmer">
                   <h3>{{ time }}</h3>
                   <input 
