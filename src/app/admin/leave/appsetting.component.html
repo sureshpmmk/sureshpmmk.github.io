@@ -40,14 +40,14 @@
                     [ngModel]="holidaydate"
                     name="holidaydate"
                     required 
-                    #holidaydte="ngModel" >
+                    #holidaydte="ngModel">
                 </div>                
               </div>
             </div>
             <p class="help-block" *ngIf="!holidaydte.valid && holidaydte.touched" id="error">Please enter a valid date!</p> 
             </div>  
             <div class="form-actions col-lg-2">            
-            <div class="mt-2" style="padding: 8px;">            
+            <div class="mt-2" style="padding: 5px;">            
               <button
                 type="submit" 
                 class="btn btn-primary"
