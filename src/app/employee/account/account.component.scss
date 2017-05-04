@@ -3,6 +3,7 @@
 }
 #success{
     color:green;
+    margin-bottom:15px;
 }
 .circle-icon {
     background: #b0bec5;
@@ -10,4 +11,10 @@
     text-align: center;
     vertical-align: middle;
     padding: 5px;
+}
+#eye{
+    margin-left: -31px;
+    z-index: 999999999;
+    position: absolute;
+    margin-top: 5px;
 }

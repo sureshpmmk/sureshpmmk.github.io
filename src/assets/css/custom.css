@@ -3,6 +3,7 @@
 }
 #success{
     color:green;
+    margin-bottom:15px;
 }
 .modal{
     margin-top:250px;
@@ -43,4 +44,10 @@
 }
 .btn,.fa {
     cursor: pointer;
+}
+#eye{
+    margin-left: -31px;
+    z-index: 999999999;
+    position: absolute;
+    margin-top: 5px;
 }
