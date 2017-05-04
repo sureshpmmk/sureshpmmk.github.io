@@ -8,7 +8,7 @@
         </div>        
         <div class="card-block">
           <span class="help-block" *ngIf="ff.valid" id="success">{{ success }}</span>
-          <form class="form-horizontal" (ngSubmit)="onUpdateAccount()" #ff="ngForm">
+          <form class="form-horizontal" (ngSubmit)="onUpdateAccount()" #ff="ngForm"  style="margin-top:15px">
           <div class="row">
             <div class="form-group col-lg-6" >
               <label class="form-control-label" for="prependedInput">FirstName</label>
@@ -23,7 +23,8 @@
                     type="text"                   
                     name="firstname"
                     required
-                    #f="ngModel">                    
+                    #f="ngModel"
+                    maxlength="30">                    
                 </div>
                 <span class="help-block" *ngIf="!f.valid && f.touched" id="error" >Please enter valid firstname</span>
               </div>
@@ -41,7 +42,8 @@
                     type="text" 
                     name="lastname"
                     required
-                    #l="ngModel">
+                    #l="ngModel"
+                    maxlength="30">
                 </div>
                 <span class="help-block" *ngIf="!l.valid && l.touched" id="error" >Please enter valid lastname</span>
               </div>
@@ -78,10 +80,10 @@
                     >
                     <span                      
                     (click)="changePasswordStatus('show')"
-                    *ngIf="showhide === 'show'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Show"></i></span>
+                    *ngIf="showhide === 'show'"><i class="fa fa-eye circle-icon" id="eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Show"></i></span>
                     <span                  
                     (click)="changePasswordStatus('hide')"
-                    *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
+                    *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" id="eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
                         
 
 
