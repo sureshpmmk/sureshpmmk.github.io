@@ -44,3 +44,7 @@
 .btn,.fa {
     cursor: pointer;
 }
+
+input[type="date"] {
+        padding: 0.25rem;
+}

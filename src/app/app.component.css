@@ -34,11 +34,9 @@ header.navbar .navbar-brand {
     color: #fff;
 }
 
-
-
 .logo-img {
-	width: 147px;
-    height: 67px;
+	max-height: 60px;
+    max-width: 210px;
 }
 
 .login-form {
