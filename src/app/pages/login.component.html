@@ -15,6 +15,7 @@
             <div class="login-body"> 
               <div class="col-md-12 text-center">
                 <p class="text-muted">Sign In to your account</p>
+                <p class="help-block" style="color:red;" *ngIf="!success">{{ validationError }}</p>
               </div>         
               <div class="input-group mb-1">
                 <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -27,7 +28,7 @@
                 email
                 #user="ngModel">                 
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!user.valid && user.touched">Please enter a valid user name!</p>
+              <p class="help-block" style="color:red;">{{ validationError1 }}</p>
               <div class="input-group mb-2">
                 <span class="input-group-addon"><i class="icon-lock"></i></span>
                 <input type="password"
@@ -38,8 +39,7 @@
                 required
                 #pass="ngModel">                
               </div>
-              <p class="help-block" style="color:red;" *ngIf="!pass.valid && pass.touched">Please enter a valid password!</p>
-              <p class="help-block" style="color:red;" *ngIf="!success">{{ validationError }}</p>
+              <p class="help-block" style="color:red;">{{ validationError2 }}</p>              
               <div class="row">
                 <div class="col-md-12 login-button">
                 <button type="submit" class="btn btn-primary px-2">Login</button>
