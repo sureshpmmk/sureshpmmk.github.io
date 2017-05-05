@@ -29,6 +29,7 @@
 	cursor: pointer;
 }
 .todayDate{
-    margin: 45px;
-    font-size: medium;
+   margin: 4px;
+   font-size: .9em;  
+   float: right;
 }

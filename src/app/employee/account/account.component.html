@@ -7,7 +7,7 @@
           <i class="fa fa-edit"></i>Edit Account
         </div>        
         <div class="card-block">
-          <span class="help-block" *ngIf="f.valid" id="success">{{ success }}</span>
+          <div class="help-block" *ngIf="f.valid" id="success" >{{ success }}</div>
           <form class="form-horizontal" (ngSubmit)="onUpdateAccount()" #ff="ngForm">
           <div class="row">
             <div class="form-group col-lg-6">
@@ -23,7 +23,8 @@
                     type="text"                   
                     name="firstname"
                     required
-                    #f="ngModel">                    
+                    #f="ngModel"
+                    maxlength="30">                    
                 </div>
                 <span class="help-block" *ngIf="!f.valid && f.touched" id="error" >Please enter valid firstname</span>
               </div>
@@ -41,7 +42,8 @@
                     type="text" 
                     name="lastname"
                     required
-                    #l="ngModel">
+                    #l="ngModel"
+                    maxlength="30">
                 </div>
                 <span class="help-block" *ngIf="!l.valid && l.touched" id="error" >Please enter valid lastname</span>
               </div>
@@ -68,6 +70,7 @@
               <div class="controls">
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-lock"></i></span>
+                 
                     <input 
                     [ngModel]="userpassword" 
                     id="userpassword" 
@@ -78,12 +81,13 @@
                     [minlength]="6"
                     required 
                     >
-                    <span                      
+                     <span                    
                     (click)="changePasswordStatus('show')"
-                    *ngIf="showhide === 'show'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Show"></i></span>
-                    <span                  
+                    *ngIf="showhide === 'show'"><i class="fa fa-eye circle-icon" id="eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Show"></i></span>
+                    <span                
                     (click)="changePasswordStatus('hide')"
-                    *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
+                    *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" id="eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
+                    
                 </div>  
                 <span class="help-block" *ngIf="!pass.valid  && pass.dirty" id="error" >Password should not be empty and contain atleast 6 characters</span>             
               </div>
