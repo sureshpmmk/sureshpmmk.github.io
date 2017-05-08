@@ -30,7 +30,7 @@ export class AuthenticationService {
     this.authenticatedUser = this.users.find(u => u.email === user.username);   
     if (this.authenticatedUser && this.authenticatedUser.password === user.password){ 
       localStorage.setItem("user", JSON.stringify(this.authenticatedUser));      
-      localStorage.setItem("username", this.authenticatedUser.firstname); 
+      localStorage.setItem("username", this.authenticatedUser.firstname +" "+ this.authenticatedUser.lastname); 
       if(this.authenticatedUser.usertype == 'admin')     
         this.router.navigate(['dashboard']);
       else
