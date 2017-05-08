@@ -14,6 +14,7 @@
     </li>   
   </ul>
   <ul class="nav navbar-nav ml-auto">   
+    <li class="nav-item px-3"><span class="nav-link">{{ headerDate | date:'dd-MMM-y' }}</span></li>
     <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
         <span class="hidden-md-down">Welcome</span>&nbsp;&nbsp;<span class="hidden-md-down"><b>{{ loggedUser }}</b></span>

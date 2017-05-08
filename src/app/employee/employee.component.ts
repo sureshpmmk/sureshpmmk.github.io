@@ -147,6 +147,7 @@ export class EmployeeComponent implements OnInit {
     let timespent = this.timespent(diffs);
     currentLog.finishdatetime = this.logForm.value.datetime;
     currentLog.timespent = timespent;
+    currentLog.lognote = this.logForm.value.lognote;
 
     this.logsService.createLog(currentLog);
 

@@ -11,6 +11,8 @@ export class EmployeeLayoutComponent implements OnInit {
   public disabled: boolean = false;
   public status: {isopen: boolean} = {isopen: false};
   public loggedUser = localStorage.getItem("username");
+  headerDateInterval;
+  headerDate;
 
 
   constructor(private authService : AuthenticationService) { 
@@ -29,8 +31,13 @@ export class EmployeeLayoutComponent implements OnInit {
 
   public logOut()
   {
+    clearInterval(this.headerDateInterval);
     this.authService.logout();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.headerDateInterval = setInterval(() => {
+        this.headerDate =  new Date();
+     }, 1000);
+  }
 }
