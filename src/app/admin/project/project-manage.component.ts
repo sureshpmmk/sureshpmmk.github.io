@@ -91,6 +91,7 @@ export class ProjectManageComponent implements OnInit {
   }
 
   changeProjectStatus(projectCode: string, status: string) {
+    document.querySelector('body').classList.remove('modal-open'); 
     this.project_code = projectCode;
     this.project_status = status;
   }
@@ -143,10 +144,12 @@ export class ProjectManageComponent implements OnInit {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
-  showModel(projectcode:string){ 
+  showModel(projectcode:string){
+    document.querySelector('body').classList.remove('modal-open'); 
     this.projectId = projectcode;             
   }
   teamMembers(projectcode:string){
+    document.querySelector('body').classList.remove('modal-open'); 
     this.projectMembers = this.projectService.getOneProject(projectcode);
     this.members = this.projectMembers.teammemberNames;
   }

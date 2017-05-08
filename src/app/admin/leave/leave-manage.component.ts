@@ -70,6 +70,7 @@ export class LeaveManageComponent implements OnInit {
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
   showModel(leave:string){ 
+    document.querySelector('body').classList.remove('modal-open');
     this.leaveIndex = leave;             
   }  
 
