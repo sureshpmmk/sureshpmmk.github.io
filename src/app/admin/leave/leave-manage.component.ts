@@ -15,13 +15,17 @@ import { UserService } from '../../shared/user.service';
 export class LeaveManageComponent implements OnInit {
   leaves: Leave[] = [];
   @ViewChild('f') leaveForm: NgForm;
-  defaultLeave;
+  defaultLeave = "Sick Leave";;
   defaultName;
   users;
   formShowFlagText = 'fa fa-plus fa-lg';
   formShowFlag = false;
   leaveIndex;
-  notValid;
+  notValid; 
+  flag_submit = true;  
+  validationError1 = ""; 
+  validationError2 = "";
+  validationError3 = ""; 
 
   constructor(private leaveService: LeaveService,
               private router: Router,
@@ -55,15 +59,24 @@ export class LeaveManageComponent implements OnInit {
     this.router.navigate(['/admin/update-leaves', leaveIndex]);
   }
 
-  onSaveLeave(){
-    if(this.leaveForm.valid){
-    this.leaveService.addLeaveEntry(this.leaveForm.value);
-    this.router.navigate(['/admin/manage-leaves']);
-  }else{
-    this.notValid ="Form is not valid.";
-  }
-
-  }
+  onSaveLeave(){     
+    if((this.leaveForm.value.employename === "")){     
+     this.validationError1 = "Employee field cannot be empty.";
+     this.flag_submit == false;
+     }
+     if(this.leaveForm.value.leavefrom === ""){
+     this.validationError2 = "Please enter a valid from date.";     
+     this.flag_submit == false; 
+     }
+     if(this.leaveForm.value.leaveto === ""){
+     this.validationError3 = "Please enter a valid to date.";
+     this.flag_submit == false;
+     }
+     else if(this.leaveForm.valid && this.flag_submit == true){
+     this.leaveService.addLeaveEntry(this.leaveForm.value);
+     this.router.navigate(['/admin/manage-leaves']);
+    }
+  }  
 
   toggleFlag() {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
