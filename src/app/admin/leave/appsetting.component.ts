@@ -78,6 +78,7 @@ export class AppsettingComponent implements OnInit {
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
   showModel(holidayId:string){ 
+    document.querySelector('body').classList.remove('modal-open');
     this.holiday_index = holidayId;             
   }  
 }

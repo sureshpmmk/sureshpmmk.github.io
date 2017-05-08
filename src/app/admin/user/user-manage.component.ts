@@ -55,6 +55,7 @@ export class UserManageComponent implements OnInit {
   }
 
   changeStatus(employeeId: string, status: string) {
+    document.querySelector('body').classList.remove('modal-open');
     this.employeee_id = employeeId;
     this.employeee_status = status;
   }
@@ -86,6 +87,7 @@ export class UserManageComponent implements OnInit {
   }
 
   showModel(employeeId:string){ 
+    document.querySelector('body').classList.remove('modal-open');
     this.employee_id = employeeId;            
   }
 }

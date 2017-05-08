@@ -189,9 +189,9 @@
                   <span                      
                     (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
                   <span                      
-                    (click)="showModel(project.projectcode);dangerModal.show()"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
+                    (click)="dangerModal.show();showModel(project.projectcode);"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
                   <span                      
-                    (click)="teamMembers(project.projectcode);teamModal.show()"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
+                    (click)="teamModal.show();teamMembers(project.projectcode);"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
                 
                 </td>
 
