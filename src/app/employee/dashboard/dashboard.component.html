@@ -16,11 +16,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let log of recentLogs">
-                <td>{{ log.startdatetime | date:'dd-MM-yyyy' }}</td>
-                <td>{{ log.timespent.split(':')[0] }}h {{ log.timespent.split(':')[1] }}m   ({{ log.startdatetime | date:'h:mma' }} - {{ log.finishdatetime | date:'h:mma' }})</td>
-                <td>{{ log.projecttitle | uppercase }}</td>
-                <td>{{ log.lognote }}</td>                           
+              <tr *ngFor="let log of logs">
+                <td>{{ log.startDatetime | date:'dd-MM-yyyy' }}</td>
+                <td>{{ log.timeSpent.split(':')[0] }}h {{ log.timeSpent.split(':')[1] }}m   ({{ log.startDatetime | date:'h:mma' }} - {{ log.finishDatetime | date:'h:mma' }})</td>
+                <td>{{ log.projectTitle | uppercase }}</td>
+                <td>{{ log.logNote }}</td>                           
               </tr>
             </tbody>
           </table>

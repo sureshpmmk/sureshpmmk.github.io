@@ -8,10 +8,18 @@ import { Logs } from './logs.model';
 @Injectable()
 export class LogsService { 
   logsChanged = new Subject<Logs[]>();
+  logId;
   private logs: Logs[] = [];
 
   constructor(private http: Http) {
     this.getLogsJson();
+  }
+  saveLogs(logs){
+
+      const headers = new Headers({ 'Content-Type' : 'application/json'});
+      return this.http.post("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/user-logs",
+      logs,
+      {headers: headers});
   }
 
   getLogsJson() {
@@ -42,10 +50,16 @@ export class LogsService {
   getAllLogs() {  
     return this.logs.slice(); 
   }
+  getUserLogs(employeeId){
+    return this.http.get("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/user-logs?employee="+employeeId);
+  }
   
-  createLog(log: Logs) {
-  	this.logs.push(log);
-    this.logsChanged.next(this.logs.slice());
+  createLog(log,logId) {  
+      const headers = new Headers({ 'Content-Type' : 'application/json'});
+      return this.http.post("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/user-logs/"+logId,
+      log);
+
+  	
   }
 
   updateLog(logIndex:number, finishdatetime: string, timespent: string) {

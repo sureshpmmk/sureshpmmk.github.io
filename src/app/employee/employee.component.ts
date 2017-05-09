@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Http , Response } from '@angular/http';
 
 import { Project } from '../shared/project.model';
 import { ProjectService } from '../shared/project.service';
@@ -35,8 +36,9 @@ export class EmployeeComponent implements OnInit {
   dateInterval;
   lognote;
   today = new Date();
+  logId;
 
-  constructor(private projectService: ProjectService, private logsService: LogsService) {  }
+  constructor(private projectService: ProjectService, private logsService: LogsService,private http: Http) {  }
 
   ngOnInit() {
   	this.projectsAll = this.projectService.getProjects();
@@ -57,7 +59,7 @@ export class EmployeeComponent implements OnInit {
 
     if(this.timerRunning === true) {
       let currentLog = JSON.parse(localStorage.getItem('log'));
-      let startdatetime = new Date(currentLog.startdatetime);
+      let startdatetime = new Date(currentLog.startDatetime);
       let finishdatetime = new Date();
       let diffs = (finishdatetime.getTime() - startdatetime.getTime());
       this.timerTime(diffs);
@@ -111,20 +113,28 @@ export class EmployeeComponent implements OnInit {
     let selectedProject = this.projects.find(p => p.projectcode === this.logForm.value.project);
     this.projecttitle = selectedProject.projecttitle;
     let log = {
-                "logid" : this.logid,
-                "employeeid" : this.logForm.value.employeeid,
-                "employeename" : this.logForm.value.employeename,
-                "projectcode" : this.logForm.value.project,
-                "projecttitle" : this.projecttitle,
-                "startdatetime" : this.logForm.value.datetime,
-                "finishdatetime" : "",
-                "timespent" : "",
-                "lognote" : this.logForm.value.lognote,
+                "employeeId" : this.logForm.value.employeeid,
+                "employeeName" : this.logForm.value.employeename,
+                "projectCode" : this.logForm.value.project,
+                "projectTitle" : this.projecttitle,
+                "startDatetime" : this.logForm.value.datetime,
+                "finishDatetime" : "",
+                "timeSpent" : "",
+                "logNote" : this.logForm.value.lognote,
               };
-
+    this.logsService.saveLogs(log)
+    .subscribe(
+      (response: Response) => {
+        const resp = response.json();
+        console.log(resp.id);
+        localStorage.setItem("logId", resp.id);
+      },
+      (error)  => console.log(error)
+    );
+    
     localStorage.setItem("log", JSON.stringify(log));
     localStorage.setItem("project", this.logForm.value.project);
-    localStorage.setItem("lognote", this.logForm.value.lognote);
+    localStorage.setItem("logNote", this.logForm.value.lognote);
     localStorage.setItem("timerRunning", 'true');
   }
 
@@ -139,17 +149,22 @@ export class EmployeeComponent implements OnInit {
         });
 
     //this.logIndex = this.logs.map((log) => log.logid).indexOf(this.logForm.value.logid);
-    let currentLog = JSON.parse(localStorage.getItem('log'));
-
-    let startdatetime = new Date(currentLog.startdatetime);
+    let currentLog = JSON.parse(localStorage.getItem('log'));   
+    let startdatetime = new Date(currentLog.startDatetime);
     let finishdatetime = new Date(this.logForm.value.datetime);
     let diffs = (finishdatetime.getTime() - startdatetime.getTime());
     let timespent = this.timespent(diffs);
-    currentLog.finishdatetime = this.logForm.value.datetime;
-    currentLog.timespent = timespent;
-    currentLog.lognote = this.logForm.value.lognote;
+    currentLog.finishDatetime = this.logForm.value.datetime;
+    currentLog.timeSpent = timespent;
+    currentLog.logNote = this.logForm.value.lognote;
+    this.logId = localStorage.getItem('logId'); 
 
-    this.logsService.createLog(currentLog);
+    this.logsService.createLog(currentLog,this.logId).subscribe(
+      (response: Response) => console.log(response),
+      (error)  => console.log(error)
+    );
+    //this.logs.push(response);
+    //this.logsService.logsChanged.next(this.logs.slice());
 
     //this.logsService.updateLog(this.logIndex, this.logForm.value.datetime, this.logForm.value.timespent);
 
@@ -163,11 +178,12 @@ export class EmployeeComponent implements OnInit {
     localStorage.removeItem("log");
     localStorage.removeItem("timerRunning");
     localStorage.removeItem("project");
-    localStorage.removeItem("lognote");
+    localStorage.removeItem("logNote");
     localStorage.removeItem("timer");
     localStorage.removeItem("seconds");
     localStorage.removeItem("minutes");
     localStorage.removeItem("hours");
+    localStorage.removeItem("logId");
 
     this.logid = this.logForm.value.logid;
     this.dateInterval = setInterval(() => {
