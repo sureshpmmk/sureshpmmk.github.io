@@ -57,12 +57,12 @@ export class ProjectsComponent implements OnInit {
   constructor(private logsService: LogsService) { }
 
   ngOnInit() {
-  	this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
+  	this.logs = this.logsService.getAllLogs().filter(e => e.employeeId === this.employee.employeeid);
   	this.logsbyProjects = this.setLogArray(this.logs);
     this.logsService.logsChanged
         .subscribe(
           (logs: Logs[]) => {
-            this.logs = logs.filter(e => e.employeeid === this.employee.employeeid);
+            this.logs = logs.filter(e => e.employeeId === this.employee.employeeid);
             this.logsbyProjects = this.setLogArray(this.logs);
         });
   }
@@ -122,7 +122,7 @@ export class ProjectsComponent implements OnInit {
 
   getProjectLogDetails(projectcode: string) {
     this.logsProjectDetailed = [];
-    let logsProjectArray = this.logs.filter(e => e.projectcode === projectcode); 
+    let logsProjectArray = this.logs.filter(e => e.projectCode === projectcode); 
     
     this.logsProjectDetailed['projectcode'] = projectcode;
     this.logsProjectDetailed['projecttitle'] = "";
@@ -130,19 +130,19 @@ export class ProjectsComponent implements OnInit {
     for(let logsProject of logsProjectArray) {
 
       let timespentArr = this.logsProjectDetailed['totaltimespent'].split(':');
-      let valuetimespentArr = logsProject.timespent.split(':');
+      let valuetimespentArr = logsProject.timeSpent.split(':');
 
       let timeSpentHours   = parseInt(timespentArr[0]) + parseInt(valuetimespentArr[0]);
       let timeSpentMinutes = parseInt(timespentArr[1]) + parseInt(valuetimespentArr[1]);
       let timeSpentSeconds = parseInt(timespentArr[2]) + parseInt(valuetimespentArr[2])
 
-      this.logsProjectDetailed['projecttitle'] = logsProject.projecttitle;
+      this.logsProjectDetailed['projecttitle'] = logsProject.projectTitle;
       this.logsProjectDetailed['totaltimespent'] = timeSpentHours + ':' + timeSpentMinutes + ':' + timeSpentSeconds;
 
-      this.logsProjectDetailed.push({ "startdatetime" : logsProject.startdatetime,
-                                      "finishdatetime" : logsProject.finishdatetime,
-                                      "timespent" : logsProject.timespent,
-                                      "lognote" : logsProject.lognote
+      this.logsProjectDetailed.push({ "startdatetime" : logsProject.startDatetime,
+                                      "finishdatetime" : logsProject.finishDatetime,
+                                      "timespent" : logsProject.timeSpent,
+                                      "lognote" : logsProject.logNote
                                    });
     }
   }
@@ -192,10 +192,10 @@ export class ProjectsComponent implements OnInit {
 
   getProjectLogDetailsByDate(datesArray: Array<string>, projectcode: string) {
     this.logsProjectDetailed = [];
-    let logsProjectArray = this.logs.filter(e => e.projectcode === projectcode);
+    let logsProjectArray = this.logs.filter(e => e.projectCode === projectcode);
     
     this.logsProjectDetailed['projectcode'] = projectcode;
-    this.logsProjectDetailed['projecttitle'] = logsProjectArray[0].projecttitle;
+    this.logsProjectDetailed['projecttitle'] = logsProjectArray[0].projectTitle;
     this.logsProjectDetailed['totaltimespent'] = "00:00:00";
 
     let data = this.setLogArrayByDate(logsProjectArray);

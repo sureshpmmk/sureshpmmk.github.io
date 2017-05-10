@@ -62,7 +62,7 @@ export class ReportComponent implements OnInit {
   constructor(private logsService: LogsService) { }
 
   ngOnInit() {  	   
-    this.logs = this.logsService.getAllLogs().filter(e => e.employeeid === this.employee.employeeid);
+    this.logs = this.logsService.getAllLogs().filter(e => e.employeeId === this.employee.employeeid);
     this.viewSevenDayCharts();
     this.viewFourteenDayCharts();
     this.viewThirtyDayCharts();
@@ -70,7 +70,7 @@ export class ReportComponent implements OnInit {
     this.logsService.logsChanged
         .subscribe(
           (logs: Logs[]) => {
-            this.logs = logs.filter(e => e.employeeid === this.employee.employeeid);            
+            this.logs = logs.filter(e => e.employeeId === this.employee.employeeid);            
             this.viewSevenDayCharts();
             this.viewFourteenDayCharts();
             this.viewThirtyDayCharts();
@@ -83,9 +83,9 @@ export class ReportComponent implements OnInit {
     if(this.logs.length > 0) {
       let checkedProjectCodes = [];
       for(let log of this.logs) {
-        if(checkedProjectCodes.indexOf(log.projectcode) === -1) {
-          checkedProjectCodes.push(log.projectcode);
-          lineChartDataArr.push(this.getLineChartDatas(lineChartLabels, log.projectcode));
+        if(checkedProjectCodes.indexOf(log.projectCode) === -1) {
+          checkedProjectCodes.push(log.projectCode);
+          lineChartDataArr.push(this.getLineChartDatas(lineChartLabels, log.projectCode));
         }      
       }
     }
@@ -137,10 +137,10 @@ export class ReportComponent implements OnInit {
 
   getProjectLogDetailsByDate(datesArray: Array<string>, projectcode: string) {
     this.logsProjectDetailed = [];
-    let logsProjectArray = this.logs.filter(e => e.projectcode === projectcode);
+    let logsProjectArray = this.logs.filter(e => e.projectCode === projectcode);
     
     this.logsProjectDetailed['projectcode'] = projectcode;
-    this.logsProjectDetailed['projecttitle'] = logsProjectArray[0].projecttitle;
+    this.logsProjectDetailed['projecttitle'] = logsProjectArray[0].projectCode;
     this.logsProjectDetailed['totaltimespent'] = "00:00:00";
 
     let data = this.setLogArrayByDate(logsProjectArray);

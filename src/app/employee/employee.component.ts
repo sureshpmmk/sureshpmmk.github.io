@@ -31,7 +31,7 @@ export class EmployeeComponent implements OnInit {
   logs: Logs[] = [];
   logsbyProjects: Logs[] = [];
   logsProjectDetailed = [];
-  projecttitle = '';
+  projectTitle = '';
   logIndex;
   dateInterval;
   lognote;
@@ -73,7 +73,7 @@ export class EmployeeComponent implements OnInit {
       this.seconds = 0;
       this.minutes = 0;
       this.hours = 0;
-    }
+    }    
   }
 
   getProjectsByEmployee(projectsAll) {
@@ -111,30 +111,30 @@ export class EmployeeComponent implements OnInit {
     }, 1000);  
 
     let selectedProject = this.projects.find(p => p.projectcode === this.logForm.value.project);
-    this.projecttitle = selectedProject.projecttitle;
-    let log = {
-                "employeeId" : this.logForm.value.employeeid,
-                "employeeName" : this.logForm.value.employeename,
+    this.projectTitle = selectedProject.projecttitle;
+    let log = {        
+                "employeeId" : this.logForm.value.employeeId,
+                "employeeName" : this.logForm.value.employeeName,
                 "projectCode" : this.logForm.value.project,
-                "projectTitle" : this.projecttitle,
-                "startDatetime" : this.logForm.value.datetime,
+                "projectTitle" : this.projectTitle,
+                "startDatetime" : this.logForm.value.dateTime,
                 "finishDatetime" : "",
                 "timeSpent" : "",
-                "logNote" : this.logForm.value.lognote,
+                "logNote" : this.logForm.value.logNote
               };
     this.logsService.saveLogs(log)
     .subscribe(
       (response: Response) => {
         const resp = response.json();
-        console.log(resp.id);
         localStorage.setItem("logId", resp.id);
+        log['logId'] = resp.id;
+        
       },
       (error)  => console.log(error)
-    );
-    
+    ); 
     localStorage.setItem("log", JSON.stringify(log));
     localStorage.setItem("project", this.logForm.value.project);
-    localStorage.setItem("logNote", this.logForm.value.lognote);
+    localStorage.setItem("logNote", this.logForm.value.logNote);
     localStorage.setItem("timerRunning", 'true');
   }
 
@@ -148,24 +148,22 @@ export class EmployeeComponent implements OnInit {
             this.logs = logs;
         });
 
-    //this.logIndex = this.logs.map((log) => log.logid).indexOf(this.logForm.value.logid);
+    //this.logIndex = this.logs.map((log) => log.logid).indexOf(this.logForm.value.logid);    
     let currentLog = JSON.parse(localStorage.getItem('log'));   
-    let startdatetime = new Date(currentLog.startDatetime);
-    let finishdatetime = new Date(this.logForm.value.datetime);
-    let diffs = (finishdatetime.getTime() - startdatetime.getTime());
-    let timespent = this.timespent(diffs);
-    currentLog.finishDatetime = this.logForm.value.datetime;
-    currentLog.timeSpent = timespent;
-    currentLog.logNote = this.logForm.value.lognote;
+    let startDatetime = new Date(currentLog.startDatetime);
+    let finishDatetime = new Date(this.logForm.value.dateTime);
+    let diffs = (finishDatetime.getTime() - startDatetime.getTime());
+    let timeSpent = this.timespent(diffs);
+    currentLog.finishDatetime = this.logForm.value.dateTime;
+    currentLog.timeSpent = timeSpent;
+    currentLog.logNote = this.logForm.value.logNote;
     this.logId = localStorage.getItem('logId'); 
 
     this.logsService.createLog(currentLog,this.logId).subscribe(
       (response: Response) => console.log(response),
       (error)  => console.log(error)
     );
-    //this.logs.push(response);
-    //this.logsService.logsChanged.next(this.logs.slice());
-
+    
     //this.logsService.updateLog(this.logIndex, this.logForm.value.datetime, this.logForm.value.timespent);
 
   	this.timerRunning = false;
@@ -173,7 +171,8 @@ export class EmployeeComponent implements OnInit {
     this.seconds = 0;
     this.minutes = 0; 
     this.hours = 0;
-    clearInterval(this.t);    
+    clearInterval(this.t); 
+    this.logForm.reset();   
 
     localStorage.removeItem("log");
     localStorage.removeItem("timerRunning");
@@ -185,7 +184,7 @@ export class EmployeeComponent implements OnInit {
     localStorage.removeItem("hours");
     localStorage.removeItem("logId");
 
-    this.logid = this.logForm.value.logid;
+    this.logId = this.logForm.value.logId;
     this.dateInterval = setInterval(() => {
         this.date =  new Date();
      }, 1000);

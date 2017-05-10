@@ -8,19 +8,19 @@
         <div class="timer-block">    
           <form class="form-horizontal" #f="ngForm">
             <input 
-                id="logid" 
+                id="logId" 
                 type="hidden" 
-                name="logid"
-                [ngModel]="logid">
+                name="logId"
+                [ngModel]="logId">
             <input 
-                id="employeeid" 
+                id="employeeId" 
                 type="hidden" 
-                name="employeeid"
+                name="employeeId"
                 [ngModel]="employee.employeeid">
               <input 
-                id="employeename" 
+                id="employeeName" 
                 type="hidden" 
-                name="employeename"
+                name="employeeName"
                 [ngModel]="employee.firstname + ' ' + employee.lastname">
             
             <div class="row">
@@ -47,9 +47,9 @@
                    <!-- <div class="col-md-12">
                        <h4>Date : {{ date | date:'d-MMM-y' }}</h4> -->
                       <input 
-                        id="datetime" 
+                        id="dateTime" 
                         type="hidden" 
-                        name="datetime" 
+                        name="dateTime" 
                         [ngModel]="date | date:'yyyy-MM-dd HH:mm:ss Z'">
                      <!--  </div>
                 </div> -->
@@ -60,9 +60,9 @@
                     <div class="col-md-12">
                       <textarea 
                         style="width: 100%" 
-                        id="lognote"
-                        name="lognote"
-                        [ngModel]="lognote"></textarea>
+                        id="logNote"
+                        name="logNote"
+                        [ngModel]="logNote"></textarea>
                     </div>
                   <!-- </div> -->
                 </div>
@@ -72,9 +72,9 @@
                 <div class="col-md-12 log-timmer">
                   <h3>{{ time }}</h3>
                   <input 
-                    id="timespent" 
+                    id="timeSpent" 
                     type="hidden" 
-                    name="timespent"
+                    name="timeSpent"
                     [ngModel]="time">
 
                   <button 

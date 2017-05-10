@@ -18,18 +18,18 @@ export class ReportService {
         );
   }
 
-	getUserLog(employeeid: string) {
-    return this.logs.filter(u => u.employeeid === employeeid);
+	getUserLog(employeeId: string) {
+    return this.logs.filter(u => u.employeeId === employeeId);
   }
 
-  getProjectLogdetails(employeeid: string, projectcode: string) {
+  getProjectLogdetails(employeeId: string, projectcode: string) {
     // return this.logs.filter([u => u.employeeid === employeeid,
     // 						u => u.projectcode === projectcode]);
-    return this.filter(this.logs, { employeeid: employeeid, projectcode: projectcode });
+    return this.filter(this.logs, { employeeId: employeeId, projectcode: projectcode });
   }
 
-  getUsersWorkedUnderProject(projectcode: string) {
-    return this.logs.filter(u => u.projectcode === projectcode);
+  getUsersWorkedUnderProject(projectCode: string) {
+    return this.logs.filter(u => u.projectCode === projectCode);
   }  
 
   filter(arr, criteria) {

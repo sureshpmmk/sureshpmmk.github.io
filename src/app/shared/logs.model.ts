@@ -1,14 +1,14 @@
 export class Logs
 {
-	constructor(public logid :string,
-				public employeeid :string,
-				public employeename :string,
-				public projectcode :string,
-				public projecttitle :string,
-				public startdatetime: string,
-				public finishdatetime : string,
-				public timespent : string,
-				public lognote : string 
+	constructor(public logId :string,
+				public employeeId :string,
+				public employeeName :string,
+				public projectCode :string,
+				public projectTitle :string,
+				public startDatetime: string,
+				public finishDatetime : string,
+				public timeSpent : string,
+				public logNote : string 
 				){
 
 	}
