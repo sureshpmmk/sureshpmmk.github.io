@@ -4,7 +4,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <i class="fa fa-edit"></i>Reports - Projects        
+          <i class="fa fa-edit" style="cursor:default"></i>Reports - Projects        
         </div>
         <div class="card-block">
           <form class="form-horizontal" (ngSubmit)="onViewTeammemberDetails($event)" #f="ngForm">
@@ -135,7 +135,7 @@
                 <td>{{ log.timespent }}</td>               
                 <td style="text-align: center">                
                    <span                      
-                    (click)="viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Details"></i></span>
+                    (click)="viewUserwisedetails(log.employeeid,log.projectcode,log.employeename)"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View Details"></i></span>
                 </td>
               </tr>
             </tbody>

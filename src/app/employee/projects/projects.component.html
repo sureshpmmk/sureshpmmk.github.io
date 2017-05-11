@@ -3,8 +3,8 @@
     <div class="col-lg-12">
       <div class="card">   
       	<div class="card-header">
-          <i class="fa fa-align-justify"></i> Projects
-          <a class="nav-link text-right" style="margin-top: -20px;" [routerLink]="['/employee/reports']">Chart View</a>
+        <i class="fa fa-align-justify" ></i> Projects
+          <a class="nav-link text-right" style="padding-top: 16px;margin-top: -18px;float: right;" [routerLink]="['/employee/reports']">Chart View</a>
         </div>           
         <div class="card-block" *ngIf="viewProjectLogFlag"> 
         <table datatable class="table table-striped row-border">
@@ -17,9 +17,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let logProject of logsbyProjects">                
-                <td>{{ logProject.projecttitle  }}</td>                
-                <td>{{ logProject.timespent.split(':')[0] + 'h ' + logProject.timespent.split(':')[1] + 'm ' }}</td>               
-                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)">Details</a> </td>  
+                <td>{{ logProject.projectTitle  }}</td>                
+                <td>{{ logProject.timeSpent.split(':')[0] + 'h ' + logProject.timeSpent.split(':')[1] + 'm ' }}</td>               
+                <td><a href="javascript:void(0)" (click)="viewProjectGridLog(logProject.projectcode)"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View Details"></i></a> </td>  
               </tr>
             </tbody>
           </table>
@@ -28,7 +28,7 @@
         <div class="card-block" *ngIf="viewProjectLogGridFlag">      
           <div class="row">
             <div class="col-lg-8">
-              <h4>{{ logsProjectDetailed.projecttitle }}</h4>
+              <h4>{{ logsProjectDetailed.projectTitle }}</h4>
               <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
             </div>
            <!--  <div class="col-lg-4">
@@ -45,9 +45,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let logprojectdetail of logsProjectDetailed">                
-                <td>{{ logprojectdetail.startdatetime | date:'dd-MMM-y' }}</td>                
-                <td>{{ logprojectdetail.timespent.split(':')[0] + 'h ' + logprojectdetail.timespent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
-                <td>{{ logprojectdetail.lognote }}</td>  
+                <td>{{ logprojectdetail.startDatetime | date:'dd-MMM-y' }}</td>                
+                <td>{{ logprojectdetail.timeSpent.split(':')[0] + 'h ' + logprojectdetail.timeSpent.split(':')[1] + 'm ' }} ( {{ logprojectdetail.startdatetime | date:'h:mma' }} - {{ logprojectdetail.finishdatetime | date:'h:mma' }} )</td>
+                <td>{{ logprojectdetail.logNote }}</td>  
               </tr>
             </tbody>
           </table>
@@ -56,7 +56,7 @@
         <div class="card-block" *ngIf="viewProjectLogChartFlag">      
           <div class="row">
             <div class="col-lg-8">
-              <h4>{{ logsProjectDetailed.projecttitle }}</h4>
+              <h4>{{ logsProjectDetailed.projectTitle }}</h4>
               <label>Total Hours Spent {{ logsProjectDetailed.totaltimespent.split(':')[0] + 'h ' + logsProjectDetailed.totaltimespent.split(':')[1] + 'm' }}</label>
             </div>
             <div class="col-lg-4">
