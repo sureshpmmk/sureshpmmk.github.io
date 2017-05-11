@@ -110,8 +110,8 @@ export class EmployeeComponent implements OnInit {
       this.add();
     }, 1000);  
 
-    let selectedProject = this.projects.find(p => p.projectcode === this.logForm.value.project);
-    this.projectTitle = selectedProject.projecttitle;
+    let selectedProject = this.projects.find(p => p.projectCode === this.logForm.value.project);
+    this.projectTitle = selectedProject.projectTitle;
     let log = {        
                 "employeeId" : this.logForm.value.employeeId,
                 "employeeName" : this.logForm.value.employeeName,

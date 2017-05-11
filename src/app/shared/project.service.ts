@@ -19,15 +19,12 @@ export class ProjectService implements OnInit {
   }
 
   getProjectsJson() {
-    this.http.get("./src/app/shared/projects.json")
+    this.http.get("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/projects")
              .map(
-                (response: Response) => {
-                  const projects: Project[] = response.json();
-                  for(let project of projects) {
-                    if(!project) {
-                      console.log(project);
-                    }
-                  }
+                (response: Response) =>{
+                  const resp = response.json();
+                  
+                  const projects = resp.Result;                 
                   return projects;
                 }
               )
@@ -40,20 +37,31 @@ export class ProjectService implements OnInit {
 
   setProjects(projects: Project[]) {
     this.projects = projects;
+   
     this.projectsChanged.next(this.projects.slice());
   }
 
   getProjects() {
+     this.projectsChanged.subscribe(
+      (projects: Project[]) => {
+            this.projects = projects;
+          
+          }
+        ); 
   	return this.projects.slice();
   }
 
-  getOneProject(projectcode: string) {
-    return this.projects.find(p => p.projectcode === projectcode);
+  getOneProject(projectCode: string) {
+    return this.projects.find(p => p.projectCode === projectCode);
   }
 
   addProject(project: Project) {
-  	this.projects.push(project);
-    this.projectsChanged.next(this.projects.slice());
+      this.projects.unshift(project);
+      this.projectsChanged.next(this.projects.slice());
+      const headers = new Headers({ 'Content-Type' : 'application/json'});
+      return this.http.post("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/projects",
+      project,
+      {headers: headers});
   }
 
   removeProject(projectIndex: number) {

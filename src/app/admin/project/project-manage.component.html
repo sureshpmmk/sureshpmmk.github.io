@@ -18,11 +18,11 @@
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-eye"></i></span>
                   <input 
-                    id="projectcode" 
+                    id="projectCode" 
                     class="form-control"
                     type="text"
                     ngModel
-                    name="projectcode"
+                    name="projectCode"
                     required
                     #pjtcode="ngModel"
                     >
@@ -37,11 +37,11 @@
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-screen-desktop"></i></span>
                   <input 
-                    id="projecttitle" 
+                    id="projectTitle" 
                     class="form-control"
                     type="text"
                     ngModel
-                    name="projecttitle"
+                    name="projectTitle"
                     required
                     #pjttitle="ngModel">
                 </div>
@@ -54,11 +54,11 @@
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-hourglass"></i></span>
                   <input 
-                    id="hoursrequired" 
+                    id="hoursRequired" 
                     class="form-control" 
                     type="number"                    
                     ngModel
-                    name="hoursrequired"
+                    name="hoursRequired"
                     required
                     #hrsrequired="ngModel">
                 </div>
@@ -71,10 +71,10 @@
                 <span class="input-group-addon"><i class="icon-people"></i></span>
                 <select 
                     class="form-control" 
-                    name="teammembers" 
-                    id="teammembers"
+                    name="teamMembers" 
+                    id="teamMembers"
                     multiple=""  
-                    [(ngModel)]="teammembers"
+                    [(ngModel)]="teamMembers"
                     required
                     #members="ngModel">
                     <option 
@@ -90,13 +90,13 @@
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-calendar"></i></span>
                   <input 
-                    id="startdate" 
+                    id="startDate" 
                     class="form-control" 
                     type="date"  
-                    name="startdate"
+                    name="startDate"
                     style="display:  -webkit-inline-box;" 
                     required
-                    [ngModel]="startdate | date:'yyyy-MM-dd'">
+                    [ngModel]="startDate | date:'yyyy-MM-dd'">
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -107,13 +107,13 @@
                 <div class="input-prepend input-group">
                   <span class="input-group-addon"><i class="icon-calendar"></i></span>
                   <input 
-                    id="estimateddate" 
+                    id="estimatedDate" 
                     class="form-control" 
                     type="date"  
-                    name="estimateddate"
+                    name="estimatedDate"
                     style="display:  -webkit-inline-box;" 
                     required
-                    [ngModel]="estimateddate | date:'yyyy-MM-dd'">
+                    [ngModel]="estimatedDate | date:'yyyy-MM-dd'">
                 </div>
                 <!-- <p class="help-block">Here's some help text</p> -->
               </div>
@@ -127,14 +127,14 @@
                   class="form-control"                  
                   [ngModel]="status"
                   name="status">
-                  <option value="active">Active</option>
-                  <option value="inactive">Inactive</option>
-                  <option value="completed">Completed</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Completed">Completed</option>
                 </select>
               </div>
             </div>
-            <input id="hourstaken" type="hidden" name="hourstaken" ngModel>
-            <input id="finishdate" type="hidden" name="finishdate" ngModel>
+            <input id="hoursTaken" type="hidden" name="hoursTaken" ngModel>
+            <input id="finishDate" type="hidden" name="finishDate" ngModel>
             <div class="col-lg-12">
             <div class="form-actions">
               <button
@@ -173,25 +173,25 @@
             </thead>
             <tbody>
               <tr *ngFor="let project of projectsDetails">
-                <td>{{ project.projectcode }}</td>
-                <td>{{ project.projecttitle }}</td>                
-                <td>{{ project.hourstaken }}</td>
-                <td>{{ project.hoursrequired }}</td>
-                <td>{{ project.startdate | date:'dd/MM/y' }}</td>
+                <td>{{ project.projectCode }}</td>
+                <td>{{ project.projectTitle }}</td>                
+                <td>{{ project.hoursTaken }}</td>
+                <td>{{ project.hoursRequired }}</td>
+                <td>{{ project.startDate | date:'dd/MM/y' }}</td>
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
-                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'Active');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectCode, 'Active');"
                     *ngIf="project.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="dangrModal.show();changeProjectStatus(project.projectcode, 'Deactive');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectCode, 'Deactive');"
                     *ngIf="project.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Deactive!"></i></span>
                   <span                      
-                    (click)="updateProject(project.projectcode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
+                    (click)="updateProject(project.projectCode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
                   <span                      
-                    (click)="dangerModal.show();showModel(project.projectcode);"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
+                    (click)="dangerModal.show();showModel(project.projectCode);"><i class="fa fa-trash-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></i></span>                  
                   <span                      
-                    (click)="teamModal.show();teamMembers(project.projectcode);"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
+                    (click)="teamModal.show();teamMembers(project.projectCode);"><i class="fa fa-users circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Members"></i></span>                 
                 
                 </td>
 

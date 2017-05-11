@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Response } from '@angular/http';
 
 import { Project } from '../../shared/project.model';
 import { ProjectService } from '../../shared/project.service';
@@ -54,7 +55,7 @@ export class ProjectManageComponent implements OnInit {
     this.getProjectList();
 
     this.startdate = Date.now();
-    this.status    = 'active';
+    this.status    = 'Active';
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
       .subscribe(
@@ -62,24 +63,28 @@ export class ProjectManageComponent implements OnInit {
             this.users = users;
           }
         );
+        console.log(this.getProjectList());
   }
 
   getProjectList() {    
-    this.projects = this.projectService.getProjects();
-    this.projectsDetails = this.projectService.getProjects();
+    //this.projects = this.projectService.getProjects();
+    
+   // this.projectsDetails = this.projectService.getProjects();
+    
     this.projectService.projectsChanged
         .subscribe(
           (projects: Project[]) => {
             this.projects = projects;
             this.projectsDetails = projects;
             this.setEmployeeNames(this.projectsDetails);
+            console.log(this.projectsDetails);
         });
   }
 
   setEmployeeNames(projectsDetails) {
     for(let i in projectsDetails) {
       this.teammemberNames = [];
-      for(let teammember of projectsDetails[i].teammembers) {
+      for(let teammember of projectsDetails[i].teamMembers) {
         this.teammemberNames.push(teammember['name']);
       }
       projectsDetails[i].teammemberNames = this.teammemberNames;
@@ -96,12 +101,12 @@ export class ProjectManageComponent implements OnInit {
     this.project_status = status;
   }
   confirmProjectStatus (projectCode: string, status: string){    
-    this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode);
+    this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(projectCode);
     this.projectService.updateProjectStatus(this.projectIndex, status);
   }
 
   deleteProject(projectCode: string) {
-    this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(projectCode); 
+    this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(projectCode); 
     this.projectService.removeProject(this.projectIndex);
     this.getProjectList();
   }
@@ -119,14 +124,19 @@ export class ProjectManageComponent implements OnInit {
         );
 
     let i=0;
-    for(let teammemberId of this.projectForm.value.teammembers) {
+    for(let teammemberId of this.projectForm.value.teamMembers) {
       this.user = this.users.find(u => u.employeeid === teammemberId);
       this.teammembers[i] = { "id" : this.user.employeeid,
                               "name" : this.user.firstname + ' ' + this.user.lastname };
       i++;
     }
-    this.projectForm.value.teammembers = this.teammembers;
-    this.projectService.addProject(this.projectForm.value);
+    
+    this.projectForm.value.teamMembers = this.teammembers;
+    console.log(this.projectForm.value);
+    this.projectService.addProject(this.projectForm.value).subscribe(
+      (response: Response) => console.log(response),
+      (error)  => console.log(error)
+    );
     this.router.navigate(['/admin/manage-projects']);
     this.projectForm.reset();
   }
@@ -144,13 +154,13 @@ export class ProjectManageComponent implements OnInit {
     this.formShowFlag = (this.formShowFlag === false) ? true : false;
     this.formShowFlagText = (this.formShowFlag === false) ? 'fa fa-plus fa-lg' : 'fa fa-minus fa-lg';
   }
-  showModel(projectcode:string){
+  showModel(projectCode:string){
     document.querySelector('body').classList.remove('modal-open'); 
-    this.projectId = projectcode;             
+    this.projectId = projectCode;             
   }
-  teamMembers(projectcode:string){
+  teamMembers(projectCode:string){
     document.querySelector('body').classList.remove('modal-open'); 
-    this.projectMembers = this.projectService.getOneProject(projectcode);
+    this.projectMembers = this.projectService.getOneProject(projectCode);
     this.members = this.projectMembers.teammemberNames;
   }
 }

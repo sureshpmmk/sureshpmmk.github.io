@@ -47,6 +47,7 @@ export class LogsService {
   }
 
   getAllLogs() {  
+    console.log(this.logs);
     return this.logs; 
   }
   getUserLogs(employeeId){

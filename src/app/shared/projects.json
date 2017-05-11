@@ -1,54 +1,15 @@
 [
    {
-      "projectcode": "PRO001", 
-      "projecttitle": "Test Project1", 
-      "hoursrequired": "8", 
-      "teammembers": [{ "id" : "5123", "name" : "Lakshmikanth V" },
+      "projectCode": "PRO001", 
+      "projectTitle": "Test Project1", 
+      "hoursRequired": "8", 
+      "teamMembers": [{ "id" : "5123", "name" : "Lakshmikanth V" },
                       { "id" : "5012", "name" : "Test User2" }],
       "status": "Active", 
-      "hourstaken": "", 
-      "startdate": "2016/04/17",
-      "estimateddate": "2016/04/17",
-      "actualdate": "2016/04/17", 
-      "finishdate": ""
-  },
-  {
-      "projectcode": "PRO002", 
-      "projecttitle": "Test Project2", 
-      "hoursrequired": "2", 
-      "teammembers": [{ "id" : "5013", "name" : "Test User3" },
-                      { "id" : "5014", "name" : "Test User4" }],
-      "status": "Active", 
-      "hourstaken": "", 
-      "startdate": "2016/04/17",
-      "estimateddate": "2016/04/17",
-      "actualdate": "2016/04/17",  
-      "finishdate": ""
-  },
-  {
-      "projectcode": "PRO003", 
-      "projecttitle": "Test Project3", 
-      "hoursrequired": "16", 
-      "teammembers": [{ "id" : "5011", "name" : "Test User1" },
-                      { "id" : "5014", "name" : "Test User4" } ],
-      "status": "Active", 
-      "hourstaken": "", 
-      "startdate": "2016/04/18", 
-      "estimateddate": "2016/04/17",
-      "actualdate": "2016/04/17", 
-      "finishdate": ""
-  },
-  {
-      "projectcode": "PRO004", 
-      "projecttitle": "Test Project4", 
-      "hoursrequired": "9", 
-      "teammembers": [{ "id" : "5123", "name" : "Lakshmikanth V" },
-                      { "id" : "5013", "name" : "Test User3" }],
-      "status": "Active", 
-      "hourstaken": "", 
-      "startdate": "2016/04/18",
-      "estimateddate": "2016/04/17",
-      "actualdate": "2016/04/17",  
-      "finishdate": ""
-  }
+      "hoursTaken": "", 
+      "startDate": "2016/04/17",
+      "estimatedDate": "2016/04/17",
+      "actualDate": "2016/04/17", 
+      "finishDate": ""
+  } 
 ]
