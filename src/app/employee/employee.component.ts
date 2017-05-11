@@ -120,7 +120,7 @@ export class EmployeeComponent implements OnInit {
                 "startDatetime" : this.logForm.value.dateTime,
                 "finishDatetime" : "",
                 "timeSpent" : "",
-                "logNote" : this.logForm.value.logNote
+                "logNote" : this.logForm.value.lognote
               };
     this.logsService.saveLogs(log)
     .subscribe(
@@ -134,7 +134,7 @@ export class EmployeeComponent implements OnInit {
     ); 
     localStorage.setItem("log", JSON.stringify(log));
     localStorage.setItem("project", this.logForm.value.project);
-    localStorage.setItem("logNote", this.logForm.value.logNote);
+    localStorage.setItem("logNote", this.logForm.value.lognote);
     localStorage.setItem("timerRunning", 'true');
   }
 
@@ -156,7 +156,7 @@ export class EmployeeComponent implements OnInit {
     let timeSpent = this.timespent(diffs);
     currentLog.finishDatetime = this.logForm.value.dateTime;
     currentLog.timeSpent = timeSpent;
-    currentLog.logNote = this.logForm.value.logNote;
+    currentLog.logNote = this.logForm.value.lognote;
     this.logId = localStorage.getItem('logId'); 
 
     this.logsService.createLog(currentLog,this.logId).subscribe(
