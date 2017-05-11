@@ -51,7 +51,7 @@ export class EmployeeComponent implements OnInit {
         });
 
   	this.project = (localStorage.getItem('project')) ? localStorage.getItem('project') : '';
-    this.lognote = (localStorage.getItem('lognote')) ? localStorage.getItem('lognote') : '';
+    this.lognote = (localStorage.getItem('logNote')) ? localStorage.getItem('logNote') : '';
 
     this.dateInterval = setInterval(() => {
         this.date =  new Date();
@@ -149,7 +149,7 @@ export class EmployeeComponent implements OnInit {
         });
 
     //this.logIndex = this.logs.map((log) => log.logid).indexOf(this.logForm.value.logid);    
-    let currentLog = JSON.parse(localStorage.getItem('log'));   
+    let currentLog = JSON.parse(localStorage.getItem('log')); 
     let startDatetime = new Date(currentLog.startDatetime);
     let finishDatetime = new Date(this.logForm.value.dateTime);
     let diffs = (finishDatetime.getTime() - startDatetime.getTime());
@@ -171,8 +171,7 @@ export class EmployeeComponent implements OnInit {
     this.seconds = 0;
     this.minutes = 0; 
     this.hours = 0;
-    clearInterval(this.t); 
-    this.logForm.reset();   
+    clearInterval(this.t);
 
     localStorage.removeItem("log");
     localStorage.removeItem("timerRunning");

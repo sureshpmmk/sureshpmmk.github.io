@@ -84,10 +84,7 @@
                     <span                  
                     (click)="changePasswordStatus('hide')"
                     *ngIf="showhide !== 'show'"><i class="fa fa-eye-slash circle-icon" id="eye" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Hide"></i></span>
-                        
-
-
-                 
+                                        
                 </div>  
                 <span class="help-block" *ngIf="!pass.valid  && pass.dirty" id="error" >Password should not be empty and contain atleast 6 characters</span>             
               </div>
@@ -118,7 +115,7 @@
               <button
                 type="submit" 
                 class="btn btn-primary"
-                [disabled]="!ff.valid"><i class="fa fa-save"></i> &nbsp;Save</button>
+               ><i class="fa fa-save"></i> &nbsp;Save</button>
              <!--  <button class="btn btn-default" [routerLink]="['/dashboard']"><i class="fa fa-ban"></i> Cancel</button> -->
             </div>
             </div>            
