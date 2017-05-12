@@ -20,7 +20,7 @@ export class ProjectManageComponent implements OnInit {
   teammemberNames;
   projectIndex;
   @ViewChild('f') projectForm: NgForm;
-  startdate;
+  startDate;
   status;
   users;
   user;
@@ -40,7 +40,7 @@ export class ProjectManageComponent implements OnInit {
               private userService: UserService,
       			  private router: Router) {
 
-    this.startdate = Date.now();
+    this.startDate = Date.now();
     this.status    = 'active';
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
@@ -54,7 +54,7 @@ export class ProjectManageComponent implements OnInit {
   ngOnInit() {   
     this.getProjectList();
 
-    this.startdate = Date.now();
+    this.startDate = Date.now();
     this.status    = 'Active';
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
@@ -77,8 +77,10 @@ export class ProjectManageComponent implements OnInit {
             this.projects = projects;
             this.projectsDetails = projects;
             this.setEmployeeNames(this.projectsDetails);
-            console.log(this.projectsDetails);
+            //console.log(this.projectsDetails);
         });
+       
+        
   }
 
   setEmployeeNames(projectsDetails) {
@@ -111,7 +113,7 @@ export class ProjectManageComponent implements OnInit {
     this.getProjectList();
   }
 
-  onSubmit() {  
+  onSubmit() {      
     this.notValid = '';
     if(this.projectForm.valid)
     {  

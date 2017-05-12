@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Response } from '@angular/http';
 
 import { Project } from '../../shared/project.model';
 import { ProjectService } from '../../shared/project.service';
@@ -17,19 +18,20 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
   users;
   user;
   passedProjectCode;
-  projectcode;
-  projecttitle;
-  hoursrequired;
-  hourstaken;
-  teammembers = [];
-  startdate;
-  finishdate;
+  projectCode;
+  projectTitle;
+  hoursRequired;
+  hoursSpent;
+  teamMembers = [];
+  startDate;
+  finishDate;
   status;
   projectCodeSubscription;
   projects;
   projectIndex;
-  estimateddate;
-  actualdate;
+  estimatedDate;
+  actualDate;
+  projectId;
 
   constructor(private projectService: ProjectService, 
               private userService: UserService,
@@ -41,9 +43,11 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.projectCodeSubscription = this.route.params.subscribe(params => {
       this.passedProjectCode = params['projectCode']; 
+     
     });
 
-    this.getOneProject(this.passedProjectCode);    
+    this.getOneProject(this.passedProjectCode);  
+  
   }
 
   ngOnDestroy() {
@@ -60,20 +64,23 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
         );
 
     this.project = this.projectService.getOneProject(passedProjectCode);
+    
 
-    this.projectcode   = this.project.projectcode;
-    this.projecttitle  = this.project.projecttitle;
-    this.hoursrequired = this.project.hoursrequired;
-    this.hourstaken    = this.project.hourstaken;
-    //this.teammembers   = this.project.teammembers;
-    this.startdate     = new Date(this.project.startdate);
-    this.finishdate    = new Date(this.project.finishdate);
+    this.projectCode   = this.project.projectCode;    
+    this.projectTitle  = this.project.projectTitle;
+    this.hoursRequired = this.project.hoursRequired;
+    this.hoursSpent    = this.project.hoursSpent;
+    //this.teamMembers   = this.project.teamMembers;
+    this.startDate     = this.project.startDate;
+    this.finishDate    = this.project.finishDate;
     this.status        = this.project.status;
-    this.actualdate = this.project.actualdate;
-    this.estimateddate = this.project.estimateddate;
+    this.actualDate = this.project.actualDate;
+    this.estimatedDate = this.project.estimatedDate;
+    this.projectId = this.project.id;
 
-    for(let teammember of this.project.teammembers) {
-      this.teammembers.push(teammember.id);
+    for(let teammember of this.project.teamMembers) {
+      this.teamMembers.push(''+teammember.id+'');
+      
     }
   }
 
@@ -87,13 +94,13 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
         );
       
     let i=0;
-    for(let teammemberId of this.projectForm.value.teammembers) {
+    for(let teammemberId of this.projectForm.value.teamMembers) {
       this.user = this.users.find(u => u.employeeid === teammemberId);
-      this.teammembers[i] = { "id" : this.user.employeeid,
+      this.teamMembers[i] = { "id" : this.user.employeeid,
                               "name" : this.user.firstname + ' ' + this.user.lastname };
       i++;
     }
-    this.projectForm.value.teammembers = this.teammembers;
+    this.projectForm.value.teamMembers = this.teamMembers;
 
     this.projects = this.projectService.getProjects();
     this.projectService.projectsChanged
@@ -102,9 +109,12 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
             this.projects = projects;
         });
   	
-    this.projectcode  = this.projectForm.value['projectcode'];
-    this.projectIndex = this.projects.map((project) => project.projectcode).indexOf(this.projectcode); 
-  	this.projectService.updateProjectDetails(this.projectIndex, this.projectForm.value);
+    this.projectCode  = this.projectForm.value.projectId;
+    this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(this.projectCode); 
+  	this.projectService.updateProjectDetails(this.projectCode, this.projectForm.value).subscribe(
+      (response: Response) => console.log(response),
+      (error)  => console.log(error)
+    );
     this.router.navigate(['/admin/manage-projects']);
   }
 

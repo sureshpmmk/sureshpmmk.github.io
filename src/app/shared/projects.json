@@ -6,7 +6,7 @@
       "teamMembers": [{ "id" : "5123", "name" : "Lakshmikanth V" },
                       { "id" : "5012", "name" : "Test User2" }],
       "status": "Active", 
-      "hoursTaken": "", 
+      "hoursSpent": "", 
       "startDate": "2016/04/17",
       "estimatedDate": "2016/04/17",
       "actualDate": "2016/04/17", 

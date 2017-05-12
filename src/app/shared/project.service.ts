@@ -15,7 +15,6 @@ export class ProjectService implements OnInit {
   }
 
   ngOnInit() {
-   // this.getProjectsJson();
   }
 
   getProjectsJson() {
@@ -24,8 +23,9 @@ export class ProjectService implements OnInit {
                 (response: Response) =>{
                   const resp = response.json();
                   
-                  const projects = resp.Result;                 
+                  const projects = resp.Result;              
                   return projects;
+
                 }
               )
              .subscribe(
@@ -33,6 +33,7 @@ export class ProjectService implements OnInit {
                  this.setProjects(projects);
                }
               );
+              
   }
 
   setProjects(projects: Project[]) {
@@ -82,7 +83,11 @@ export class ProjectService implements OnInit {
     if (projectIndex > -1) {
       this.projects[projectIndex] = projectData;
       this.projectsChanged.next(this.projects.slice());
-    }    
+    }  
+    const headers = new Headers({ 'Content-Type' : 'application/json'});
+      return this.http.post("https://pni590047g.execute-api.eu-west-1.amazonaws.com/beta/projects/"+projectIndex,
+      projectData,
+       {headers: headers});  
   }
 
 }

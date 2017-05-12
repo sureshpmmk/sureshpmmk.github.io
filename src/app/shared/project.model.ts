@@ -3,7 +3,7 @@ export class Project {
 	        public projectCode: string, 
 			public projectTitle: string,
 			public hoursRequired: string,
-			public teamMembers: Array<string>,
+			public teamMembers: Array<any>,
 			public status: string,
 			public hoursSpent: string,
 			public startDate: Date,
