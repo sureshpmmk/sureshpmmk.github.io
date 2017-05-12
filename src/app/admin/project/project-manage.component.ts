@@ -104,7 +104,17 @@ export class ProjectManageComponent implements OnInit {
   }
   confirmProjectStatus (projectCode: string, status: string){    
     this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(projectCode);
-    this.projectService.updateProjectStatus(this.projectIndex, status);
+    //console.log(this.projects[this.projectIndex].status);
+    if (this.projectIndex > -1) {
+      this.projects[this.projectIndex].status = status;
+    } 
+   // console.log(this.projects[this.projectIndex].status);   
+    this.projectService.updateProjectDetails(this.projectIndex, this.projects[this.projectIndex]).subscribe(
+      (response: Response) => console.log(response),
+      (error)  => console.log(error)
+    );
+    //console.log(this.projects[this.projectIndex].status); 
+    this.router.navigate(['/admin/manage-projects']);    
   }
 
   deleteProject(projectCode: string) {

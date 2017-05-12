@@ -84,7 +84,7 @@ export class ProjectUpdateComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateProject() {
+  updateProject() {    
     this.users     = this.userService.getUsers();
     this.userService.usersChanged
       .subscribe(
