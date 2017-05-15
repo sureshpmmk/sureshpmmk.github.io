@@ -34,6 +34,7 @@ export class ProjectManageComponent implements OnInit {
   members;
   project_code;
   project_status;
+  projectid;
 
   constructor(private projectService: ProjectService,
       			  private projectUpdateComponent: ProjectUpdateComponent,
@@ -63,7 +64,7 @@ export class ProjectManageComponent implements OnInit {
             this.users = users;
           }
         );
-        console.log(this.getProjectList());
+      //  console.log(this.getProjectList());
   }
 
   getProjectList() {    
@@ -97,19 +98,19 @@ export class ProjectManageComponent implements OnInit {
   	this.router.navigate(['/admin/update-project', projectCode]);
   }
 
-  changeProjectStatus(projectCode: string, status: string) {
+  changeProjectStatus(projectCode: string, status: string,projectid: string) {
     document.querySelector('body').classList.remove('modal-open'); 
     this.project_code = projectCode;
     this.project_status = status;
+    this.projectid = projectid ;    
   }
   confirmProjectStatus (projectCode: string, status: string){    
-    this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(projectCode);
-    //console.log(this.projects[this.projectIndex].status);
+    this.projectIndex = this.projects.map((project) => project.projectCode).indexOf(projectCode);    
     if (this.projectIndex > -1) {
       this.projects[this.projectIndex].status = status;
     } 
    // console.log(this.projects[this.projectIndex].status);   
-    this.projectService.updateProjectDetails(this.projectIndex, this.projects[this.projectIndex]).subscribe(
+    this.projectService.updateProjectDetails(this.projectid, this.projects[this.projectIndex]).subscribe(
       (response: Response) => console.log(response),
       (error)  => console.log(error)
     );
@@ -143,8 +144,7 @@ export class ProjectManageComponent implements OnInit {
       i++;
     }
     
-    this.projectForm.value.teamMembers = this.teammembers;
-    console.log(this.projectForm.value);
+    this.projectForm.value.teamMembers = this.teammembers;    
     this.projectService.addProject(this.projectForm.value).subscribe(
       (response: Response) => console.log(response),
       (error)  => console.log(error)

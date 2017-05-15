@@ -181,10 +181,10 @@
                 <td>{{ project.status }}</td>
                 <td>
                   <span                      
-                    (click)="dangrModal.show();changeProjectStatus(project.projectCode, 'Active');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectCode,'Active',project.id);"
                     *ngIf="project.status !== 'Active'"><i class="fa fa-eye circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Active!"></i></span>
                   <span                    
-                    (click)="dangrModal.show();changeProjectStatus(project.projectCode, 'Inactive');"
+                    (click)="dangrModal.show();changeProjectStatus(project.projectCode,'Inactive',project.id);"
                     *ngIf="project.status === 'Active'"><i class="fa fa-eye-slash circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Inactive!"></i></span>
                   <span                      
                     (click)="updateProject(project.projectCode)"><i class="fa fa-pencil-square-o circle-icon" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Edit"></i></span>
@@ -220,7 +220,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="dangrModal.hide()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="confirmProjectStatus(project_code,project_status );dangrModal.hide()">Confirm</button>
+        <button type="button" class="btn btn-primary" (click)="confirmProjectStatus(project_code,project_status,id);dangrModal.hide()">Confirm</button>
         
       </div>
     </div><!-- /.modal-content -->
