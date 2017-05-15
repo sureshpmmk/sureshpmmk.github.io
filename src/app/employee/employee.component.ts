@@ -79,7 +79,7 @@ export class EmployeeComponent implements OnInit {
   getProjectsByEmployee(projectsAll) {
     let employeeProjects = [];
     for(let proj of projectsAll) {
-      for(let member of proj.teammembers) {     
+      for(let member of proj.teamMembers) {     
         if(member['id'] === this.employee.employeeid) {
           employeeProjects.push(proj);
         }

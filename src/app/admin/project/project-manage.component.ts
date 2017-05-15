@@ -111,7 +111,7 @@ export class ProjectManageComponent implements OnInit {
     } 
    // console.log(this.projects[this.projectIndex].status);   
     this.projectService.updateProjectDetails(this.projectid, this.projects[this.projectIndex]).subscribe(
-      (response: Response) => console.log(response),
+      //(response: Response) => console.log(response),
       (error)  => console.log(error)
     );
     //console.log(this.projects[this.projectIndex].status); 
@@ -146,7 +146,7 @@ export class ProjectManageComponent implements OnInit {
     
     this.projectForm.value.teamMembers = this.teammembers;    
     this.projectService.addProject(this.projectForm.value).subscribe(
-      (response: Response) => console.log(response),
+     // (response: Response) => console.log(response),
       (error)  => console.log(error)
     );
     this.router.navigate(['/admin/manage-projects']);
